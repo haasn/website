@@ -11,13 +11,18 @@
     <header>
         <nav class="container">
             <div class="logo">Haas Consulting</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div style="display: flex; align-items: center; gap: 2rem;">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -398,5 +403,64 @@
             <p><a href="impressum.html">Impressum</a></p>
         </div>
     </footer>
+
+    <script>
+        // Theme switcher with system preference detection
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('.theme-icon');
+            const root = document.documentElement;
+
+            // Get stored theme preference or detect system preference
+            function getInitialTheme() {
+                const stored = localStorage.getItem('theme');
+                if (stored) {
+                    return stored;
+                }
+
+                // Check system preference
+                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                    return 'light';
+                }
+
+                return 'dark';
+            }
+
+            // Apply theme
+            function setTheme(theme) {
+                if (theme === 'light') {
+                    root.setAttribute('data-theme', 'light');
+                    themeIcon.textContent = '☀️';
+                } else {
+                    root.removeAttribute('data-theme');
+                    themeIcon.textContent = '🌙';
+                }
+                localStorage.setItem('theme', theme);
+            }
+
+            // Toggle theme
+            function toggleTheme() {
+                const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            }
+
+            // Initialize theme
+            const initialTheme = getInitialTheme();
+            setTheme(initialTheme);
+
+            // Add click handler
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // Listen for system theme changes
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+                    if (!localStorage.getItem('theme')) {
+                        setTheme(e.matches ? 'light' : 'dark');
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
