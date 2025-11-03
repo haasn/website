@@ -245,60 +245,75 @@
             <div class="container">
                 <h2>Projects</h2>
                 <p class="section-intro">
-                    A selection of notable code projects and completed consulting work.
+                    Selected projects and consulting work.
                 </p>
 
                 <div class="projects-grid">
-                    <!-- Project cards will be added here -->
                     <div class="project-card">
                         <h3>libplacebo</h3>
-                        <p class="project-role">Core Developer & Maintainer</p>
+                        <p class="project-role">Author & Maintainer</p>
                         <p>
-                            Reusable library for GPU-accelerated video/image rendering primitives,
-                            including advanced color management, HDR tone mapping, and image scaling algorithms.
+                            Reusable library for GPU-accelerated image and video processing primitives, including
+                            a comprehensive rendering pipeline. Supports Vulkan, OpenGL, Metal (via MoltenVK), and
+                            Direct3D 11. Features advanced color management, HDR tone mapping algorithms, and high-quality
+                            image scaling. Author of ~95% of the codebase.
                         </p>
                         <div class="project-tags">
                             <span class="tag">Vulkan</span>
+                            <span class="tag">OpenGL</span>
                             <span class="tag">Color Management</span>
                             <span class="tag">HDR</span>
-                            <span class="tag">GPU</span>
                         </div>
                     </div>
 
                     <div class="project-card">
-                        <h3>FFmpeg</h3>
-                        <p class="project-role">Regular Contributor</p>
+                        <h3>libswscale Rewrite</h3>
+                        <p class="project-role">FFmpeg Core Component · Funded by Sovereign Tech Fund</p>
                         <p>
-                            Contributions to the industry-standard multimedia framework, focusing on
-                            color management, filters, and performance optimizations.
+                            Complete overhaul of libswscale, a widely used FFmpeg component for pixel format conversion.
+                            Developed a novel approach using a domain-specific embedded pseudo-language to generate custom
+                            conversion routines. The system interprets conversion logic and links hand-written SIMD routines,
+                            achieving dramatic performance improvements across all supported formats.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Video Processing</span>
-                            <span class="tag">Codecs</span>
+                            <span class="tag">FFmpeg</span>
                             <span class="tag">SIMD</span>
+                            <span class="tag">DSL</span>
+                            <span class="tag">Performance</span>
                         </div>
                     </div>
 
                     <div class="project-card">
-                        <h3>Custom Tone Mapping Algorithm</h3>
-                        <p class="project-role">Research & Development</p>
+                        <h3>checkasm Overhaul</h3>
+                        <p class="project-role">Testing & Benchmarking Infrastructure</p>
                         <p>
-                            Developed a novel tone mapping algorithm for HDR to SDR conversion,
-                            now widely used in open source video players and processing tools.
+                            Major overhaul of checkasm, a helper library for verifying correctness and benchmarking
+                            SIMD routines in open source projects. Improved portability, user friendliness, and made it
+                            reusable across projects. Enhanced benchmark statistics collection and analysis, enabling
+                            cycle-accurate performance metrics for large projects in seconds rather than minutes.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">HDR</span>
-                            <span class="tag">Color Science</span>
-                            <span class="tag">Research</span>
+                            <span class="tag">Testing</span>
+                            <span class="tag">SIMD</span>
+                            <span class="tag">Benchmarking</span>
+                            <span class="tag">Tooling</span>
                         </div>
                     </div>
 
-                    <!-- Placeholder for additional projects -->
-                    <div class="project-card placeholder">
-                        <h3>Additional Projects</h3>
+                    <div class="project-card">
+                        <h3>FFmpeg Contributions</h3>
+                        <p class="project-role">Architectural Improvements & Optimization</p>
                         <p>
-                            More projects and consulting work details to be added.
+                            Ongoing contributions focused on architectural improvements, including better format
+                            negotiation (obsoleting YUVJ formats), filter optimization, and Vulkan enhancements.
+                            Work spans color management, performance optimization, and modernization of core components.
                         </p>
+                        <div class="project-tags">
+                            <span class="tag">FFmpeg</span>
+                            <span class="tag">Vulkan</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Optimization</span>
+                        </div>
                     </div>
                 </div>
             </div>
