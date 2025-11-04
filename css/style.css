@@ -688,6 +688,11 @@ footer a:hover {
         gap: 1rem;
     }
 
+    /* Hide theme toggle on mobile devices */
+    .theme-toggle {
+        display: none;
+    }
+
     #hero h1 {
         font-size: 2rem;
     }
