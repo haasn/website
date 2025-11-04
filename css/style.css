@@ -89,7 +89,8 @@ a:hover {
 .btn,
 .btn-primary,
 .btn-secondary,
-.contact-link {
+.contact-link,
+.back-link {
     border-bottom: none;
 }
 
