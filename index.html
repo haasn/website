@@ -24,18 +24,16 @@
     <header>
         <nav class="container">
             <div class="logo">Haas Consulting</div>
-            <div style="display: flex; align-items: center; gap: 2rem;">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <span class="theme-icon">🌙</span>
-                </button>
-            </div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">◐</span>
+                </a></li>
+            </ul>
         </nav>
     </header>
 
@@ -427,7 +425,7 @@
             // Update icon based on current theme
             function updateIcon() {
                 const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-                themeIcon.textContent = currentTheme === 'light' ? '☀️' : '🌙';
+                themeIcon.textContent = currentTheme === 'light' ? '◑' : '◐';
             }
 
             // Apply theme
@@ -442,7 +440,8 @@
             }
 
             // Toggle theme
-            function toggleTheme() {
+            function toggleTheme(e) {
+                e.preventDefault();
                 const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 setTheme(newTheme);

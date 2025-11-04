@@ -124,26 +124,21 @@ nav {
 
 /* Theme Toggle */
 .theme-toggle {
-    background: none;
-    border: 2px solid var(--border-color);
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.75rem;
-    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
     font-size: 1.25rem;
-    color: var(--text-primary);
-    transition: all 0.3s;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
 }
 
 .theme-toggle:hover {
-    border-color: var(--primary-color);
-    transform: scale(1.05);
+    color: var(--primary-color);
 }
 
-.theme-toggle:active {
-    transform: scale(0.95);
+.theme-icon {
+    display: inline-block;
 }
 
 /* Hero Section */
@@ -656,19 +651,10 @@ footer a:hover {
         padding: 1rem;
     }
 
-    nav > div {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
-    }
-
-    .theme-toggle {
-        margin: 0 auto;
     }
 
     #hero h1 {
