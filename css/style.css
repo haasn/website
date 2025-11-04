@@ -636,7 +636,6 @@ h2 {
     font-weight: 500;
     transition: background 0.3s, transform 0.2s;
     border: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
 }
 
 .publication-link:hover {
