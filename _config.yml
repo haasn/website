@@ -1,0 +1,33 @@
+# Site settings
+title: Niklas Haas - Consulting
+description: IT consulting specializing in multimedia processing, SIMD, color management, HDR, and performance optimization
+url: https://www.niklashaas.de
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# Jekyll configuration for GitHub Pages
+plugins:
+  - jekyll-relative-links
+
+# Exclude files from the build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+
+# Include hidden files that start with underscore (not directories)
+include:
+  - _redirects
+
+# Disable automatic directory indexes
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
