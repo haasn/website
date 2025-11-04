@@ -30,6 +30,9 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    --btn-primary-hover-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
+    --btn-secondary-hover-bg: rgba(96, 165, 250, 0.1);
+    --gradient-placeholder: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
 }
 
 /* Light theme */
@@ -57,6 +60,15 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --btn-primary-hover-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    --btn-secondary-hover-bg: rgba(37, 99, 235, 0.08);
+    --gradient-placeholder: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.15));
+}
+
+html {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body {
@@ -223,7 +235,7 @@ nav {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
+    box-shadow: var(--btn-primary-hover-shadow);
 }
 
 .btn-secondary {
@@ -233,7 +245,7 @@ nav {
 }
 
 .btn-secondary:hover {
-    background-color: rgba(96, 165, 250, 0.1);
+    background-color: var(--btn-secondary-hover-bg);
     transform: translateY(-2px);
 }
 
@@ -285,7 +297,7 @@ h2 {
     width: 300px;
     height: 300px;
     border-radius: 0.75rem;
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+    background: var(--gradient-placeholder);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -388,7 +400,7 @@ h2 {
 }
 
 .skill-tag {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+    background: var(--gradient-placeholder);
     color: var(--primary-color);
     padding: 0.375rem 0.875rem;
     border-radius: 1rem;
