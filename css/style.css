@@ -129,8 +129,7 @@ nav {
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
-    font-size: 1.25rem;
-    display: inline-flex;
+    display: flex;
     align-items: center;
 }
 
@@ -139,9 +138,10 @@ nav {
 }
 
 .theme-icon {
-    display: inline-flex;
+    font-size: 1.25rem;
+    display: flex;
     align-items: center;
-    vertical-align: middle;
+    justify-content: center;
 }
 
 /* Hero Section */
