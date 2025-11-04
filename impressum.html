@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum - Niklas Haas</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script>
         // Apply theme before page renders to prevent flicker
         (function() {
@@ -79,6 +80,9 @@
                 <li><a href="index.html#services">Services</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="material-icons theme-icon">brightness_4</span>
+                </a></li>
             </ul>
         </nav>
     </header>
@@ -97,9 +101,7 @@
             </p>
 
             <p>
-                Contact: <a href="mailto:contact@niklashaas.de">contact@niklashaas.de</a> |
-                <a href="https://github.com/haasn" target="_blank" rel="noopener noreferrer">GitHub</a> |
-                <a href="https://blog.niklashaas.de" target="_blank" rel="noopener noreferrer">Blog</a>
+                Contact: <a href="mailto:contact@niklashaas.de">contact@niklashaas.de</a>
             </p>
         </div>
     </main>
@@ -109,5 +111,54 @@
             <p>&copy; 2025 Niklas Haas. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Theme switcher
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('.theme-icon');
+            const root = document.documentElement;
+
+            // Update icon based on current theme
+            function updateIcon() {
+                const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                themeIcon.textContent = currentTheme === 'light' ? 'brightness_4' : 'brightness_7';
+            }
+
+            // Apply theme
+            function setTheme(theme) {
+                if (theme === 'light') {
+                    root.setAttribute('data-theme', 'light');
+                } else {
+                    root.removeAttribute('data-theme');
+                }
+                localStorage.setItem('theme', theme);
+                updateIcon();
+            }
+
+            // Toggle theme
+            function toggleTheme(e) {
+                e.preventDefault();
+                const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            }
+
+            // Initialize icon (theme already applied in head)
+            updateIcon();
+
+            // Add click handler
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // Listen for system theme changes
+            if (window.matchMedia) {
+                window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+                    if (!localStorage.getItem('theme')) {
+                        setTheme(e.matches ? 'light' : 'dark');
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
