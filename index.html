@@ -254,7 +254,7 @@ description: IT consulting specializing in multimedia processing, SIMD, color ma
                         </p>
                     </div>
 
-                    <div class="project-card">
+                    <div class="project-card" id="project-libswscale">
                         <h3>libswscale</h3>
                         <p class="project-role">Full Refactor (ongoing)</p>
                         <p>
@@ -308,6 +308,29 @@ description: IT consulting specializing in multimedia processing, SIMD, color ma
                 </p>
 
                 <div class="publications-grid">
+                    <!-- Publications and talks are ordered chronologically from newest to oldest -->
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>libswscale reimagined</h3>
+                            <span class="publication-type talk">Talk</span>
+                        </div>
+                        <div class="publication-meta">
+                            <span class="publication-venue"><a href="https://images.videolan.org/videolan/events/vdd25/" target="_blank" rel="noopener noreferrer">VideoLAN Dev Days 2025</a></span>
+                            <span class="publication-date">November 2025</span>
+                        </div>
+                        <p class="publication-abstract">
+                            An overview of my project for the Sovereign Tech Fund 2024, which was all about <a href="#project-libswscale">rewriting/refactoring
+                            libswscale</a>. I went into depth explaining my novel approach to pixel format conversion, which was based
+                            around generating and optimizing an abstract operation list and then "JIT" compiling this by combining
+                            a list of assembly fragments using continuation passing style.
+                        </p>
+                        <div class="publication-links">
+                            <a href="assets/slides/vdd25.pdf" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> Slides (PDF)
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="publication-card">
                         <div class="publication-header">
                             <h3>HDR tone-mapping in VLC / libplacebo</h3>
