@@ -30,8 +30,8 @@ jobs:
       - name: Install Jekyll and dependencies
         if: github.event.action != 'closed'
         run: |
-          gem install jekyll bundler
-          gem install jekyll-relative-links
+          gem install jekyll:4.3.2 bundler:2.4.10
+          gem install jekyll-relative-links:0.1.3
 
       - name: Build Jekyll site
         if: github.event.action != 'closed'
