@@ -6,6 +6,19 @@
     <title>Niklas Haas - Consulting</title>
     <meta name="description" content="IT consulting specializing in multimedia processing, color management, HDR, and performance optimization. Expert in FFmpeg, libplacebo, VLC, and mpv.">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Apply theme before page renders to prevent flicker
+        (function() {
+            const stored = localStorage.getItem('theme');
+            if (stored) {
+                if (stored === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
 </head>
 <body>
     <header>
@@ -405,37 +418,27 @@
     </footer>
 
     <script>
-        // Theme switcher with system preference detection
+        // Theme switcher
         (function() {
             const themeToggle = document.getElementById('themeToggle');
             const themeIcon = themeToggle.querySelector('.theme-icon');
             const root = document.documentElement;
 
-            // Get stored theme preference or detect system preference
-            function getInitialTheme() {
-                const stored = localStorage.getItem('theme');
-                if (stored) {
-                    return stored;
-                }
-
-                // Check system preference
-                if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                    return 'light';
-                }
-
-                return 'dark';
+            // Update icon based on current theme
+            function updateIcon() {
+                const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                themeIcon.textContent = currentTheme === 'light' ? '☀️' : '🌙';
             }
 
             // Apply theme
             function setTheme(theme) {
                 if (theme === 'light') {
                     root.setAttribute('data-theme', 'light');
-                    themeIcon.textContent = '☀️';
                 } else {
                     root.removeAttribute('data-theme');
-                    themeIcon.textContent = '🌙';
                 }
                 localStorage.setItem('theme', theme);
+                updateIcon();
             }
 
             // Toggle theme
@@ -445,9 +448,8 @@
                 setTheme(newTheme);
             }
 
-            // Initialize theme
-            const initialTheme = getInitialTheme();
-            setTheme(initialTheme);
+            // Initialize icon (theme already applied in head)
+            updateIcon();
 
             // Add click handler
             themeToggle.addEventListener('click', toggleTheme);

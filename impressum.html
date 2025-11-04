@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impressum - Niklas Haas</title>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Apply theme before page renders to prevent flicker
+        (function() {
+            const stored = localStorage.getItem('theme');
+            if (stored) {
+                if (stored === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
     <style>
         .impressum-content {
             max-width: 800px;
