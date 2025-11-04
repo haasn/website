@@ -1,0 +1,64 @@
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <p class="section-intro">
+                    Selected projects and past consulting work.
+                </p>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3><a href="https://libplacebo.org/" target="_blank" rel="noopener noreferrer">libplacebo</a></h3>
+                        <p class="project-role">Author & Maintainer</p>
+                        <p>
+                            Reusable cross-platform library for GPU-accelerated real-time image and video processing.
+                            Features the world's most feature-complete open source GPU color management pipeline,
+                            including dynamic tone mapping with on-the-fly frame analysis, GPU film grain synthesis,
+                            high-quality scaling and filtering, and more. Used in <a href="https://mpv.io/" target="_blank" rel="noopener noreferrer">mpv</a>, <a href="https://www.videolan.org/" target="_blank" rel="noopener noreferrer">VLC</a> and <a href="https://ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a>.
+                        </p>
+                    </div>
+
+                    <div class="project-card" id="project-libswscale">
+                        <h3>libswscale</h3>
+                        <p class="project-role">Full Refactor (ongoing)</p>
+                        <p>
+                            Full rewrite of libswscale, a widely used core FFmpeg component for pixel format conversion.
+                            Developed a novel approach that combines SIMD fragments assembled at runtime to create optimized
+                            conversion routines, achieving dramatic performance improvements across all supported formats
+                            while reducing the size and complexity of the codebase.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3><a href="https://code.videolan.org/videolan/checkasm" target="_blank" rel="noopener noreferrer">checkasm</a></h3>
+                        <p class="project-role">Maintainer</p>
+                        <p>
+                            Major overhaul of <a href="https://code.videolan.org/videolan/checkasm" target="_blank" rel="noopener noreferrer">checkasm</a>, a helper library for verifying correctness and benchmarking
+                            SIMD routines in open source projects. Improved portability, user friendliness, and made it
+                            reusable across projects. Enhanced benchmark statistics collection and analysis, enabling
+                            cycle-accurate performance metrics for even very large projects in seconds rather than minutes.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3><a href="https://code.videolan.org/videolan/dav1d" target="_blank" rel="noopener noreferrer">dav1d</a></h3>
+                        <p class="project-role">Developer</p>
+                        <p>
+                            Development of an experimental GPU-based Vulkan decoder using compute shaders, as well as other
+                            contributions including film grain synthesis and RISC-V SIMD routines.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3><a href="https://ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a></h3>
+                        <p class="project-role">Developer & TC / GA Member</p>
+                        <p>
+                            Ongoing contributions focused on architectural improvements, including better format
+                            negotiation, filter optimization, and development of new features. My past work spans a broad
+                            domain of topics, including the first open-source implementations
+                            of ITU-R H.274, AFGS1, SMPTE&nbsp;RDD5, and MV-HEVC.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>

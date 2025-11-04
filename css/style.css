@@ -277,7 +277,7 @@ section {
     padding: 5rem 0;
 }
 
-section:nth-child(even) {
+section.alt-bg {
     background-color: var(--bg-secondary);
 }
 
@@ -692,9 +692,6 @@ h2 {
 }
 
 /* Contact Section */
-#contact {
-    background: var(--bg-secondary);
-}
 
 .contact-content {
     max-width: 700px;
