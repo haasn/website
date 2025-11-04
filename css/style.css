@@ -71,6 +71,29 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    border-bottom-color: var(--primary-color);
+}
+
+/* Override for specific components with their own link styles */
+.nav-links a,
+.theme-toggle,
+.btn,
+.btn-primary,
+.btn-secondary,
+.contact-link,
+.back-link {
+    border-bottom: none;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
