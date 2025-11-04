@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - Niklas Haas</title>
+    <meta name="description" content="{{ page.description | default: 'IT consulting specializing in multimedia processing, SIMD, color management, HDR, and performance optimization. Expert in FFmpeg, libplacebo, VLC, and mpv.' }}">
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="{{ '/js/theme-switcher.js' | relative_url }}"></script>
+    <script>initTheme();</script>
+    {% if page.custom_css %}
+    <style>
+        {{ page.custom_css }}
+    </style>
+    {% endif %}
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Haas Consulting</div>
+            <ul class="nav-links">
+                <li><a href="{{ '/' | relative_url }}#about">About</a></li>
+                <li><a href="{{ '/' | relative_url }}#services">Services</a></li>
+                <li><a href="{{ '/' | relative_url }}#skills">Skills</a></li>
+                <li><a href="{{ '/' | relative_url }}#projects">Projects</a></li>
+                <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+                <li><a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="material-icons theme-icon">brightness_4</span>
+                </a></li>
+            </ul>
+        </nav>
+    </header>

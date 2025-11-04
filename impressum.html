@@ -1,73 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - Niklas Haas</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="js/theme-switcher.js"></script>
-    <script>initTheme();</script>
-    <style>
-        .impressum-content {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-        }
+---
+layout: default
+title: Impressum
+custom_css: |
+    .impressum-content {
+        max-width: 800px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+    }
 
-        .impressum-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
+    .impressum-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+    }
 
-        .impressum-content h2 {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            text-align: left;
-        }
+    .impressum-content h2 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        text-align: left;
+    }
 
-        .impressum-content p {
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
+    .impressum-content p {
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .back-link {
+        display: inline-block;
+        margin-bottom: 2rem;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+    }
 
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav class="container">
-            <div class="logo">Haas Consulting</div>
-            <ul class="nav-links">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#skills">Skills</a></li>
-                <li><a href="index.html#projects">Projects</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <span class="material-icons theme-icon">brightness_4</span>
-                </a></li>
-            </ul>
-        </nav>
-    </header>
+    .back-link:hover {
+        text-decoration: underline;
+    }
+---
 
-    <main>
         <div class="impressum-content">
-            <a href="index.html" class="back-link">&larr; Back to Home</a>
+            <a href="{{ '/' | relative_url }}" class="back-link">&larr; Back to Home</a>
 
             <h1>Impressum</h1>
 
@@ -82,16 +57,3 @@
                 Contact: <a href="mailto:contact@niklashaas.de">contact@niklashaas.de</a>
             </p>
         </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Niklas Haas. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        setupThemeSwitcher();
-    </script>
-</body>
-</html>
