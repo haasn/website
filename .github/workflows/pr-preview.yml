@@ -35,7 +35,7 @@ jobs:
       - name: Build Jekyll site
         if: github.event.action != 'closed'
         run: |
-          jekyll build --baseurl "/pr-${{ github.event.number }}" --verbose
+          jekyll build --baseurl "/pr-previews/pr-${{ github.event.number }}" --verbose
         env:
           JEKYLL_ENV: production
 
