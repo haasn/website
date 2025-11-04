@@ -23,8 +23,13 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email 'github-actions[bot]@users.noreply.github.com'
             git add pr-previews/
-            git commit -m "Remove preview for closed PR #${{ github.event.pull_request.number }}" || echo "Nothing to clean up"
-            git push
+            # Check if there are changes to commit
+            if git diff --staged --quiet; then
+              echo "No changes to commit"
+            else
+              git commit -m "Remove preview for closed PR #${{ github.event.pull_request.number }}"
+              git push
+            fi
           else
             echo "Preview directory not found, nothing to clean up"
           fi

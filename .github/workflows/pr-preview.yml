@@ -24,9 +24,11 @@ jobs:
       - name: Setup preview directory
         run: |
           mkdir -p preview/pr-${{ github.event.pull_request.number }}
-          cp -r *.html css js CNAME preview/pr-${{ github.event.pull_request.number }}/
-          # Remove CNAME from preview to avoid conflicts
-          rm -f preview/pr-${{ github.event.pull_request.number }}/CNAME
+          # Copy all HTML files
+          cp *.html preview/pr-${{ github.event.pull_request.number }}/ 2>/dev/null || true
+          # Copy directories if they exist
+          [ -d css ] && cp -r css preview/pr-${{ github.event.pull_request.number }}/
+          [ -d js ] && cp -r js preview/pr-${{ github.event.pull_request.number }}/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
