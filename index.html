@@ -6,6 +6,7 @@
     <title>Niklas Haas - Consulting</title>
     <meta name="description" content="IT consulting specializing in multimedia processing, color management, HDR, and performance optimization. Expert in FFmpeg, libplacebo, VLC, and mpv.">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script>
         // Apply theme before page renders to prevent flicker
         (function() {
@@ -31,7 +32,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <span class="theme-icon">◐</span>
+                    <span class="material-icons theme-icon">brightness_4</span>
                 </a></li>
             </ul>
         </nav>
@@ -425,7 +426,7 @@
             // Update icon based on current theme
             function updateIcon() {
                 const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-                themeIcon.textContent = currentTheme === 'light' ? '◑' : '◐';
+                themeIcon.textContent = currentTheme === 'light' ? 'brightness_4' : 'brightness_7';
             }
 
             // Apply theme

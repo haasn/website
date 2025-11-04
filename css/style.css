@@ -138,7 +138,9 @@ nav {
 }
 
 .theme-icon {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 /* Hero Section */
