@@ -508,6 +508,31 @@ h2 {
     margin-bottom: 1rem;
 }
 
+/* Service icon colors */
+.service-card:nth-child(1) .service-icon {
+    color: #ef4444;
+}
+
+.service-card:nth-child(2) .service-icon {
+    color: #fbbf24;
+}
+
+.service-card:nth-child(3) .service-icon {
+    color: #3b82f6;
+}
+
+.service-card:nth-child(4) .service-icon {
+    color: #ec4899;
+}
+
+.service-card:nth-child(5) .service-icon {
+    color: #10b981;
+}
+
+.service-card:nth-child(6) .service-icon {
+    color: #8b5cf6;
+}
+
 .service-card h3 {
     font-size: 1.25rem;
     color: var(--text-primary);
