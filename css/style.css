@@ -303,6 +303,7 @@ section.alt-bg .contact-link {
     background-image:
         radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
         radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
+    background-attachment: fixed;
 }
 
 h2 {
