@@ -281,6 +281,27 @@ section.alt-bg {
     background-color: var(--bg-secondary);
 }
 
+/* Card contrast: ensure cards always contrast with section background */
+/* Default sections (dark bg): cards are lighter */
+.skill-card,
+.service-card,
+.project-card,
+.publication-card,
+.testimonial-card,
+.contact-link {
+    background: var(--bg-secondary);
+}
+
+/* Alt-bg sections (light bg): cards are darker */
+section.alt-bg .skill-card,
+section.alt-bg .service-card,
+section.alt-bg .project-card,
+section.alt-bg .publication-card,
+section.alt-bg .testimonial-card,
+section.alt-bg .contact-link {
+    background: var(--bg-primary);
+}
+
 h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -389,7 +410,6 @@ h2 {
 }
 
 .skill-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -441,7 +461,6 @@ h2 {
 }
 
 .service-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -494,7 +513,6 @@ h2 {
 }
 
 .project-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -551,7 +569,6 @@ h2 {
 }
 
 .publication-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -659,7 +676,6 @@ h2 {
 }
 
 .testimonial-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -709,7 +725,6 @@ h2 {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: var(--bg-primary);
     padding: 1.5rem;
     border-radius: 0.75rem;
     text-decoration: none;
