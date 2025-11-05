@@ -252,8 +252,10 @@ nav {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25)),
+        linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #0a0612;
 }
 
 .btn-primary:hover {
@@ -602,8 +604,10 @@ h2 {
 }
 
 .publication-type {
-    background: var(--primary-color);
-    color: white;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),
+        var(--primary-color);
+    color: #0a0612;
     padding: 0.25rem 0.75rem;
     border-radius: 0.375rem;
     font-size: 0.75rem;
@@ -614,7 +618,10 @@ h2 {
 }
 
 .publication-type.talk {
-    background: var(--accent-color);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4)),
+        linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #0a0612;
 }
 
 .publication-meta {
