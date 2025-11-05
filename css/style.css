@@ -35,34 +35,55 @@
     --gradient-placeholder: linear-gradient(135deg, rgba(232, 121, 249, 0.24), rgba(192, 132, 252, 0.26));
 }
 
-/* Light theme */
+/* Light theme - Pink/Purple Edition */
 :root[data-theme="light"] {
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
-    --accent-color: #7c3aed;
-    --secondary-color: #64748b;
-    --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --bg-primary: #f8fafc;
-    --bg-secondary: #f1f5f9;
-    --bg-tertiary: #e2e8f0;
-    --border-color: #cbd5e1;
-    --header-bg: rgba(255, 255, 255, 0.9);
-    --hero-gradient-start: #dbeafe;
-    --hero-gradient-mid: #bfdbfe;
-    --hero-gradient-end: #dbeafe;
-    --hero-text-color: #1e293b;
-    --gradient-overlay-1: rgba(37, 99, 235, 0.04);
-    --gradient-overlay-2: rgba(124, 58, 237, 0.04);
-    --shimmer-1: rgba(37, 99, 235, 0.03);
-    --shimmer-2: rgba(124, 58, 237, 0.03);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --btn-primary-hover-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-    --btn-secondary-hover-bg: rgba(37, 99, 235, 0.08);
-    --gradient-placeholder: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.15));
+    --primary-color: #c026d3;
+    --primary-dark: #a21caf;
+    --accent-color: #a855f7;
+    --secondary-color: #7c6b8a;
+    --text-primary: #2d1b3d;
+    --text-secondary: #5a4569;
+    --bg-primary: #fefbff;
+    --bg-secondary: #f5edf8;
+    --bg-tertiary: #e9d5f2;
+    --border-color: #d4b8e0;
+    --header-bg: rgba(254, 251, 255, 0.9);
+    --hero-gradient-start: #f5edf8;
+    --hero-gradient-mid: #fae8ff;
+    --hero-gradient-end: #f5edf8;
+    --hero-text-color: #2d1b3d;
+    --gradient-overlay-1: rgba(192, 38, 211, 0.06);
+    --gradient-overlay-2: rgba(168, 85, 247, 0.06);
+    --shimmer-1: rgba(192, 38, 211, 0.04);
+    --shimmer-2: rgba(168, 85, 247, 0.04);
+    --shadow-sm: 0 1px 2px 0 rgba(45, 27, 61, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(45, 27, 61, 0.12);
+    --shadow-lg: 0 10px 15px -3px rgba(45, 27, 61, 0.15);
+    --shadow-xl: 0 20px 25px -5px rgba(45, 27, 61, 0.18);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(192, 38, 211, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
+    --btn-secondary-hover-bg: rgba(192, 38, 211, 0.1);
+    --gradient-placeholder: linear-gradient(135deg, rgba(192, 38, 211, 0.18), rgba(168, 85, 247, 0.18));
+    --talk-gradient-start: #ca8a04;
+    --talk-gradient-end: #a16207;
+}
+
+/* Light theme specific overrides
+   These override the dark theme's white overlay styling.
+   Dark theme uses white overlays on buttons/tags for brightness,
+   but light theme uses solid colors with white text instead. */
+:root[data-theme="light"] .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+}
+
+:root[data-theme="light"] .publication-type {
+    background: var(--primary-color);
+    color: white;
+}
+
+:root[data-theme="light"] .publication-type.talk {
+    background: linear-gradient(135deg, var(--talk-gradient-start), var(--talk-gradient-end));
+    color: white;
 }
 
 html {
