@@ -39,6 +39,19 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Replace static assets with symlinks
+        if: github.event.action != 'closed'
+        run: |
+          # Replace large static files with symlinks to save disk space
+          # Symlinks point back to the main site's assets: ../../assets/...
+          cd _site/assets
+          find . -type f \( -name "*.pdf" -o -name "*.mp4" -o -name "*.mov" \) -exec sh -c '
+            for file; do
+              rm "$file"
+              ln -s "../../assets/$file" "$file"
+            done
+          ' sh {} +
+
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1.6.2
         with:
