@@ -118,6 +118,7 @@ a:hover {
 
 /* Override for specific components with their own link styles */
 .nav-links a,
+.logo,
 .theme-toggle,
 .btn,
 .btn-primary,
