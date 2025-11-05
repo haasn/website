@@ -20,7 +20,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
-  - pr-previews
 
 # Include hidden files that start with underscore (not directories)
 include:

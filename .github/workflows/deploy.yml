@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+
+      - name: Install Jekyll and dependencies
+        run: |
+          gem install jekyll:4.4.1 bundler:2.7.2
+          gem install jekyll-relative-links:0.7.0
+
+      - name: Build Jekyll site
+        run: jekyll build --verbose
+        env:
+          JEKYLL_ENV: production
+
+      - name: Add .nojekyll to prevent GitHub Pages from processing with Jekyll
+        run: touch _site/.nojekyll
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages
+          force_orphan: true
