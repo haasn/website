@@ -292,14 +292,14 @@ section.alt-bg {
     background: var(--bg-secondary);
 }
 
-/* Alt-bg sections (light bg): cards are darker */
+/* Alt-bg sections (lighter bg): cards are subtly darker for gentle contrast */
 section.alt-bg .skill-card,
 section.alt-bg .service-card,
 section.alt-bg .project-card,
 section.alt-bg .publication-card,
 section.alt-bg .testimonial-card,
 section.alt-bg .contact-link {
-    background: var(--bg-primary);
+    background: var(--bg-tertiary);
 }
 
 h2 {
