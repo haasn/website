@@ -277,8 +277,33 @@ section {
     padding: 5rem 0;
 }
 
-section:nth-child(even) {
+section.alt-bg {
     background-color: var(--bg-secondary);
+}
+
+/* Card contrast: ensure cards always contrast with section background */
+/* Default sections (dark bg): cards are lighter */
+.skill-card,
+.service-card,
+.project-card,
+.publication-card,
+.testimonial-card,
+.contact-link {
+    background: var(--bg-secondary);
+}
+
+/* Alt-bg sections (light bg): cards are darker */
+section.alt-bg .skill-card,
+section.alt-bg .service-card,
+section.alt-bg .project-card,
+section.alt-bg .publication-card,
+section.alt-bg .testimonial-card,
+section.alt-bg .contact-link {
+    background-color: var(--bg-primary);
+    background-image:
+        radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
+    background-attachment: fixed;
 }
 
 h2 {
@@ -389,7 +414,6 @@ h2 {
 }
 
 .skill-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -441,7 +465,6 @@ h2 {
 }
 
 .service-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -494,7 +517,6 @@ h2 {
 }
 
 .project-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -551,7 +573,6 @@ h2 {
 }
 
 .publication-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -659,7 +680,6 @@ h2 {
 }
 
 .testimonial-card {
-    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 0.75rem;
     box-shadow: var(--shadow-md);
@@ -692,9 +712,6 @@ h2 {
 }
 
 /* Contact Section */
-#contact {
-    background: var(--bg-secondary);
-}
 
 .contact-content {
     max-width: 700px;
@@ -712,7 +729,6 @@ h2 {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: var(--bg-primary);
     padding: 1.5rem;
     border-radius: 0.75rem;
     text-decoration: none;
