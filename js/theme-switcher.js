@@ -34,15 +34,13 @@ function initTheme() {
             // System preference unchanged - keep manual preference
             themeToApply = storedTheme;
         }
-    } else if (storedTheme) {
-        // Automatic preference (follows system)
-        themeToApply = currentSystemPref;
-        localStorage.setItem('theme', themeToApply);
     } else {
-        // No stored preference - use system preference
+        // Automatic or no stored preference - use system preference
         themeToApply = currentSystemPref;
         localStorage.setItem('theme', themeToApply);
-        localStorage.setItem('themeIsManual', 'false');
+        if (!storedTheme) {
+            localStorage.setItem('themeIsManual', 'false');
+        }
     }
 
     if (themeToApply === 'light') {
@@ -125,12 +123,9 @@ function setupThemeSwitcher() {
             // Update last known system preference
             localStorage.setItem('lastSystemPref', newSystemPref);
 
-            // If not manually set, follow system preference
-            if (!isManual) {
-                setTheme(newSystemPref, false, true);
-            } else {
-                // System preference changed - override manual preference
-                setTheme(newSystemPref, false, true);
+            // Always follow system preference changes (overrides manual preferences)
+            setTheme(newSystemPref, false, true);
+            if (isManual) {
                 localStorage.setItem('themeIsManual', 'false');
             }
         });
