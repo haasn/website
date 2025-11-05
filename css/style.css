@@ -5,34 +5,34 @@
     box-sizing: border-box;
 }
 
-/* Dark theme (default) */
+/* Dark theme (default) - Sunset/Warm Edition */
 :root {
-    --primary-color: #60a5fa;
-    --primary-dark: #3b82f6;
-    --accent-color: #a78bfa;
-    --secondary-color: #94a3b8;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --border-color: #334155;
-    --header-bg: rgba(15, 23, 42, 0.8);
-    --hero-gradient-start: #1e293b;
-    --hero-gradient-mid: #0f172a;
-    --hero-gradient-end: #1e293b;
-    --hero-text-color: #ffffff;
-    --gradient-overlay-1: rgba(96, 165, 250, 0.08);
-    --gradient-overlay-2: rgba(167, 139, 250, 0.08);
-    --shimmer-1: rgba(96, 165, 250, 0.05);
-    --shimmer-2: rgba(167, 139, 250, 0.05);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-    --btn-primary-hover-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
-    --btn-secondary-hover-bg: rgba(96, 165, 250, 0.1);
-    --gradient-placeholder: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+    --primary-color: #fb923c;
+    --primary-dark: #f97316;
+    --accent-color: #e879f9;
+    --secondary-color: #c4a195;
+    --text-primary: #fff5f0;
+    --text-secondary: #ffd4c4;
+    --bg-primary: #1a1215;
+    --bg-secondary: #251820;
+    --bg-tertiary: #2d1f26;
+    --border-color: #3d2d34;
+    --header-bg: rgba(26, 18, 21, 0.85);
+    --hero-gradient-start: #251820;
+    --hero-gradient-mid: #1a1215;
+    --hero-gradient-end: #251820;
+    --hero-text-color: #fff5f0;
+    --gradient-overlay-1: rgba(251, 146, 60, 0.11);
+    --gradient-overlay-2: rgba(232, 121, 249, 0.11);
+    --shimmer-1: rgba(251, 146, 60, 0.07);
+    --shimmer-2: rgba(232, 121, 249, 0.07);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(251, 146, 60, 0.45);
+    --btn-secondary-hover-bg: rgba(232, 121, 249, 0.13);
+    --gradient-placeholder: linear-gradient(135deg, rgba(251, 146, 60, 0.24), rgba(232, 121, 249, 0.24));
 }
 
 /* Light theme */
