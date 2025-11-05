@@ -63,8 +63,8 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(192, 38, 211, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
     --btn-secondary-hover-bg: rgba(192, 38, 211, 0.1);
     --gradient-placeholder: linear-gradient(135deg, rgba(192, 38, 211, 0.18), rgba(168, 85, 247, 0.18));
-    --talk-gradient-start: #ea580c;
-    --talk-gradient-end: #c2410c;
+    --talk-gradient-start: #ca8a04;
+    --talk-gradient-end: #a16207;
 }
 
 /* Light theme specific overrides
