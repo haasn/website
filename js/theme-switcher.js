@@ -1,16 +1,52 @@
 // Theme Switcher
 // This script handles theme switching functionality for the website
 
+// Get current system preference
+function getSystemPreference() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        return 'light';
+    }
+    return 'dark';
+}
+
 // Apply theme before page renders to prevent flicker
 // This function should be called inline in the <head> section
 function initTheme() {
-    const stored = localStorage.getItem('theme');
-    if (stored) {
-        if (stored === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
+    const storedTheme = localStorage.getItem('theme');
+    const isManual = localStorage.getItem('themeIsManual') === 'true';
+    const lastSystemPref = localStorage.getItem('lastSystemPref');
+    const currentSystemPref = getSystemPreference();
+
+    // Store current system preference for future comparisons
+    localStorage.setItem('lastSystemPref', currentSystemPref);
+
+    let themeToApply;
+
+    if (isManual && storedTheme) {
+        // User manually set a preference
+        // Check if system preference changed since last visit
+        if (lastSystemPref && lastSystemPref !== currentSystemPref) {
+            // System preference changed - follow new system preference
+            themeToApply = currentSystemPref;
+            localStorage.setItem('theme', themeToApply);
+            localStorage.setItem('themeIsManual', 'false');
+        } else {
+            // System preference unchanged - keep manual preference
+            themeToApply = storedTheme;
         }
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    } else {
+        // Automatic or no stored preference - use system preference
+        themeToApply = currentSystemPref;
+        localStorage.setItem('theme', themeToApply);
+        if (!storedTheme) {
+            localStorage.setItem('themeIsManual', 'false');
+        }
+    }
+
+    if (themeToApply === 'light') {
         document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
     }
 }
 
@@ -21,6 +57,12 @@ function setupThemeSwitcher() {
     const themeIcon = themeToggle.querySelector('.theme-icon');
     const root = document.documentElement;
 
+    // Create broadcast channel for cross-tab synchronization
+    let themeChannel;
+    if (typeof BroadcastChannel !== 'undefined') {
+        themeChannel = new BroadcastChannel('theme-channel');
+    }
+
     // Update icon based on current theme
     function updateIcon() {
         const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
@@ -28,22 +70,32 @@ function setupThemeSwitcher() {
     }
 
     // Apply theme
-    function setTheme(theme) {
+    function setTheme(theme, isManualChange = false, shouldBroadcast = true) {
         if (theme === 'light') {
             root.setAttribute('data-theme', 'light');
         } else {
             root.removeAttribute('data-theme');
         }
         localStorage.setItem('theme', theme);
+
+        if (isManualChange) {
+            localStorage.setItem('themeIsManual', 'true');
+        }
+
         updateIcon();
+
+        // Broadcast to other tabs
+        if (shouldBroadcast && themeChannel) {
+            themeChannel.postMessage({ theme, isManual: isManualChange });
+        }
     }
 
-    // Toggle theme
+    // Toggle theme (manual user action)
     function toggleTheme(e) {
         e.preventDefault();
         const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
+        setTheme(newTheme, true, true);
     }
 
     // Initialize icon (theme already applied in head)
@@ -52,11 +104,29 @@ function setupThemeSwitcher() {
     // Add click handler
     themeToggle.addEventListener('click', toggleTheme);
 
-    // Listen for system theme changes
+    // Listen for messages from other tabs
+    if (themeChannel) {
+        themeChannel.addEventListener('message', (event) => {
+            const { theme, isManual } = event.data;
+            setTheme(theme, isManual, false); // Don't broadcast back
+        });
+    }
+
+    // Listen for system theme changes (live updates)
     if (window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
-            if (!localStorage.getItem('theme')) {
-                setTheme(e.matches ? 'light' : 'dark');
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+
+        mediaQuery.addEventListener('change', (e) => {
+            const newSystemPref = e.matches ? 'light' : 'dark';
+            const isManual = localStorage.getItem('themeIsManual') === 'true';
+
+            // Update last known system preference
+            localStorage.setItem('lastSystemPref', newSystemPref);
+
+            // Always follow system preference changes (overrides manual preferences)
+            setTheme(newSystemPref, false, true);
+            if (isManual) {
+                localStorage.setItem('themeIsManual', 'false');
             }
         });
     }

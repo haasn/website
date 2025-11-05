@@ -838,7 +838,7 @@ footer a:hover {
         gap: 1rem;
     }
 
-    /* Hide theme toggle on mobile devices */
+    /* Hide theme toggle on mobile devices - users should use system preference */
     .theme-toggle {
         display: none;
     }
