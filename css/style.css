@@ -230,8 +230,9 @@ nav {
 }
 
 #hero h1 {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 5rem;
+    font-weight: 700;
+    font-family: Georgia, "Times New Roman", Baskerville, serif;
     margin-bottom: 1rem;
     background: linear-gradient(135deg, var(--hero-text-color), var(--primary-color));
     -webkit-background-clip: text;
@@ -844,7 +845,7 @@ footer a:hover {
     }
 
     #hero h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .tagline {
@@ -900,7 +901,7 @@ footer a:hover {
     }
 
     #hero h1 {
-        font-size: 1.75rem;
+        font-size: 2.25rem;
     }
 
     .tagline {
