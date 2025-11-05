@@ -37,8 +37,8 @@
 
 /* Light theme - Pink/Purple Edition */
 :root[data-theme="light"] {
-    --primary-color: #d946ef;
-    --primary-dark: #c026d3;
+    --primary-color: #c026d3;
+    --primary-dark: #a21caf;
     --accent-color: #a855f7;
     --secondary-color: #7c6b8a;
     --text-primary: #2d1b3d;
@@ -52,17 +52,17 @@
     --hero-gradient-mid: #fae8ff;
     --hero-gradient-end: #f5edf8;
     --hero-text-color: #2d1b3d;
-    --gradient-overlay-1: rgba(217, 70, 239, 0.06);
+    --gradient-overlay-1: rgba(192, 38, 211, 0.06);
     --gradient-overlay-2: rgba(168, 85, 247, 0.06);
-    --shimmer-1: rgba(217, 70, 239, 0.04);
+    --shimmer-1: rgba(192, 38, 211, 0.04);
     --shimmer-2: rgba(168, 85, 247, 0.04);
     --shadow-sm: 0 1px 2px 0 rgba(45, 27, 61, 0.08);
     --shadow-md: 0 4px 6px -1px rgba(45, 27, 61, 0.12);
     --shadow-lg: 0 10px 15px -3px rgba(45, 27, 61, 0.15);
     --shadow-xl: 0 20px 25px -5px rgba(45, 27, 61, 0.18);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(217, 70, 239, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
-    --btn-secondary-hover-bg: rgba(217, 70, 239, 0.1);
-    --gradient-placeholder: linear-gradient(135deg, rgba(217, 70, 239, 0.18), rgba(168, 85, 247, 0.18));
+    --btn-primary-hover-shadow: 0 10px 25px rgba(192, 38, 211, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
+    --btn-secondary-hover-bg: rgba(192, 38, 211, 0.1);
+    --gradient-placeholder: linear-gradient(135deg, rgba(192, 38, 211, 0.18), rgba(168, 85, 247, 0.18));
     --talk-gradient-start: #ea580c;
     --talk-gradient-end: #c2410c;
 }
