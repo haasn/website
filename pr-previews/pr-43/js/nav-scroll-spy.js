@@ -113,9 +113,9 @@ function setupNavScrollSpy() {
 
     // Remove focus from nav links after clicking to prevent persistent highlight on mobile
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', () => {
             // Blur the link to remove focus state after navigation
-            this.blur();
+            link.blur();
         });
     });
 
