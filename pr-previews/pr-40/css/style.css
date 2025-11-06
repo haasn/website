@@ -33,6 +33,7 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(232, 121, 249, 0.45), 0 6px 15px rgba(192, 132, 252, 0.25);
     --btn-secondary-hover-bg: rgba(232, 121, 249, 0.13);
     --gradient-placeholder: linear-gradient(135deg, rgba(232, 121, 249, 0.24), rgba(192, 132, 252, 0.26));
+    --card-overlay: rgba(232, 121, 249, 0.08);
 }
 
 /* Light theme - Pink/Purple Edition */
@@ -63,6 +64,7 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(192, 38, 211, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
     --btn-secondary-hover-bg: rgba(192, 38, 211, 0.1);
     --gradient-placeholder: linear-gradient(135deg, rgba(192, 38, 211, 0.18), rgba(168, 85, 247, 0.18));
+    --card-overlay: rgba(192, 38, 211, 0.04);
     --talk-gradient-start: #ca8a04;
     --talk-gradient-end: #a16207;
 }
@@ -360,18 +362,7 @@ section.alt-bg .testimonial-card,
 section.alt-bg .contact-link {
     /* Base color with static overlay for subtle brightness */
     background:
-        linear-gradient(rgba(232, 121, 249, 0.08), rgba(232, 121, 249, 0.08)),
-        var(--bg-primary);
-}
-
-:root[data-theme="light"] section.alt-bg .skill-card,
-:root[data-theme="light"] section.alt-bg .service-card,
-:root[data-theme="light"] section.alt-bg .project-card,
-:root[data-theme="light"] section.alt-bg .publication-card,
-:root[data-theme="light"] section.alt-bg .testimonial-card,
-:root[data-theme="light"] section.alt-bg .contact-link {
-    background:
-        linear-gradient(rgba(192, 38, 211, 0.04), rgba(192, 38, 211, 0.04)),
+        linear-gradient(var(--card-overlay), var(--card-overlay)),
         var(--bg-primary);
 }
 
