@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Publications - Niklas Haas</title>
+    <meta name="description" content="Selected projects, publications, and conference talks by Niklas Haas - multimedia processing, SIMD optimization, color management, and more.">
+    <link rel="stylesheet" href="/pr-previews/pr-32/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="/pr-previews/pr-32/js/theme-switcher.js"></script>
+    <script>initTheme();</script>
+    
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/pr-previews/pr-32/" class="logo">Haas Consulting</a>
+            <ul class="nav-links">
+                <li><a href="/pr-previews/pr-32/#about">About</a></li>
+                <li><a href="/pr-previews/pr-32/#services">Services</a></li>
+                <li><a href="/pr-previews/pr-32/#skills">Skills</a></li>
+                
+                    <!-- On projects page: simple anchors to scroll within page -->
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                
+                <li><a href="/pr-previews/pr-32/#contact">Contact</a></li>
+                <li><a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="material-icons theme-icon">brightness_4</span>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <p class="section-intro">
+                    Selected projects and past consulting work.
+                </p>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3><a href="https://libplacebo.org/" target="_blank" rel="noopener noreferrer">libplacebo</a></h3>
+                        <p class="project-role">Author & Maintainer</p>
+                        <p>
+                            Reusable cross-platform library for GPU-accelerated real-time image and video processing.
+                            Features the world's most feature-complete open source GPU color management pipeline,
+                            including dynamic tone mapping with on-the-fly frame analysis, GPU film grain synthesis,
+                            high-quality scaling and filtering, and more. Used in <a href="https://mpv.io/" target="_blank" rel="noopener noreferrer">mpv</a>, <a href="https://www.videolan.org/" target="_blank" rel="noopener noreferrer">VLC</a> and <a href="https://ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a>.
+                        </p>
+                    </div>
+
+                    <div class="project-card" id="project-libswscale">
+                        <h3>libswscale</h3>
+                        <p class="project-role">Full Refactor (ongoing)</p>
+                        <p>
+                            Full rewrite of libswscale, a widely used core FFmpeg component for pixel format conversion.
+                            Developed a novel approach that combines SIMD fragments assembled at runtime to create optimized
+                            conversion routines, achieving dramatic performance improvements across all supported formats
+                            while reducing the size and complexity of the codebase.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3><a href="https://code.videolan.org/videolan/checkasm" target="_blank" rel="noopener noreferrer">checkasm</a></h3>
+                        <p class="project-role">Maintainer</p>
+                        <p>
+                            Major overhaul of <a href="https://code.videolan.org/videolan/checkasm" target="_blank" rel="noopener noreferrer">checkasm</a>, a helper library for verifying correctness and benchmarking
+                            SIMD routines in open source projects. Improved portability, user friendliness, and made it
+                            reusable across projects. Enhanced benchmark statistics collection and analysis, enabling
+                            cycle-accurate performance metrics for even very large projects in seconds rather than minutes.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3><a href="https://code.videolan.org/videolan/dav1d" target="_blank" rel="noopener noreferrer">dav1d</a></h3>
+                        <p class="project-role">Developer</p>
+                        <p>
+                            Development of an experimental GPU-based Vulkan decoder using compute shaders, as well as other
+                            contributions including film grain synthesis and RISC-V SIMD routines.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3><a href="https://ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a></h3>
+                        <p class="project-role">Developer & TC / GA Member</p>
+                        <p>
+                            Ongoing contributions focused on architectural improvements, including better format
+                            negotiation, filter optimization, and development of new features. My past work spans a broad
+                            domain of topics, including the first open-source implementations
+                            of ITU-R H.274, AFGS1, SMPTE&nbsp;RDD5, and MV-HEVC.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="alt-bg">
+            <div class="container">
+                <h2>Publications & Talks</h2>
+                <p class="section-intro">
+                    Selected papers, presentations, and conference talks.
+                </p>
+
+                <div class="publications-grid">
+                    <!-- Publications and talks are ordered chronologically from newest to oldest -->
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>libswscale reimagined</h3>
+                            <span class="publication-type talk">Talk</span>
+                        </div>
+                        <div class="publication-meta">
+                            <span class="publication-venue"><a href="https://images.videolan.org/videolan/events/vdd25/" target="_blank" rel="noopener noreferrer">VideoLAN Dev Days 2025</a></span>
+                            <span class="publication-date">November 2025</span>
+                        </div>
+                        <p class="publication-abstract">
+                            An overview of my project for the Sovereign Tech Fund 2024, which was all about <a href="#project-libswscale">rewriting/refactoring
+                            libswscale</a>. I went into depth explaining my novel approach to pixel format conversion, which was based
+                            around generating and optimizing an abstract operation list and then "JIT" compiling this by combining
+                            a list of assembly fragments using continuation passing style.
+                        </p>
+                        <div class="publication-links">
+                            <a href="assets/slides/vdd25.pdf" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> Slides (PDF)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>HDR tone-mapping in VLC / libplacebo</h3>
+                            <span class="publication-type talk">Talk</span>
+                        </div>
+                        <div class="publication-meta">
+                            <span class="publication-venue"><a href="https://www.videolan.org/videolan/events/vdd18/" target="_blank" rel="noopener noreferrer">VideoLAN Dev Days</a></span>
+                            <span class="publication-date">September 2018</span>
+                        </div>
+                        <p class="publication-abstract">
+                            An exploration of the dynamic tone-mapping algorithm used in libplacebo, VLC and mpv.
+                            <em>Note: This algorithm has gone through significant overhauls since 2018. Included mainly
+                            for historical context.</em>
+                        </p>
+                        <div class="publication-links">
+                            <a href="https://www.youtube.com/watch?v=kQ8fxENEGtk" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-youtube"></i> Watch on YouTube
+                            </a>
+                            <a href="assets/slides/vdd18.pdf" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> Slides (PDF)
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>State of the Art in Cryptocurrency Network Simulation</h3>
+                            <span class="publication-type">Paper</span>
+                        </div>
+                        <div class="publication-meta">
+                            <span class="publication-venue"><a href="https://www.uni-ulm.de/" target="_blank" rel="noopener noreferrer">Ulm University</a></span>
+                            <span class="publication-date">August 2017</span>
+                        </div>
+                        <p class="publication-abstract">
+                            <strong>Bachelor's Thesis.</strong> Comparative study of three Bitcoin network simulators (ns-3, Shadow, and simbit),
+                            evaluating their user-friendliness, performance characteristics, adaptability to other cryptocurrencies,
+                            and range of configurable parameters. Provides detailed performance benchmarks and recommendations.
+                        </p>
+                        <div class="publication-links">
+                            <a href="assets/papers/thesis.pdf" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>Random Linear Network Coding: Use cases and Implementations</h3>
+                            <span class="publication-type">Paper</span>
+                        </div>
+                        <div class="publication-meta">
+                            <span class="publication-venue"><a href="https://www.uni-ulm.de/" target="_blank" rel="noopener noreferrer">Ulm University</a></span>
+                            <span class="publication-date">June 2016</span>
+                        </div>
+                        <p class="publication-abstract">
+                            Introduction to random linear network coding and its applications in point-to-point communication,
+                            broadcast, multicast, content delivery, and peer-to-peer networks. Includes evaluations of real-world
+                            implementations, libraries, and products, as well as discussion of current limitations and future research directions.
+                        </p>
+                        <div class="publication-links">
+                            <a href="assets/papers/rlnc.pdf" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="publication-card">
+                        <div class="publication-header">
+                            <h3>Write less, type more&mdash;or: How I learned to stop worrying and love the compiler</h3>
+                            <span class="publication-type">Paper</span>
+                        </div>
+                        <div class="publication-meta">
+                            <span class="publication-venue"><a href="https://www.uni-ulm.de/" target="_blank" rel="noopener noreferrer">Ulm University</a></span>
+                            <span class="publication-date">July 2014</span>
+                        </div>
+                        <p class="publication-abstract">
+                            Introduction to dependent type systems, which extend traditional types with dependent functions and pairs.
+                            Explores how dependent types enable greater expressiveness, increased type safety, and the ability to couple
+                            programs with proofs of correctness.
+                        </p>
+                        <div class="publication-links">
+                            <a href="assets/papers/wltm.pdf" class="publication-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-file-pdf"></i> PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<section id="projects-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Interested in working together?</h2>
+            <p>Let's discuss how I can help with your multimedia processing, performance optimization, or open source development needs.</p>
+            <div class="cta-buttons">
+                <a href="/#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="/" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Niklas Haas. All rights reserved.</p>
+            <p><a href="/pr-previews/pr-32/impressum.html">Impressum</a></p>
+        </div>
+    </footer>
+
+    <script>
+        setupThemeSwitcher();
+    </script>
+</body>
+</html>
+
