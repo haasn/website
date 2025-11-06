@@ -36,17 +36,31 @@ function setupNavScrollSpy() {
         }
     });
 
-    // Section groupings: map sections without nav links to their nav equivalents
-    // hero -> about, testimonials -> contact
-    const sectionGroupings = {
-        'hero': 'about',
-        'testimonials': 'contact'
-    };
-
     // Configuration constants
     const SCROLL_OFFSET = 100;        // Pixels to offset scroll position for earlier section activation
     const TOP_THRESHOLD = 50;         // Scroll threshold to highlight first section at page top
     const BOTTOM_THRESHOLD = 10;      // Distance from bottom to highlight last section
+
+    // Function to get section groupings based on actual element visibility
+    function getSectionGroupings() {
+        // Check if Publications link is actually hidden (via container query)
+        const publicationsLink = document.querySelector('.nav-publications');
+        const isPublicationsHidden = publicationsLink &&
+            window.getComputedStyle(publicationsLink).display === 'none';
+
+        // Base groupings: hero -> about, testimonials -> contact
+        const groupings = {
+            'hero': 'about',
+            'testimonials': 'contact'
+        };
+
+        // If publications is hidden, group publications -> projects
+        if (isPublicationsHidden) {
+            groupings['publications'] = 'projects';
+        }
+
+        return groupings;
+    }
 
     // Function to update active nav link
     function updateActiveNavLink() {
@@ -54,6 +68,9 @@ function setupNavScrollSpy() {
         const scrollPosition = window.scrollY + SCROLL_OFFSET;
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
+
+        // Get section groupings based on current viewport
+        const sectionGroupings = getSectionGroupings();
 
         // Find the current section by checking ALL sections on the page
         let currentSection = '';
