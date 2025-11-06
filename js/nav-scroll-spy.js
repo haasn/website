@@ -111,6 +111,79 @@ function setupNavScrollSpy() {
     // Listen for scroll events (no debouncing for instant updates)
     window.addEventListener('scroll', updateActiveNavLink, { passive: true });
 
+    // Track if user is using keyboard navigation
+    let isUsingKeyboard = false;
+
+    // Timeout IDs for cleanup to avoid redundant updates
+    let scrollSpyTimeout1 = null;
+    let scrollSpyTimeout2 = null;
+
+    // Detect keyboard usage (Tab key)
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            isUsingKeyboard = true;
+            document.documentElement.classList.remove('using-touch');
+        }
+    });
+
+    // Detect mouse/touch usage
+    window.addEventListener('mousedown', () => {
+        isUsingKeyboard = false;
+    });
+
+    window.addEventListener('touchstart', () => {
+        isUsingKeyboard = false;
+        document.documentElement.classList.add('using-touch');
+    }, { passive: true });
+
+    // Handle navigation link clicks to ensure proper active state management
+    // iOS Safari has issues with scroll events during smooth scroll animations
+    navLinks.forEach(link => {
+        // Common click handler for both touch and mouse
+        const handleNavClick = function(e) {
+            // Remove active class from all links immediately
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Add active class to clicked link immediately
+            this.classList.add('active');
+
+            // Blur to remove focus state (only for mouse/touch)
+            if (!isUsingKeyboard) {
+                this.blur();
+            }
+
+            // Clear any pending scroll spy updates
+            if (scrollSpyTimeout1) clearTimeout(scrollSpyTimeout1);
+            if (scrollSpyTimeout2) clearTimeout(scrollSpyTimeout2);
+
+            // Force scroll spy update after smooth scroll completes
+            // iOS Safari may not fire scroll events during smooth scroll
+            scrollSpyTimeout1 = setTimeout(() => {
+                updateActiveNavLink();
+            }, 100);
+
+            // Additional update after a longer delay to catch slow animations
+            scrollSpyTimeout2 = setTimeout(() => {
+                updateActiveNavLink();
+            }, 600);
+        };
+
+        // Handle touch events (for iOS and other touch devices)
+        link.addEventListener('touchend', function(e) {
+            isUsingKeyboard = false;
+            // Prevent the subsequent click event from also firing
+            e.preventDefault();
+            handleNavClick.call(this, e);
+        });
+
+        // Handle click events (for mouse interactions and keyboard)
+        link.addEventListener('click', function(e) {
+            if (!isUsingKeyboard) {
+                handleNavClick.call(this, e);
+            }
+        });
+    });
+
     // Update on page load
     updateActiveNavLink();
 }
