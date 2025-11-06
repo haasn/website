@@ -132,26 +132,42 @@ function setupNavScrollSpy() {
         document.documentElement.classList.add('using-touch');
     }, { passive: true });
 
-    // Remove focus from nav links after clicking to prevent persistent highlight on mobile
-    // iOS Safari requires special handling for touch events
+    // Handle navigation link clicks to ensure proper active state management
+    // iOS Safari has issues with scroll events during smooth scroll animations
     navLinks.forEach(link => {
+        // Common click handler for both touch and mouse
+        const handleNavClick = function(e) {
+            // Remove active class from all links immediately
+            navLinks.forEach(l => l.classList.remove('active'));
+
+            // Add active class to clicked link immediately
+            this.classList.add('active');
+
+            // Blur to remove focus state
+            this.blur();
+
+            // Force scroll spy update after smooth scroll completes
+            // iOS Safari may not fire scroll events during smooth scroll
+            setTimeout(() => {
+                updateActiveNavLink();
+            }, 100);
+
+            // Additional update after a longer delay to catch slow animations
+            setTimeout(() => {
+                updateActiveNavLink();
+            }, 600);
+        };
+
         // Handle touch events (for iOS and other touch devices)
         link.addEventListener('touchend', function(e) {
-            // Mark as non-keyboard interaction and blur immediately
             isUsingKeyboard = false;
-            // Use setTimeout to ensure blur happens after the browser's default focus behavior
-            setTimeout(() => {
-                this.blur();
-            }, 0);
+            handleNavClick.call(this, e);
         }, { passive: true });
 
-        // Handle click events (for mouse interactions and fallback)
-        link.addEventListener('click', function() {
-            // Only blur if not using keyboard navigation
+        // Handle click events (for mouse interactions)
+        link.addEventListener('click', function(e) {
             if (!isUsingKeyboard) {
-                setTimeout(() => {
-                    this.blur();
-                }, 0);
+                handleNavClick.call(this, e);
             }
         });
     });
