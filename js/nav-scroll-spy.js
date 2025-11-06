@@ -111,11 +111,48 @@ function setupNavScrollSpy() {
     // Listen for scroll events (no debouncing for instant updates)
     window.addEventListener('scroll', updateActiveNavLink, { passive: true });
 
+    // Track if user is using keyboard navigation
+    let isUsingKeyboard = false;
+
+    // Detect keyboard usage (Tab key)
+    window.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            isUsingKeyboard = true;
+            document.documentElement.classList.remove('using-touch');
+        }
+    });
+
+    // Detect mouse/touch usage
+    window.addEventListener('mousedown', function() {
+        isUsingKeyboard = false;
+    });
+
+    window.addEventListener('touchstart', function() {
+        isUsingKeyboard = false;
+        document.documentElement.classList.add('using-touch');
+    }, { passive: true });
+
     // Remove focus from nav links after clicking to prevent persistent highlight on mobile
+    // iOS Safari requires special handling for touch events
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            // Blur the link to remove focus state after navigation
-            link.blur();
+        // Handle touch events (for iOS and other touch devices)
+        link.addEventListener('touchend', function(e) {
+            // Mark as non-keyboard interaction and blur immediately
+            isUsingKeyboard = false;
+            // Use setTimeout to ensure blur happens after the browser's default focus behavior
+            setTimeout(() => {
+                this.blur();
+            }, 0);
+        }, { passive: true });
+
+        // Handle click events (for mouse interactions and fallback)
+        link.addEventListener('click', function() {
+            // Only blur if not using keyboard navigation
+            if (!isUsingKeyboard) {
+                setTimeout(() => {
+                    this.blur();
+                }, 0);
+            }
         });
     });
 

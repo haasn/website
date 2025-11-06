@@ -205,6 +205,11 @@ nav {
     outline: none;
 }
 
+/* Hide focus outline when using touch (iOS Safari fix) */
+html.using-touch .nav-links a:focus {
+    outline: none;
+}
+
 .nav-links a:active {
     opacity: 0.7;
 }
