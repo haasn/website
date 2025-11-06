@@ -178,8 +178,11 @@ nav {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--primary-color);
+/* Only apply hover styles on devices that support hover (not touch screens) */
+@media (hover: hover) {
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
 }
 
 /* Focus states for accessibility */
@@ -219,8 +222,11 @@ nav {
     align-items: center;
 }
 
-.theme-toggle:hover {
-    color: var(--primary-color);
+/* Only apply hover styles on devices that support hover (not touch screens) */
+@media (hover: hover) {
+    .theme-toggle:hover {
+        color: var(--primary-color);
+    }
 }
 
 .theme-icon {
