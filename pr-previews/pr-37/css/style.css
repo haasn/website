@@ -182,20 +182,7 @@ nav {
 
 .nav-links a.active {
     color: var(--primary-color);
-    position: relative;
     transition: none;
-}
-
-/* Highlight nav bar border below active link */
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -1.5rem;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--primary-color);
-    z-index: 1;
 }
 
 /* Remove lingering highlight/focus states after clicking nav links */
@@ -950,7 +937,7 @@ footer a:hover {
     nav {
         flex-direction: row;
         gap: 1rem;
-        padding: 1rem;
+        padding: 0.75rem 1rem;
         justify-content: center;
     }
 
