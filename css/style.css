@@ -454,6 +454,10 @@ h2 {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .about-photo {
+        position: static;
+    }
 }
 
 .expertise-card {
