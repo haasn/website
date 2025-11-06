@@ -351,15 +351,17 @@ section.alt-bg {
     background: var(--bg-secondary);
 }
 
-/* Alt-bg sections (light bg): cards are slightly lighter/brighter */
+/* Alt-bg sections: cards with subtle overlay for brightness */
 section.alt-bg .skill-card,
 section.alt-bg .service-card,
 section.alt-bg .project-card,
 section.alt-bg .publication-card,
 section.alt-bg .testimonial-card,
 section.alt-bg .contact-link {
-    /* Use a color between bg-primary and bg-secondary for subtle brightness */
-    background-color: #1a1226;
+    /* Base color with static overlay for subtle brightness */
+    background:
+        linear-gradient(rgba(232, 121, 249, 0.08), rgba(232, 121, 249, 0.08)),
+        var(--bg-primary);
 }
 
 :root[data-theme="light"] section.alt-bg .skill-card,
@@ -368,7 +370,9 @@ section.alt-bg .contact-link {
 :root[data-theme="light"] section.alt-bg .publication-card,
 :root[data-theme="light"] section.alt-bg .testimonial-card,
 :root[data-theme="light"] section.alt-bg .contact-link {
-    background-color: #fcf7fe;
+    background:
+        linear-gradient(rgba(192, 38, 211, 0.04), rgba(192, 38, 211, 0.04)),
+        var(--bg-primary);
 }
 
 h2 {
