@@ -711,11 +711,11 @@ h2 {
 
 .publications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
     gap: 2rem;
 }
 
-@container publications-section (max-width: 880px) {
+@container publications-section (max-width: 52em) {
     .publications-grid {
         grid-template-columns: 1fr;
     }
