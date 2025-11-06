@@ -846,8 +846,8 @@ h2 {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: -2rem;
+    right: -2rem;
     height: 200px;
     background: linear-gradient(to bottom, transparent, var(--bg-primary) 90%);
     pointer-events: none;
