@@ -338,9 +338,6 @@ section {
 
 section.alt-bg {
     background-color: var(--bg-secondary);
-    background-image:
-        radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
 }
 
 /* Card contrast: ensure cards always contrast with section background */
@@ -354,14 +351,37 @@ section.alt-bg {
     background: var(--bg-secondary);
 }
 
-/* Alt-bg sections (light bg): cards are darker */
+/* Alt-bg sections (light bg): cards are darker with gradient visible through them */
+/* Put gradient on grid containers so it scales across the section */
+section.alt-bg .skills-grid,
+section.alt-bg .services-grid,
+section.alt-bg .projects-grid,
+section.alt-bg .publications-grid,
+section.alt-bg .testimonials-grid,
+section.alt-bg .contact-links {
+    background-image:
+        radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
+}
+
+/* Cards act as windows showing the gradient behind them */
 section.alt-bg .skill-card,
 section.alt-bg .service-card,
 section.alt-bg .project-card,
 section.alt-bg .publication-card,
 section.alt-bg .testimonial-card,
 section.alt-bg .contact-link {
-    background-color: var(--bg-primary);
+    /* Use semi-transparent background so gradient shows through */
+    background: rgba(10, 6, 18, 0.85);
+}
+
+:root[data-theme="light"] section.alt-bg .skill-card,
+:root[data-theme="light"] section.alt-bg .service-card,
+:root[data-theme="light"] section.alt-bg .project-card,
+:root[data-theme="light"] section.alt-bg .publication-card,
+:root[data-theme="light"] section.alt-bg .testimonial-card,
+:root[data-theme="light"] section.alt-bg .contact-link {
+    background: rgba(254, 251, 255, 0.85);
 }
 
 h2 {
