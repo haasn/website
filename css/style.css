@@ -33,6 +33,7 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(232, 121, 249, 0.45), 0 6px 15px rgba(192, 132, 252, 0.25);
     --btn-secondary-hover-bg: rgba(232, 121, 249, 0.13);
     --gradient-placeholder: linear-gradient(135deg, rgba(232, 121, 249, 0.24), rgba(192, 132, 252, 0.26));
+    --card-overlay: rgba(232, 121, 249, 0.08);
 }
 
 /* Light theme - Pink/Purple Edition */
@@ -63,6 +64,7 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(192, 38, 211, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
     --btn-secondary-hover-bg: rgba(192, 38, 211, 0.1);
     --gradient-placeholder: linear-gradient(135deg, rgba(192, 38, 211, 0.18), rgba(168, 85, 247, 0.18));
+    --card-overlay: rgba(192, 38, 211, 0.04);
     --talk-gradient-start: #ca8a04;
     --talk-gradient-end: #a16207;
 }
@@ -351,17 +353,17 @@ section.alt-bg {
     background: var(--bg-secondary);
 }
 
-/* Alt-bg sections (light bg): cards are darker */
+/* Alt-bg sections: cards with subtle overlay for brightness */
 section.alt-bg .skill-card,
 section.alt-bg .service-card,
 section.alt-bg .project-card,
 section.alt-bg .publication-card,
 section.alt-bg .testimonial-card,
 section.alt-bg .contact-link {
-    background-color: var(--bg-primary);
-    background-image:
-        radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
+    /* Base color with static overlay for subtle brightness */
+    background:
+        linear-gradient(var(--card-overlay), var(--card-overlay)),
+        var(--bg-primary);
 }
 
 h2 {
