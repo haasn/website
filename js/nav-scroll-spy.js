@@ -36,6 +36,13 @@ function setupNavScrollSpy() {
         }
     });
 
+    // Section groupings: map sections without nav links to their nav equivalents
+    // hero -> about, testimonials -> contact
+    const sectionGroupings = {
+        'hero': 'about',
+        'testimonials': 'contact'
+    };
+
     // Function to update active nav link
     function updateActiveNavLink() {
         // Get current scroll position
@@ -43,15 +50,20 @@ function setupNavScrollSpy() {
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 
-        // Find the current section
+        // Find the current section by checking ALL sections on the page
         let currentSection = '';
 
-        sections.forEach((section, index) => {
+        // Get all sections (including hero, testimonials, etc.)
+        const allSections = document.querySelectorAll('section[id]');
+
+        allSections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
+            const sectionId = section.id;
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                currentSection = sectionIds[index];
+                // Map grouped sections to their nav equivalents
+                currentSection = sectionGroupings[sectionId] || sectionId;
             }
         });
 
