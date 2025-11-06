@@ -100,7 +100,6 @@ body {
     background-image:
         radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
         radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
-    background-attachment: fixed;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -137,7 +136,6 @@ a:hover {
 /* Header & Navigation */
 header {
     background-color: var(--header-bg);
-    backdrop-filter: blur(10px);
     box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
@@ -364,7 +362,6 @@ section.alt-bg .contact-link {
     background-image:
         radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
         radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
-    background-attachment: fixed;
 }
 
 h2 {
