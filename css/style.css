@@ -844,7 +844,7 @@ h2 {
 
 /* Fade effect applied at section level to span full width */
 section.section-collapsed {
-    position: relative;
+    isolation: isolate;
 }
 
 section.section-collapsed::after {
