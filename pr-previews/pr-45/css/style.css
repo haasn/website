@@ -855,13 +855,14 @@ section.section-collapsed::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, transparent, var(--bg-primary) 90%);
+    /* Gradient transitions over first 200px, then stays solid */
+    background: linear-gradient(to bottom, transparent 0, var(--bg-primary) 200px);
     pointer-events: none;
     z-index: 1;
 }
 
 section.section-collapsed.alt-bg::after {
-    background: linear-gradient(to bottom, transparent, var(--bg-secondary) 90%);
+    background: linear-gradient(to bottom, transparent 0, var(--bg-secondary) 200px);
 }
 
 .section-expand-btn {
