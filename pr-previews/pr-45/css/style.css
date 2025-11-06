@@ -850,11 +850,11 @@ section.section-collapsed {
 section.section-collapsed::after {
     content: '';
     position: absolute;
-    /* Position at bottom of collapsed area (5rem section padding + 600px wrapper height - 200px fade height) */
+    /* Position fade to start 200px before end of collapsed wrapper and extend to bottom of section */
     top: calc(5rem + 600px - 200px);
     left: 0;
     right: 0;
-    height: 200px;
+    bottom: 0;
     background: linear-gradient(to bottom, transparent, var(--bg-primary) 90%);
     pointer-events: none;
     z-index: 1;
