@@ -43,10 +43,15 @@ function setupNavScrollSpy() {
         'testimonials': 'contact'
     };
 
+    // Configuration constants
+    const SCROLL_OFFSET = 100;        // Pixels to offset scroll position for earlier section activation
+    const TOP_THRESHOLD = 50;         // Scroll threshold to highlight first section at page top
+    const BOTTOM_THRESHOLD = 10;      // Distance from bottom to highlight last section
+
     // Function to update active nav link
     function updateActiveNavLink() {
         // Get current scroll position
-        const scrollPosition = window.scrollY + 100; // Offset for better UX
+        const scrollPosition = window.scrollY + SCROLL_OFFSET;
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 
@@ -68,10 +73,10 @@ function setupNavScrollSpy() {
         });
 
         // Handle edge cases: stay on About at top, Contact at bottom
-        if (window.scrollY < 50 && sectionIds.length > 0) {
+        if (window.scrollY < TOP_THRESHOLD && sectionIds.length > 0) {
             // At the very top - highlight "about" (first section)
             currentSection = sectionIds[0];
-        } else if (window.scrollY + windowHeight >= documentHeight - 10) {
+        } else if (window.scrollY + windowHeight >= documentHeight - BOTTOM_THRESHOLD) {
             // At the very bottom - highlight "contact" (last section)
             currentSection = sectionIds[sectionIds.length - 1];
         }
