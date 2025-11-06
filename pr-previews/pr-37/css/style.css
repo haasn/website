@@ -186,11 +186,11 @@ nav {
     transition: none;
 }
 
-/* Highlight nav bar border below active link instead of underline */
+/* Highlight nav bar border below active link */
 .nav-links a.active::after {
     content: '';
     position: absolute;
-    bottom: -1rem;
+    bottom: -1.5rem;
     left: 0;
     right: 0;
     height: 2px;
