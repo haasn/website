@@ -139,11 +139,15 @@ a:hover {
 header {
     background-color: var(--header-bg);
     box-shadow: var(--shadow-md);
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     transition: background-color 0.3s;
+    /* Force hardware acceleration for better iOS performance */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 nav {
@@ -844,7 +848,7 @@ h2 {
 
 /* Fade effect applied at section level to span full width */
 section.section-collapsed {
-    isolation: isolate;
+    position: relative;
 }
 
 section.section-collapsed::after {
