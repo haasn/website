@@ -33,7 +33,7 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(232, 121, 249, 0.45), 0 6px 15px rgba(192, 132, 252, 0.25);
     --btn-secondary-hover-bg: rgba(232, 121, 249, 0.13);
     --gradient-placeholder: linear-gradient(135deg, rgba(232, 121, 249, 0.24), rgba(192, 132, 252, 0.26));
-    --card-overlay: rgba(232, 121, 249, 0.08);
+    --card-overlay: rgba(192, 132, 252, 0.06);
 }
 
 /* Light theme - Pink/Purple Edition */
