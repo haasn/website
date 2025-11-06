@@ -187,10 +187,22 @@ nav {
     transition: none;
 }
 
-/* Focus states for accessibility - focus-visible handles keyboard vs mouse distinction */
+/* Focus states for accessibility */
+/* Fallback for browsers that don't support :focus-visible */
+.nav-links a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+/* Modern browsers: only show focus on keyboard navigation */
 .nav-links a:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 4px;
+}
+
+/* Modern browsers: hide focus outline on mouse/touch interaction */
+.nav-links a:focus:not(:focus-visible) {
+    outline: none;
 }
 
 .nav-links a:active {

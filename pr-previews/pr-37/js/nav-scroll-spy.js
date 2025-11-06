@@ -41,9 +41,12 @@ function setupNavScrollSpy() {
     const TOP_THRESHOLD = 50;         // Scroll threshold to highlight first section at page top
     const BOTTOM_THRESHOLD = 10;      // Distance from bottom to highlight last section
 
-    // Function to get section groupings based on viewport
+    // Function to get section groupings based on actual element visibility
     function getSectionGroupings() {
-        const isMobile = window.innerWidth <= 768;
+        // Check if Publications link is actually hidden (via container query)
+        const publicationsLink = document.querySelector('.nav-publications');
+        const isPublicationsHidden = publicationsLink &&
+            window.getComputedStyle(publicationsLink).display === 'none';
 
         // Base groupings: hero -> about, testimonials -> contact
         const groupings = {
@@ -51,8 +54,8 @@ function setupNavScrollSpy() {
             'testimonials': 'contact'
         };
 
-        // On mobile, also group publications -> projects (since publications is hidden)
-        if (isMobile) {
+        // If publications is hidden, group publications -> projects
+        if (isPublicationsHidden) {
             groupings['publications'] = 'projects';
         }
 
