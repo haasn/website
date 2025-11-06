@@ -18,12 +18,12 @@
     --bg-tertiary: #3e2755;
     --border-color: #553d6f;
     --header-bg: rgba(10, 6, 18, 0.90);
-    --hero-gradient-start: #1a0f2e;
-    --hero-gradient-mid: #2b1e39;
+    --hero-gradient-start: #140a20;
+    --hero-gradient-mid: #0f0818;
     --hero-gradient-end: #0a0612;
     --hero-text-color: #f5f3ff;
-    --gradient-overlay-1: rgba(232, 121, 249, 0.11);
-    --gradient-overlay-2: rgba(192, 132, 252, 0.13);
+    --gradient-overlay-1: rgba(232, 121, 249, 0.05);
+    --gradient-overlay-2: rgba(192, 132, 252, 0.06);
     --shimmer-1: rgba(232, 121, 249, 0.07);
     --shimmer-2: rgba(192, 132, 252, 0.09);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
@@ -202,6 +202,11 @@ nav {
 
 /* Modern browsers: hide focus outline on mouse/touch interaction */
 .nav-links a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Hide focus outline when using touch (iOS Safari fix) */
+html.using-touch .nav-links a:focus {
     outline: none;
 }
 
