@@ -1,7 +1,16 @@
 // Section Collapse/Expand Functionality
 // Collapses long sections when section height exceeds viewport height
 
+// Guard to prevent duplicate initialization
+let isInitialized = false;
+
 function setupSectionCollapse() {
+    // Prevent duplicate initialization and event listener attachment
+    if (isInitialized) {
+        return;
+    }
+    isInitialized = true;
+
     const sections = ['services', 'skills', 'projects', 'publications'];
     const sectionStates = {};
 
