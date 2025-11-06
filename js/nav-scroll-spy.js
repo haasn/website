@@ -12,15 +12,16 @@ function setupNavScrollSpy() {
     isNavSpyInitialized = true;
 
     // Get all navigation links (excluding the theme toggle)
-    const navLinks = document.querySelectorAll('.nav-links a[href*="#"]');
+    const allNavLinks = document.querySelectorAll('.nav-links a[href*="#"]');
+    const navLinks = [];
 
     // Get all sections that have IDs matching the nav links
     const sections = [];
     const sectionIds = [];
 
-    navLinks.forEach(link => {
-        // Skip the theme toggle
-        if (link.id === 'themeToggle') {
+    allNavLinks.forEach(link => {
+        // Skip the theme toggle and any non-section links
+        if (link.id === 'themeToggle' || link.classList.contains('theme-toggle')) {
             return;
         }
 
@@ -28,6 +29,7 @@ function setupNavScrollSpy() {
         if (hash) {
             const section = document.getElementById(hash);
             if (section) {
+                navLinks.push(link);
                 sections.push(section);
                 sectionIds.push(hash);
             }
@@ -38,6 +40,8 @@ function setupNavScrollSpy() {
     function updateActiveNavLink() {
         // Get current scroll position
         const scrollPosition = window.scrollY + 100; // Offset for better UX
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
 
         // Find the current section
         let currentSection = '';
@@ -51,16 +55,18 @@ function setupNavScrollSpy() {
             }
         });
 
-        // If we're at the very top of the page, don't highlight anything
-        if (window.scrollY < 50) {
-            currentSection = '';
+        // Handle edge cases: stay on About at top, Contact at bottom
+        if (window.scrollY < 50 && sectionIds.length > 0) {
+            // At the very top - highlight "about" (first section)
+            currentSection = sectionIds[0];
+        } else if (window.scrollY + windowHeight >= documentHeight - 10) {
+            // At the very bottom - highlight "contact" (last section)
+            currentSection = sectionIds[sectionIds.length - 1];
         }
 
         // Update nav links
-        navLinks.forEach(link => {
-            const hash = link.getAttribute('href').split('#')[1];
-
-            if (hash === currentSection) {
+        navLinks.forEach((link, index) => {
+            if (sectionIds[index] === currentSection) {
                 link.classList.add('active');
             } else {
                 link.classList.remove('active');
@@ -68,15 +74,8 @@ function setupNavScrollSpy() {
         });
     }
 
-    // Debounce function for better performance
-    let scrollTimer;
-    function debouncedUpdateActiveNavLink() {
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(updateActiveNavLink, 50);
-    }
-
-    // Listen for scroll events
-    window.addEventListener('scroll', debouncedUpdateActiveNavLink);
+    // Listen for scroll events (no debouncing for instant updates)
+    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
 
     // Update on page load
     updateActiveNavLink();
