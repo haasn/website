@@ -130,7 +130,7 @@ a:hover {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 75em;
     margin: 0 auto;
     padding: 0 2rem;
 }
@@ -711,11 +711,11 @@ h2 {
 
 .publications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(28em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
     gap: 2rem;
 }
 
-@container publications-section (max-width: 64em) {
+@container publications-section (max-width: 52em) {
     .publications-grid {
         grid-template-columns: 1fr;
     }
