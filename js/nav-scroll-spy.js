@@ -111,6 +111,14 @@ function setupNavScrollSpy() {
     // Listen for scroll events (no debouncing for instant updates)
     window.addEventListener('scroll', updateActiveNavLink, { passive: true });
 
+    // Remove focus from nav links after clicking to prevent persistent highlight on mobile
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Blur the link to remove focus state after navigation
+            this.blur();
+        });
+    });
+
     // Update on page load
     updateActiveNavLink();
 }
