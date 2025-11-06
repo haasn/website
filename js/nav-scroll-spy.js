@@ -114,8 +114,12 @@ function setupNavScrollSpy() {
     // Track if user is using keyboard navigation
     let isUsingKeyboard = false;
 
+    // Timeout IDs for cleanup to avoid redundant updates
+    let scrollSpyTimeout1 = null;
+    let scrollSpyTimeout2 = null;
+
     // Detect keyboard usage (Tab key)
-    window.addEventListener('keydown', function(e) {
+    window.addEventListener('keydown', (e) => {
         if (e.key === 'Tab') {
             isUsingKeyboard = true;
             document.documentElement.classList.remove('using-touch');
@@ -123,11 +127,11 @@ function setupNavScrollSpy() {
     });
 
     // Detect mouse/touch usage
-    window.addEventListener('mousedown', function() {
+    window.addEventListener('mousedown', () => {
         isUsingKeyboard = false;
     });
 
-    window.addEventListener('touchstart', function() {
+    window.addEventListener('touchstart', () => {
         isUsingKeyboard = false;
         document.documentElement.classList.add('using-touch');
     }, { passive: true });
@@ -143,17 +147,23 @@ function setupNavScrollSpy() {
             // Add active class to clicked link immediately
             this.classList.add('active');
 
-            // Blur to remove focus state
-            this.blur();
+            // Blur to remove focus state (only for mouse/touch)
+            if (!isUsingKeyboard) {
+                this.blur();
+            }
+
+            // Clear any pending scroll spy updates
+            if (scrollSpyTimeout1) clearTimeout(scrollSpyTimeout1);
+            if (scrollSpyTimeout2) clearTimeout(scrollSpyTimeout2);
 
             // Force scroll spy update after smooth scroll completes
             // iOS Safari may not fire scroll events during smooth scroll
-            setTimeout(() => {
+            scrollSpyTimeout1 = setTimeout(() => {
                 updateActiveNavLink();
             }, 100);
 
             // Additional update after a longer delay to catch slow animations
-            setTimeout(() => {
+            scrollSpyTimeout2 = setTimeout(() => {
                 updateActiveNavLink();
             }, 600);
         };
@@ -161,10 +171,12 @@ function setupNavScrollSpy() {
         // Handle touch events (for iOS and other touch devices)
         link.addEventListener('touchend', function(e) {
             isUsingKeyboard = false;
+            // Prevent the subsequent click event from also firing
+            e.preventDefault();
             handleNavClick.call(this, e);
-        }, { passive: true });
+        });
 
-        // Handle click events (for mouse interactions)
+        // Handle click events (for mouse interactions and keyboard)
         link.addEventListener('click', function(e) {
             if (!isUsingKeyboard) {
                 handleNavClick.call(this, e);
