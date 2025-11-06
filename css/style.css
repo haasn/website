@@ -725,6 +725,68 @@ h2 {
     font-size: 1rem;
 }
 
+/* Section Collapse/Expand Functionality */
+.section-collapsible-wrapper {
+    position: relative;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.section-collapsible-wrapper.collapsed {
+    max-height: 600px;
+    overflow: hidden;
+}
+
+.section-collapsible-wrapper.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--bg-primary) 90%);
+    pointer-events: none;
+}
+
+.section-collapsible-wrapper.collapsed.alt-section::after {
+    background: linear-gradient(to bottom, transparent, var(--bg-secondary) 90%);
+}
+
+.section-expand-btn {
+    display: none;
+    margin: 2rem auto 0;
+    padding: 0.75rem 2rem;
+    background: var(--bg-tertiary);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+.section-expand-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.section-expand-btn i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.section-expand-btn.expanded i {
+    transform: rotate(180deg);
+}
+
+.section-expand-btn.visible {
+    display: block;
+}
+
 /* Testimonials Section */
 .testimonials-grid {
     display: grid;
