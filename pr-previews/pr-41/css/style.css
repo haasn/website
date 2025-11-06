@@ -711,7 +711,7 @@ h2 {
 
 .publications-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(28em, 1fr));
     gap: 2rem;
 }
 
