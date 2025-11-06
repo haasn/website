@@ -196,6 +196,25 @@ nav {
     background: var(--primary-color);
 }
 
+/* Remove lingering highlight/focus states after clicking nav links */
+.nav-links a:focus {
+    outline: none;
+}
+
+.nav-links a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
+.nav-links a:active {
+    opacity: 0.7;
+}
+
+/* Disable tap highlight on mobile */
+.nav-links a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 /* Theme Toggle */
 .theme-toggle {
     text-decoration: none;
@@ -927,15 +946,27 @@ footer a:hover {
     }
 
     nav {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
         padding: 1rem;
+        justify-content: center;
+    }
+
+    /* Hide logo on mobile to save space */
+    .logo {
+        display: none;
     }
 
     .nav-links {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
-        gap: 1rem;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    /* Hide Publications link on mobile to save space */
+    .nav-links li:has(a[href*="publications"]) {
+        display: none;
     }
 
     /* Hide theme toggle on mobile devices - users should use system preference */
