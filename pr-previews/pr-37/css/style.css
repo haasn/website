@@ -185,11 +185,7 @@ nav {
     transition: none;
 }
 
-/* Remove lingering highlight/focus states after clicking nav links */
-.nav-links a:focus {
-    outline: none;
-}
-
+/* Focus states for accessibility - focus-visible handles keyboard vs mouse distinction */
 .nav-links a:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 4px;
@@ -929,6 +925,15 @@ footer a:hover {
 }
 
 /* Responsive Design */
+
+/* Tablet: Show shortened logo "Haas" only */
+@media (max-width: 850px) {
+    .logo-suffix {
+        display: none;
+    }
+}
+
+/* Mobile: Adjust nav layout and hide Publications */
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
@@ -941,11 +946,6 @@ footer a:hover {
         justify-content: center;
     }
 
-    /* Hide logo on mobile to save space */
-    .logo {
-        display: none;
-    }
-
     .nav-links {
         flex-wrap: nowrap;
         justify-content: center;
@@ -954,7 +954,7 @@ footer a:hover {
     }
 
     /* Hide Publications link on mobile to save space */
-    .nav-links li:has(a[href*="publications"]) {
+    .nav-links .nav-publications {
         display: none;
     }
 
@@ -962,6 +962,14 @@ footer a:hover {
     .theme-toggle {
         display: none;
     }
+}
+
+/* Small mobile: Hide logo entirely */
+@media (max-width: 470px) {
+    .logo {
+        display: none;
+    }
+}
 
     #hero h1 {
         font-size: 3rem;
