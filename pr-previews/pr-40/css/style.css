@@ -338,6 +338,9 @@ section {
 
 section.alt-bg {
     background-color: var(--bg-secondary);
+    background-image:
+        radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
+        radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
 }
 
 /* Card contrast: ensure cards always contrast with section background */
@@ -359,9 +362,6 @@ section.alt-bg .publication-card,
 section.alt-bg .testimonial-card,
 section.alt-bg .contact-link {
     background-color: var(--bg-primary);
-    background-image:
-        radial-gradient(at 20% 30%, var(--gradient-overlay-1) 0px, transparent 50%),
-        radial-gradient(at 80% 70%, var(--gradient-overlay-2) 0px, transparent 50%);
 }
 
 h2 {
