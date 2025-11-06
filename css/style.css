@@ -151,6 +151,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
+    container-type: inline-size;
+    container-name: navigation;
 }
 
 .logo {
@@ -248,6 +250,8 @@ nav {
 #hero .container {
     position: relative;
     z-index: 1;
+    container-type: inline-size;
+    container-name: hero-section;
 }
 
 #hero h1 {
@@ -417,11 +421,27 @@ h2 {
     margin-bottom: 1rem;
 }
 
+#about .container {
+    container-type: inline-size;
+    container-name: about-section;
+}
+
 .expertise-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+}
+
+@container about-section (max-width: 700px) {
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-intro {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .expertise-card {
@@ -452,10 +472,21 @@ h2 {
 }
 
 /* Skills Section */
+#skills .container {
+    container-type: inline-size;
+    container-name: skills-section;
+}
+
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+}
+
+@container skills-section (max-width: 800px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .skill-card {
@@ -502,11 +533,22 @@ h2 {
 }
 
 /* Services Section */
+#services .container {
+    container-type: inline-size;
+    container-name: services-section;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+}
+
+@container services-section (max-width: 750px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .service-card {
@@ -580,10 +622,21 @@ h2 {
 }
 
 /* Projects Section */
+#projects .container {
+    container-type: inline-size;
+    container-name: projects-section;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+}
+
+@container projects-section (max-width: 750px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .project-card {
@@ -636,10 +689,21 @@ h2 {
 }
 
 /* Publications & Talks Section */
+#publications .container {
+    container-type: inline-size;
+    container-name: publications-section;
+}
+
 .publications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 2rem;
+}
+
+@container publications-section (max-width: 750px) {
+    .publications-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .publication-card {
@@ -803,12 +867,23 @@ h2 {
 }
 
 /* Testimonials Section */
+#testimonials .container {
+    container-type: inline-size;
+    container-name: testimonials-section;
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 2rem;
     max-width: 1000px;
     margin: 0 auto;
+}
+
+@container testimonials-section (max-width: 950px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .testimonial-card {
@@ -844,6 +919,10 @@ h2 {
 }
 
 /* Contact Section */
+#contact .container {
+    container-type: inline-size;
+    container-name: contact-section;
+}
 
 .contact-content {
     max-width: 700px;
@@ -855,6 +934,12 @@ h2 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
+}
+
+@container contact-section (max-width: 700px) {
+    .contact-links {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact-link {
@@ -924,23 +1009,18 @@ footer a:hover {
     border-bottom-color: var(--primary-color);
 }
 
-/* Responsive Design */
+/* Responsive Design - Container Queries */
 
-/* Tablet: Show shortened logo "Haas" only */
-@media (max-width: 850px) {
+/* Nav: Show shortened logo "Haas" only when nav is narrower */
+@container navigation (max-width: 850px) {
     .logo-suffix {
         display: none;
     }
 }
 
-/* Mobile: Adjust nav layout and hide Publications */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 1rem;
-    }
-
+/* Nav: Adjust layout and hide Publications when space is tight */
+@container navigation (max-width: 768px) {
     nav {
-        flex-direction: row;
         gap: 1rem;
         padding: 0.75rem 1rem;
         justify-content: center;
@@ -953,24 +1033,26 @@ footer a:hover {
         font-size: 0.95rem;
     }
 
-    /* Hide Publications link on mobile to save space */
+    /* Hide Publications link to save space */
     .nav-links .nav-publications {
         display: none;
     }
 
-    /* Hide theme toggle on mobile devices - users should use system preference */
+    /* Hide theme toggle - users should use system preference */
     .theme-toggle {
         display: none;
     }
 }
 
-/* Small mobile: Hide logo entirely */
-@media (max-width: 470px) {
+/* Nav: Hide logo entirely when very narrow */
+@container navigation (max-width: 470px) {
     .logo {
         display: none;
     }
 }
 
+/* Hero Section: Medium screens */
+@container hero-section (max-width: 768px) {
     #hero h1 {
         font-size: 3rem;
     }
@@ -978,51 +1060,10 @@ footer a:hover {
     .tagline {
         font-size: 1.25rem;
     }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    .about-intro {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .about-photo {
-        position: static;
-        margin: 0 auto;
-    }
-
-    .photo-placeholder {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto;
-    }
-
-    .about-intro-text h3 {
-        font-size: 1.75rem;
-        text-align: center;
-    }
-
-    .expertise-grid,
-    .skills-grid,
-    .services-grid,
-    .projects-grid,
-    .publications-grid,
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-links {
-        grid-template-columns: 1fr;
-    }
-
-    section {
-        padding: 3rem 0;
-    }
 }
 
-@media (max-width: 480px) {
+/* Hero Section: Small screens */
+@container hero-section (max-width: 480px) {
     #hero {
         padding: 4rem 0;
     }
