@@ -42,8 +42,9 @@ function setupSectionCollapse() {
     function checkSectionCollapse(section) {
         const wrapper = document.querySelector(`.section-collapsible-wrapper[data-section="${section}"]`);
         const button = document.querySelector(`.section-expand-btn[data-section="${section}"]`);
+        const sectionElement = document.getElementById(section);
 
-        if (!wrapper || !button) return;
+        if (!wrapper || !button || !sectionElement) return;
 
         // Skip if already expanded by user
         if (sectionStates[section].isExpanded) {
@@ -56,10 +57,12 @@ function setupSectionCollapse() {
             // Show button and apply collapsed state
             button.classList.add('visible');
             wrapper.classList.add('collapsed');
+            sectionElement.classList.add('section-collapsed');
         } else {
             // Hide button and remove collapsed state
             button.classList.remove('visible');
             wrapper.classList.remove('collapsed');
+            sectionElement.classList.remove('section-collapsed');
         }
     }
 
@@ -67,12 +70,14 @@ function setupSectionCollapse() {
     function handleButtonClick(section) {
         const wrapper = document.querySelector(`.section-collapsible-wrapper[data-section="${section}"]`);
         const button = document.querySelector(`.section-expand-btn[data-section="${section}"]`);
+        const sectionElement = document.getElementById(section);
 
-        if (!wrapper || !button) return;
+        if (!wrapper || !button || !sectionElement) return;
 
         // Mark as expanded and remove collapsed state
         sectionStates[section].isExpanded = true;
         wrapper.classList.remove('collapsed');
+        sectionElement.classList.remove('section-collapsed');
 
         // Hide the button permanently
         button.classList.remove('visible');
