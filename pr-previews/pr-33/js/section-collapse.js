@@ -1,5 +1,5 @@
 // Section Collapse/Expand Functionality
-// Collapses long sections when there are fewer than 3 cards side-by-side
+// Collapses long sections when section height exceeds viewport height
 
 function setupSectionCollapse() {
     const sections = ['services', 'skills', 'projects', 'publications'];
@@ -8,35 +8,25 @@ function setupSectionCollapse() {
     // Initialize state for each section
     sections.forEach(section => {
         sectionStates[section] = {
-            isExpanded: false,
-            shouldCollapse: false
+            isExpanded: false
         };
     });
 
-    // Function to count how many cards fit in one row
-    function getCardsPerRow(wrapper) {
-        const grid = wrapper.querySelector('[class$="-grid"]');
-        if (!grid) return 3; // Default to 3 if grid not found
+    // Function to check if section height exceeds viewport height
+    function shouldCollapseSection(wrapper) {
+        // Temporarily remove collapsed class to measure full height
+        const wasCollapsed = wrapper.classList.contains('collapsed');
+        wrapper.classList.remove('collapsed');
 
-        const cards = Array.from(grid.children);
-        if (cards.length === 0) return 3;
+        const sectionHeight = wrapper.scrollHeight;
+        const viewportHeight = window.innerHeight;
 
-        // Get the top position of the first card
-        const firstCardTop = cards[0].getBoundingClientRect().top;
-
-        // Count how many cards are on the same row (same top position)
-        let cardsInFirstRow = 0;
-        for (const card of cards) {
-            const cardTop = card.getBoundingClientRect().top;
-            // Use a small threshold (5px) to account for minor differences
-            if (Math.abs(cardTop - firstCardTop) < 5) {
-                cardsInFirstRow++;
-            } else {
-                break;
-            }
+        // Restore collapsed state if it was collapsed
+        if (wasCollapsed) {
+            wrapper.classList.add('collapsed');
         }
 
-        return cardsInFirstRow;
+        return sectionHeight > viewportHeight;
     }
 
     // Function to check if section should be collapsed
@@ -46,25 +36,21 @@ function setupSectionCollapse() {
 
         if (!wrapper || !button) return;
 
-        const cardsPerRow = getCardsPerRow(wrapper);
-        const shouldCollapse = cardsPerRow < 3;
+        // Skip if already expanded by user
+        if (sectionStates[section].isExpanded) {
+            return;
+        }
 
-        sectionStates[section].shouldCollapse = shouldCollapse;
+        const shouldCollapse = shouldCollapseSection(wrapper);
 
         if (shouldCollapse) {
-            // Show button and apply collapsed state if not expanded
+            // Show button and apply collapsed state
             button.classList.add('visible');
-            if (!sectionStates[section].isExpanded) {
-                wrapper.classList.add('collapsed');
-                button.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
-                button.classList.remove('expanded');
-            }
+            wrapper.classList.add('collapsed');
         } else {
             // Hide button and remove collapsed state
             button.classList.remove('visible');
             wrapper.classList.remove('collapsed');
-            // Reset expanded state when not collapsing
-            sectionStates[section].isExpanded = false;
         }
     }
 
@@ -75,33 +61,12 @@ function setupSectionCollapse() {
 
         if (!wrapper || !button) return;
 
-        sectionStates[section].isExpanded = !sectionStates[section].isExpanded;
+        // Mark as expanded and remove collapsed state
+        sectionStates[section].isExpanded = true;
+        wrapper.classList.remove('collapsed');
 
-        if (sectionStates[section].isExpanded) {
-            wrapper.classList.remove('collapsed');
-            button.innerHTML = 'Show Less <i class="fas fa-chevron-down"></i>';
-            button.classList.add('expanded');
-        } else {
-            wrapper.classList.add('collapsed');
-            button.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
-            button.classList.remove('expanded');
-
-            // Smooth scroll to section top when collapsing
-            const section_element = wrapper.closest('section');
-            if (section_element) {
-                const rect = section_element.getBoundingClientRect();
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                const sectionTop = rect.top + scrollTop;
-
-                // Only scroll if we're below the section
-                if (window.pageYOffset > sectionTop) {
-                    window.scrollTo({
-                        top: sectionTop - 20,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        }
+        // Hide the button permanently
+        button.classList.remove('visible');
     }
 
     // Initialize all sections

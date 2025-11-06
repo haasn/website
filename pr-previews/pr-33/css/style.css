@@ -776,11 +776,6 @@ h2 {
 
 .section-expand-btn i {
     margin-left: 0.5rem;
-    transition: transform 0.3s;
-}
-
-.section-expand-btn.expanded i {
-    transform: rotate(180deg);
 }
 
 .section-expand-btn.visible {
