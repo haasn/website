@@ -5,68 +5,68 @@
     box-sizing: border-box;
 }
 
-/* Light theme (default) - Pink/Purple Edition */
+/* Light theme (default) - Teal/Cyan Edition */
 :root {
-    --primary-color: #c026d3;
-    --primary-dark: #a21caf;
-    --accent-color: #a855f7;
-    --secondary-color: #7c6b8a;
-    --text-primary: #2d1b3d;
-    --text-secondary: #5a4569;
-    --bg-primary: #fefbff;
-    --bg-secondary: #f5edf8;
-    --bg-tertiary: #e9d5f2;
-    --border-color: #d4b8e0;
-    --header-bg: rgba(254, 251, 255, 0.90);
-    --hero-gradient-start: #fdf4ff;
-    --hero-gradient-mid: #f5edf8;
-    --hero-gradient-end: #ede3f4;
-    --hero-text-color: #2d1b3d;
-    --gradient-overlay-1: rgba(192, 38, 211, 0.06);
-    --gradient-overlay-2: rgba(168, 85, 247, 0.06);
-    --shimmer-1: rgba(192, 38, 211, 0.04);
-    --shimmer-2: rgba(168, 85, 247, 0.04);
-    --shadow-sm: 0 1px 2px 0 rgba(45, 27, 61, 0.08);
-    --shadow-md: 0 4px 6px -1px rgba(45, 27, 61, 0.12);
-    --shadow-lg: 0 10px 15px -3px rgba(45, 27, 61, 0.15);
-    --shadow-xl: 0 20px 25px -5px rgba(45, 27, 61, 0.18);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(192, 38, 211, 0.35), 0 6px 15px rgba(168, 85, 247, 0.2);
-    --btn-secondary-hover-bg: rgba(192, 38, 211, 0.1);
-    --gradient-placeholder: linear-gradient(135deg, rgba(192, 38, 211, 0.18), rgba(168, 85, 247, 0.18));
-    --card-overlay: rgba(192, 38, 211, 0.04);
+    --primary-color: #0891b2;
+    --primary-dark: #0e7490;
+    --accent-color: #06b6d4;
+    --secondary-color: #5f7c8a;
+    --text-primary: #1b3d3d;
+    --text-secondary: #456969;
+    --bg-primary: #fbfeff;
+    --bg-secondary: #edf8f8;
+    --bg-tertiary: #d5f2f2;
+    --border-color: #b8e0e0;
+    --header-bg: rgba(251, 254, 255, 0.90);
+    --hero-gradient-start: #f0fdf4;
+    --hero-gradient-mid: #edf8f8;
+    --hero-gradient-end: #e3f4f4;
+    --hero-text-color: #1b3d3d;
+    --gradient-overlay-1: rgba(8, 145, 178, 0.06);
+    --gradient-overlay-2: rgba(6, 182, 212, 0.06);
+    --shimmer-1: rgba(8, 145, 178, 0.04);
+    --shimmer-2: rgba(6, 182, 212, 0.04);
+    --shadow-sm: 0 1px 2px 0 rgba(27, 61, 61, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(27, 61, 61, 0.12);
+    --shadow-lg: 0 10px 15px -3px rgba(27, 61, 61, 0.15);
+    --shadow-xl: 0 20px 25px -5px rgba(27, 61, 61, 0.18);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(8, 145, 178, 0.35), 0 6px 15px rgba(6, 182, 212, 0.2);
+    --btn-secondary-hover-bg: rgba(8, 145, 178, 0.1);
+    --gradient-placeholder: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(6, 182, 212, 0.18));
+    --card-overlay: rgba(8, 145, 178, 0.04);
     --talk-gradient-start: #ca8a04;
     --talk-gradient-end: #a16207;
 }
 
-/* Dark theme - Enhanced Purple/Blue Edition */
+/* Dark theme - Enhanced Teal/Cyan Edition */
 :root[data-theme="dark"] {
-    --primary-color: #df79fb;
-    --primary-dark: #d346f2;
-    --accent-color: #ba84fd;
-    --secondary-color: #b3a3d5;
-    --text-primary: #f5f3ff;
-    --text-secondary: #ddd6f0;
-    --bg-primary: #0a0612;
-    --bg-secondary: #291e3d;
-    --bg-tertiary: #3b2759;
-    --border-color: #513d73;
-    --header-bg: rgba(10, 6, 18, 0.90);
-    --hero-gradient-start: #120a23;
-    --hero-gradient-mid: #0e081a;
-    --hero-gradient-end: #0a0612;
-    --hero-text-color: #f5f3ff;
-    --gradient-overlay-1: rgba(223, 121, 251, 0.05);
-    --gradient-overlay-2: rgba(186, 132, 253, 0.06);
-    --shimmer-1: rgba(223, 121, 251, 0.07);
-    --shimmer-2: rgba(186, 132, 253, 0.09);
+    --primary-color: #22d3ee;
+    --primary-dark: #06b6d4;
+    --accent-color: #67e8f9;
+    --secondary-color: #a3d5c3;
+    --text-primary: #f3fffd;
+    --text-secondary: #d6f0e8;
+    --bg-primary: #061208;
+    --bg-secondary: #1e3d29;
+    --bg-tertiary: #275940;
+    --border-color: #3d7351;
+    --header-bg: rgba(6, 18, 8, 0.90);
+    --hero-gradient-start: #0a2312;
+    --hero-gradient-mid: #081a0e;
+    --hero-gradient-end: #061208;
+    --hero-text-color: #f3fffd;
+    --gradient-overlay-1: rgba(34, 211, 238, 0.05);
+    --gradient-overlay-2: rgba(103, 232, 249, 0.06);
+    --shimmer-1: rgba(34, 211, 238, 0.07);
+    --shimmer-2: rgba(103, 232, 249, 0.09);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(223, 121, 251, 0.45), 0 6px 15px rgba(186, 132, 253, 0.25);
-    --btn-secondary-hover-bg: rgba(223, 121, 251, 0.13);
-    --gradient-placeholder: linear-gradient(135deg, rgba(223, 121, 251, 0.24), rgba(186, 132, 253, 0.26));
-    --card-overlay: rgba(186, 132, 253, 0.06);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(34, 211, 238, 0.45), 0 6px 15px rgba(103, 232, 249, 0.25);
+    --btn-secondary-hover-bg: rgba(34, 211, 238, 0.13);
+    --gradient-placeholder: linear-gradient(135deg, rgba(34, 211, 238, 0.24), rgba(103, 232, 249, 0.26));
+    --card-overlay: rgba(103, 232, 249, 0.06);
 }
 
 /* Dark theme specific overrides
@@ -77,21 +77,21 @@
     background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25)),
         linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: #0a0612;
+    color: #061208;
 }
 
 :root[data-theme="dark"] .publication-type {
     background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),
         var(--primary-color);
-    color: #0a0612;
+    color: #061208;
 }
 
 :root[data-theme="dark"] .publication-type.talk {
     background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4)),
         linear-gradient(135deg, #fbbf24, #f59e0b);
-    color: #0a0612;
+    color: #061208;
 }
 
 html {
@@ -162,8 +162,22 @@ nav {
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--primary-color);
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1031,9 +1045,9 @@ footer a:hover {
 
 /* Responsive Design - Container Queries */
 
-/* Nav: Show shortened logo "Haas" only when nav is narrower */
+/* Nav: Hide logo text when nav is narrower, keep icon only */
 @container navigation (max-width: 850px) {
-    .logo-suffix {
+    .logo-text {
         display: none;
     }
 }
@@ -1064,10 +1078,15 @@ footer a:hover {
     }
 }
 
-/* Nav: Hide logo entirely when very narrow */
+/* Nav: Keep icon-only logo even when very narrow for branding */
 @container navigation (max-width: 470px) {
     .logo {
-        display: none;
+        gap: 0;
+    }
+
+    .logo-icon {
+        width: 28px;
+        height: 28px;
     }
 }
 
