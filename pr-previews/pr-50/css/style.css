@@ -11,8 +11,8 @@
     --primary-dark: #155e75;
     --accent-color: #0891b2;
     --secondary-color: #5f7c8a;
-    --text-primary: #1b3d3d;
-    --text-secondary: #456969;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
     --bg-primary: #fbfeff;
     --bg-secondary: #edf8f8;
     --bg-tertiary: #d5f2f2;
@@ -21,15 +21,15 @@
     --hero-gradient-start: #f0fdf4;
     --hero-gradient-mid: #edf8f8;
     --hero-gradient-end: #e3f4f4;
-    --hero-text-color: #1b3d3d;
+    --hero-text-color: #0f172a;
     --gradient-overlay-1: rgba(8, 145, 178, 0.06);
     --gradient-overlay-2: rgba(6, 182, 212, 0.06);
     --shimmer-1: rgba(8, 145, 178, 0.04);
     --shimmer-2: rgba(6, 182, 212, 0.04);
-    --shadow-sm: 0 1px 2px 0 rgba(27, 61, 61, 0.08);
-    --shadow-md: 0 4px 6px -1px rgba(27, 61, 61, 0.12);
-    --shadow-lg: 0 10px 15px -3px rgba(27, 61, 61, 0.15);
-    --shadow-xl: 0 20px 25px -5px rgba(27, 61, 61, 0.18);
+    --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.12);
+    --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
+    --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.18);
     --btn-primary-hover-shadow: 0 10px 25px rgba(8, 145, 178, 0.35), 0 6px 15px rgba(6, 182, 212, 0.2);
     --btn-secondary-hover-bg: rgba(8, 145, 178, 0.1);
     --gradient-placeholder: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(6, 182, 212, 0.18));
@@ -44,8 +44,8 @@
     --primary-dark: #22d3ee;
     --accent-color: #a5f3fc;
     --secondary-color: #a3d5c3;
-    --text-primary: #f3fffd;
-    --text-secondary: #d6f0e8;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
     --bg-primary: #061208;
     --bg-secondary: #1e3d29;
     --bg-tertiary: #275940;
@@ -54,7 +54,7 @@
     --hero-gradient-start: #0a2312;
     --hero-gradient-mid: #081a0e;
     --hero-gradient-end: #061208;
-    --hero-text-color: #f3fffd;
+    --hero-text-color: #f1f5f9;
     --gradient-overlay-1: rgba(34, 211, 238, 0.05);
     --gradient-overlay-2: rgba(103, 232, 249, 0.06);
     --shimmer-1: rgba(34, 211, 238, 0.07);
@@ -156,9 +156,13 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.25rem 2rem;
     container-type: inline-size;
     container-name: navigation;
+}
+
+nav.container {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
 }
 
 .logo {
