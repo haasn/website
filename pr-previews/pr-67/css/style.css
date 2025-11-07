@@ -186,8 +186,8 @@ nav.container {
 
 .logo-text-n {
     background: none;
-    -webkit-text-fill-color: var(--text-primary);
-    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 .nav-links {
