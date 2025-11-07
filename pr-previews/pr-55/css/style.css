@@ -1064,11 +1064,12 @@ footer a:hover {
 /* Nav: Adjust layout and hide Publications when space is tight */
 @container navigation (max-width: 768px) {
     nav.container {
-        padding-left: 0;
-        padding-right: 0.75rem;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     .logo {
+        margin-left: -1em;
         margin-right: 1.5rem;
     }
 
