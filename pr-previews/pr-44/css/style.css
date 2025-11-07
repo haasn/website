@@ -5,39 +5,8 @@
     box-sizing: border-box;
 }
 
-/* Dark theme (default) - Enhanced Purple/Blue Edition */
+/* Light theme (default) - Pink/Purple Edition */
 :root {
-    --primary-color: #df79fb;
-    --primary-dark: #d346f2;
-    --accent-color: #ba84fd;
-    --secondary-color: #b3a3d5;
-    --text-primary: #f5f3ff;
-    --text-secondary: #ddd6f0;
-    --bg-primary: #0a0612;
-    --bg-secondary: #291e3d;
-    --bg-tertiary: #3b2759;
-    --border-color: #513d73;
-    --header-bg: rgba(10, 6, 18, 0.90);
-    --hero-gradient-start: #120a23;
-    --hero-gradient-mid: #0e081a;
-    --hero-gradient-end: #0a0612;
-    --hero-text-color: #f5f3ff;
-    --gradient-overlay-1: rgba(223, 121, 251, 0.05);
-    --gradient-overlay-2: rgba(186, 132, 253, 0.06);
-    --shimmer-1: rgba(223, 121, 251, 0.07);
-    --shimmer-2: rgba(186, 132, 253, 0.09);
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(223, 121, 251, 0.45), 0 6px 15px rgba(186, 132, 253, 0.25);
-    --btn-secondary-hover-bg: rgba(223, 121, 251, 0.13);
-    --gradient-placeholder: linear-gradient(135deg, rgba(223, 121, 251, 0.24), rgba(186, 132, 253, 0.26));
-    --card-overlay: rgba(186, 132, 253, 0.06);
-}
-
-/* Light theme - Pink/Purple Edition */
-:root[data-theme="light"] {
     --primary-color: #c026d3;
     --primary-dark: #a21caf;
     --accent-color: #a855f7;
@@ -70,22 +39,129 @@
 }
 
 /* Light theme specific overrides
-   These override the dark theme's white overlay styling.
-   Dark theme uses white overlays on buttons/tags for brightness,
-   but light theme uses solid colors with white text instead. */
-:root[data-theme="light"] .btn-primary {
+   Light theme uses solid colors with white text on buttons/tags */
+:root .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     color: white;
 }
 
-:root[data-theme="light"] .publication-type {
+:root .publication-type {
     background: var(--primary-color);
     color: white;
 }
 
-:root[data-theme="light"] .publication-type.talk {
+:root .publication-type.talk {
     background: linear-gradient(135deg, var(--talk-gradient-start), var(--talk-gradient-end));
     color: white;
+}
+
+/* Dark theme - Enhanced Purple/Blue Edition
+   Applied when user's system preference is set to dark mode */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --primary-color: #df79fb;
+        --primary-dark: #d346f2;
+        --accent-color: #ba84fd;
+        --secondary-color: #b3a3d5;
+        --text-primary: #f5f3ff;
+        --text-secondary: #ddd6f0;
+        --bg-primary: #0a0612;
+        --bg-secondary: #291e3d;
+        --bg-tertiary: #3b2759;
+        --border-color: #513d73;
+        --header-bg: rgba(10, 6, 18, 0.90);
+        --hero-gradient-start: #120a23;
+        --hero-gradient-mid: #0e081a;
+        --hero-gradient-end: #0a0612;
+        --hero-text-color: #f5f3ff;
+        --gradient-overlay-1: rgba(223, 121, 251, 0.05);
+        --gradient-overlay-2: rgba(186, 132, 253, 0.06);
+        --shimmer-1: rgba(223, 121, 251, 0.07);
+        --shimmer-2: rgba(186, 132, 253, 0.09);
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+        --btn-primary-hover-shadow: 0 10px 25px rgba(223, 121, 251, 0.45), 0 6px 15px rgba(186, 132, 253, 0.25);
+        --btn-secondary-hover-bg: rgba(223, 121, 251, 0.13);
+        --gradient-placeholder: linear-gradient(135deg, rgba(223, 121, 251, 0.24), rgba(186, 132, 253, 0.26));
+        --card-overlay: rgba(186, 132, 253, 0.06);
+    }
+
+    /* Dark theme specific overrides
+       Dark theme uses white overlays on buttons/tags for brightness */
+    :root:not([data-theme="light"]) .btn-primary {
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25)),
+            linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        color: #0a0612;
+    }
+
+    :root:not([data-theme="light"]) .publication-type {
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),
+            var(--primary-color);
+        color: #0a0612;
+    }
+
+    :root:not([data-theme="light"]) .publication-type.talk {
+        background:
+            linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4)),
+            linear-gradient(135deg, #fbbf24, #f59e0b);
+        color: #0a0612;
+    }
+}
+
+/* Explicit dark theme override (for manual theme toggle) */
+:root[data-theme="dark"] {
+    --primary-color: #df79fb;
+    --primary-dark: #d346f2;
+    --accent-color: #ba84fd;
+    --secondary-color: #b3a3d5;
+    --text-primary: #f5f3ff;
+    --text-secondary: #ddd6f0;
+    --bg-primary: #0a0612;
+    --bg-secondary: #291e3d;
+    --bg-tertiary: #3b2759;
+    --border-color: #513d73;
+    --header-bg: rgba(10, 6, 18, 0.90);
+    --hero-gradient-start: #120a23;
+    --hero-gradient-mid: #0e081a;
+    --hero-gradient-end: #0a0612;
+    --hero-text-color: #f5f3ff;
+    --gradient-overlay-1: rgba(223, 121, 251, 0.05);
+    --gradient-overlay-2: rgba(186, 132, 253, 0.06);
+    --shimmer-1: rgba(223, 121, 251, 0.07);
+    --shimmer-2: rgba(186, 132, 253, 0.09);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(223, 121, 251, 0.45), 0 6px 15px rgba(186, 132, 253, 0.25);
+    --btn-secondary-hover-bg: rgba(223, 121, 251, 0.13);
+    --gradient-placeholder: linear-gradient(135deg, rgba(223, 121, 251, 0.24), rgba(186, 132, 253, 0.26));
+    --card-overlay: rgba(186, 132, 253, 0.06);
+}
+
+:root[data-theme="dark"] .btn-primary {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25)),
+        linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #0a0612;
+}
+
+:root[data-theme="dark"] .publication-type {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)),
+        var(--primary-color);
+    color: #0a0612;
+}
+
+:root[data-theme="dark"] .publication-type.talk {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.4)),
+        linear-gradient(135deg, #fbbf24, #f59e0b);
+    color: #0a0612;
 }
 
 html {
