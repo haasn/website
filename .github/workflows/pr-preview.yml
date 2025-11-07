@@ -47,6 +47,12 @@ jobs:
           cd _site/assets
           find . -type f \( -name "*.pdf" -o -name "*.mp4" -o -name "*.mov" \) -delete
 
+      - name: Remove CNAME from PR preview
+        if: github.event.action != 'closed'
+        run: |
+          # Remove CNAME file from PR previews - it should only exist at the root of gh-pages
+          rm -f _site/CNAME
+
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1.6.2
         with:
