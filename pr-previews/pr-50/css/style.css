@@ -286,11 +286,13 @@ nav.container {
 }
 
 #hero h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    font-family: Georgia, "Times New Roman", Baskerville, serif;
+    font-size: 4rem;
+    font-weight: 300;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--hero-text-color), var(--primary-color));
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1100,7 +1102,8 @@ footer a:hover {
 /* Hero Section: Medium screens */
 @container hero-section (max-width: 768px) {
     #hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        letter-spacing: 0.15rem;
     }
 
     .tagline {
@@ -1115,7 +1118,8 @@ footer a:hover {
     }
 
     #hero h1 {
-        font-size: 2.25rem;
+        font-size: 1.75rem;
+        letter-spacing: 0.1rem;
     }
 
     .tagline {
