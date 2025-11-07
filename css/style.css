@@ -182,11 +182,6 @@ nav {
     color: var(--primary-color);
 }
 
-.nav-links a.active {
-    color: var(--primary-color);
-    transition: none;
-}
-
 /* Focus states for accessibility */
 /* Fallback for browsers that don't support :focus-visible */
 .nav-links a:focus {
@@ -202,11 +197,6 @@ nav {
 
 /* Modern browsers: hide focus outline on mouse/touch interaction */
 .nav-links a:focus:not(:focus-visible) {
-    outline: none;
-}
-
-/* Hide focus outline when using touch (iOS Safari fix) */
-html.using-touch .nav-links a:focus {
     outline: none;
 }
 
