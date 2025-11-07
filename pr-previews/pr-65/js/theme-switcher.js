@@ -69,17 +69,6 @@ function setupThemeSwitcher() {
         themeIcon.textContent = currentTheme === 'dark' ? 'brightness_7' : 'brightness_4';
     }
 
-    // Update favicon based on current theme
-    function updateFavicon() {
-        const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const faviconPath = currentTheme === 'dark' ? '/favicon-dark.svg' : '/favicon.svg';
-
-        const favicon = document.querySelector('link[rel="icon"]');
-        if (favicon) {
-            favicon.href = faviconPath;
-        }
-    }
-
     // Apply theme
     function setTheme(theme, isManualChange = false, shouldBroadcast = true) {
         if (theme === 'dark') {
@@ -94,7 +83,6 @@ function setupThemeSwitcher() {
         }
 
         updateIcon();
-        updateFavicon();
 
         // Broadcast to other tabs
         if (shouldBroadcast && themeChannel) {
@@ -110,9 +98,8 @@ function setupThemeSwitcher() {
         setTheme(newTheme, true, true);
     }
 
-    // Initialize icon and favicon (theme already applied in head)
+    // Initialize icon (theme already applied in head)
     updateIcon();
-    updateFavicon();
 
     // Add click handler
     themeToggle.addEventListener('click', toggleTheme);
