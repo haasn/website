@@ -24,8 +24,6 @@
     --hero-text-color: #0f172a;
     --gradient-overlay-1: rgba(8, 145, 178, 0.06);
     --gradient-overlay-2: rgba(6, 182, 212, 0.06);
-    --shimmer-1: rgba(8, 145, 178, 0.04);
-    --shimmer-2: rgba(6, 182, 212, 0.04);
     --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.08);
     --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.12);
     --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
@@ -57,8 +55,6 @@
     --hero-text-color: #f1f5f9;
     --gradient-overlay-1: rgba(34, 211, 238, 0.03);
     --gradient-overlay-2: rgba(103, 232, 249, 0.04);
-    --shimmer-1: rgba(34, 211, 238, 0.05);
-    --shimmer-2: rgba(103, 232, 249, 0.06);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
@@ -272,10 +268,10 @@ nav.container {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image:
-        radial-gradient(circle at 1px 1px, var(--shimmer-1) 1px, transparent 1px);
-    background-size: 40px 40px;
-    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    pointer-events: none;
 }
 
 #hero .container {
