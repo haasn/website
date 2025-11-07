@@ -7,9 +7,9 @@
 
 /* Light theme (default) - Teal/Cyan Edition */
 :root {
-    --primary-color: #0891b2;
-    --primary-dark: #0e7490;
-    --accent-color: #06b6d4;
+    --primary-color: #0e7490;
+    --primary-dark: #155e75;
+    --accent-color: #0891b2;
     --secondary-color: #5f7c8a;
     --text-primary: #1b3d3d;
     --text-secondary: #456969;
@@ -40,9 +40,9 @@
 
 /* Dark theme - Enhanced Teal/Cyan Edition */
 :root[data-theme="dark"] {
-    --primary-color: #22d3ee;
-    --primary-dark: #06b6d4;
-    --accent-color: #67e8f9;
+    --primary-color: #67e8f9;
+    --primary-dark: #22d3ee;
+    --accent-color: #a5f3fc;
     --secondary-color: #a3d5c3;
     --text-primary: #f3fffd;
     --text-secondary: #d6f0e8;
@@ -156,7 +156,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1.25rem 2rem;
     container-type: inline-size;
     container-name: navigation;
 }
@@ -177,7 +177,7 @@ nav {
 .logo-text {
     font-size: 1.3rem;
     font-weight: 300;
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.15rem;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
