@@ -3,10 +3,10 @@
 
 // Get current system preference
 function getSystemPreference() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
     }
-    return 'dark';
+    return 'light';
 }
 
 // Apply theme before page renders to prevent flicker
@@ -43,8 +43,8 @@ function initTheme() {
         }
     }
 
-    if (themeToApply === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
+    if (themeToApply === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
     } else {
         document.documentElement.removeAttribute('data-theme');
     }
@@ -65,14 +65,14 @@ function setupThemeSwitcher() {
 
     // Update icon based on current theme
     function updateIcon() {
-        const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        themeIcon.textContent = currentTheme === 'light' ? 'brightness_4' : 'brightness_7';
+        const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        themeIcon.textContent = currentTheme === 'dark' ? 'brightness_7' : 'brightness_4';
     }
 
     // Apply theme
     function setTheme(theme, isManualChange = false, shouldBroadcast = true) {
-        if (theme === 'light') {
-            root.setAttribute('data-theme', 'light');
+        if (theme === 'dark') {
+            root.setAttribute('data-theme', 'dark');
         } else {
             root.removeAttribute('data-theme');
         }
@@ -93,8 +93,8 @@ function setupThemeSwitcher() {
     // Toggle theme (manual user action)
     function toggleTheme(e) {
         e.preventDefault();
-        const currentTheme = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         setTheme(newTheme, true, true);
     }
 
@@ -114,10 +114,10 @@ function setupThemeSwitcher() {
 
     // Listen for system theme changes (live updates)
     if (window.matchMedia) {
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
         mediaQuery.addEventListener('change', (e) => {
-            const newSystemPref = e.matches ? 'light' : 'dark';
+            const newSystemPref = e.matches ? 'dark' : 'light';
             const isManual = localStorage.getItem('themeIsManual') === 'true';
 
             // Update last known system preference
