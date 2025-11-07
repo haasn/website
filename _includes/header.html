@@ -22,8 +22,10 @@
         <nav class="container">
             <a href="{{ '/' | relative_url }}" class="logo">
                 <svg class="logo-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path class="triangle-outer" d="M25 8 L45 43 L5 43 Z" fill="currentColor"/>
-                    <path class="triangle-inner" d="M25 16 L38 36 L12 36 Z" fill="var(--bg-primary)"/>
+                    <line class="monogram-left" x1="15" y1="10" x2="15" y2="40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <line class="monogram-right" x1="35" y1="10" x2="35" y2="40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <line class="monogram-horizontal" x1="15" y1="25" x2="35" y2="25" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                    <line class="monogram-diagonal" x1="15" y1="10" x2="35" y2="40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
                 </svg>
                 <span class="logo-text">h a a s n</span>
             </a>
