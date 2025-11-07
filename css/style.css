@@ -184,6 +184,12 @@ nav.container {
     background-clip: text;
 }
 
+.logo-text-n {
+    background: none;
+    -webkit-text-fill-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
 .nav-links {
     display: flex;
     list-style: none;
