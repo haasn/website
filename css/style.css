@@ -1064,7 +1064,7 @@ footer a:hover {
 /* Nav: Adjust layout and hide Publications when space is tight */
 @container navigation (max-width: 768px) {
     nav {
-        gap: 1rem;
+        gap: 2rem;
         padding: 0.75rem 1rem;
         justify-content: center;
     }
@@ -1118,7 +1118,7 @@ footer a:hover {
     }
 
     #hero h1 {
-        font-size: 1.75rem;
+        font-size: 3rem;
         letter-spacing: 0.1rem;
     }
 
