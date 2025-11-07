@@ -5,35 +5,35 @@
     box-sizing: border-box;
 }
 
-/* Dark theme (default) - Enhanced Purple/Pink Edition */
+/* Dark theme (default) - Enhanced Purple/Blue Edition */
 :root {
-    --primary-color: #e879f9;
-    --primary-dark: #d946ef;
-    --accent-color: #c084fc;
-    --secondary-color: #b8a3d1;
+    --primary-color: #df79fb;
+    --primary-dark: #d346f2;
+    --accent-color: #ba84fd;
+    --secondary-color: #b3a3d5;
     --text-primary: #f5f3ff;
     --text-secondary: #ddd6f0;
     --bg-primary: #0a0612;
-    --bg-secondary: #2b1e39;
-    --bg-tertiary: #3e2755;
-    --border-color: #553d6f;
+    --bg-secondary: #291e3d;
+    --bg-tertiary: #3b2759;
+    --border-color: #513d73;
     --header-bg: rgba(10, 6, 18, 0.90);
-    --hero-gradient-start: #2b1e39;
-    --hero-gradient-mid: #0a0612;
-    --hero-gradient-end: #2b1e39;
+    --hero-gradient-start: #120a23;
+    --hero-gradient-mid: #0e081a;
+    --hero-gradient-end: #0a0612;
     --hero-text-color: #f5f3ff;
-    --gradient-overlay-1: rgba(232, 121, 249, 0.11);
-    --gradient-overlay-2: rgba(192, 132, 252, 0.13);
-    --shimmer-1: rgba(232, 121, 249, 0.07);
-    --shimmer-2: rgba(192, 132, 252, 0.09);
+    --gradient-overlay-1: rgba(223, 121, 251, 0.05);
+    --gradient-overlay-2: rgba(186, 132, 253, 0.06);
+    --shimmer-1: rgba(223, 121, 251, 0.07);
+    --shimmer-2: rgba(186, 132, 253, 0.09);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(232, 121, 249, 0.45), 0 6px 15px rgba(192, 132, 252, 0.25);
-    --btn-secondary-hover-bg: rgba(232, 121, 249, 0.13);
-    --gradient-placeholder: linear-gradient(135deg, rgba(232, 121, 249, 0.24), rgba(192, 132, 252, 0.26));
-    --card-overlay: rgba(192, 132, 252, 0.06);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(223, 121, 251, 0.45), 0 6px 15px rgba(186, 132, 253, 0.25);
+    --btn-secondary-hover-bg: rgba(223, 121, 251, 0.13);
+    --gradient-placeholder: linear-gradient(135deg, rgba(223, 121, 251, 0.24), rgba(186, 132, 253, 0.26));
+    --card-overlay: rgba(186, 132, 253, 0.06);
 }
 
 /* Light theme - Pink/Purple Edition */
@@ -49,9 +49,9 @@
     --bg-tertiary: #e9d5f2;
     --border-color: #d4b8e0;
     --header-bg: rgba(254, 251, 255, 0.90);
-    --hero-gradient-start: #f5edf8;
-    --hero-gradient-mid: #fae8ff;
-    --hero-gradient-end: #f5edf8;
+    --hero-gradient-start: #fdf4ff;
+    --hero-gradient-mid: #f5edf8;
+    --hero-gradient-end: #ede3f4;
     --hero-text-color: #2d1b3d;
     --gradient-overlay-1: rgba(192, 38, 211, 0.06);
     --gradient-overlay-2: rgba(168, 85, 247, 0.06);
@@ -232,7 +232,7 @@ nav {
 
 /* Hero Section */
 #hero {
-    background: linear-gradient(135deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
+    background: linear-gradient(180deg, var(--hero-gradient-start) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-end) 100%);
     position: relative;
     color: var(--hero-text-color);
     padding: 6rem 0;
