@@ -24,8 +24,6 @@
     --hero-text-color: #0f172a;
     --gradient-overlay-1: rgba(8, 145, 178, 0.06);
     --gradient-overlay-2: rgba(6, 182, 212, 0.06);
-    --shimmer-1: rgba(8, 145, 178, 0.04);
-    --shimmer-2: rgba(6, 182, 212, 0.04);
     --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.08);
     --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.12);
     --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
@@ -57,8 +55,6 @@
     --hero-text-color: #f1f5f9;
     --gradient-overlay-1: rgba(34, 211, 238, 0.03);
     --gradient-overlay-2: rgba(103, 232, 249, 0.04);
-    --shimmer-1: rgba(34, 211, 238, 0.05);
-    --shimmer-2: rgba(103, 232, 249, 0.06);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
