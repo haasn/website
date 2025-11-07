@@ -72,21 +72,11 @@ function setupThemeSwitcher() {
     // Update favicon based on current theme
     function updateFavicon() {
         const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-        const color = currentTheme === 'dark' ? '#6dd4e0' : '#0e7490';
-
-        const svg = `<svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <line x1="12" y1="12" x2="12" y2="38" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-    <line x1="12" y1="12" x2="15" y2="12" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-    <line x1="12" y1="38" x2="15" y2="38" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-    <line x1="20" y1="25" x2="30" y2="25" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-    <line x1="38" y1="12" x2="38" y2="38" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-    <line x1="35" y1="12" x2="38" y2="12" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-    <line x1="35" y1="38" x2="38" y2="38" stroke="${color}" stroke-width="4" stroke-linecap="round"/>
-</svg>`;
+        const faviconPath = currentTheme === 'dark' ? '/favicon-dark.svg' : '/favicon.svg';
 
         const favicon = document.querySelector('link[rel="icon"]');
         if (favicon) {
-            favicon.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+            favicon.href = faviconPath;
         }
     }
 
