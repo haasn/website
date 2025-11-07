@@ -40,10 +40,10 @@
 
 /* Dark theme - Enhanced Teal/Cyan Edition */
 :root[data-theme="dark"] {
-    --primary-color: #67e8f9;
-    --primary-dark: #22d3ee;
-    --accent-color: #a5f3fc;
-    --secondary-color: #7dd3c0;
+    --primary-color: #6dd4e0;
+    --primary-dark: #4ab8cc;
+    --accent-color: #aee4ed;
+    --secondary-color: #7dc0b5;
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
     --bg-primary: #0a1419;
