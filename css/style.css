@@ -492,7 +492,7 @@ h2 {
 }
 
 .expertise-card h3 {
-    color: var(--primary-color);
+    color: var(--text-primary);
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     font-weight: 600;
@@ -536,7 +536,7 @@ h2 {
 }
 
 .skill-card h3 {
-    color: var(--primary-color);
+    color: var(--text-primary);
     font-size: 1.375rem;
     margin-bottom: 1rem;
     font-weight: 600;
