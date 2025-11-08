@@ -154,11 +154,19 @@ nav {
     align-items: center;
     container-type: inline-size;
     container-name: navigation;
+    overflow: hidden;
+    max-height: 3em;
 }
 
 nav.container {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
+}
+
+.logo-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .logo {
@@ -195,6 +203,14 @@ nav.container {
     list-style: none;
     gap: 2rem;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-items-wrappable {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -202,6 +218,7 @@ nav.container {
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -1055,24 +1072,10 @@ footer a:hover {
 }
 
 /* Responsive Design - Container Queries */
-/* Nav items hide in priority order: logo-text → Publications → Projects */
-/* Always visible: About, Services, Skills, Contact, icon */
+/* Nav items now hide automatically via flex-wrap + overflow:hidden */
+/* Elements wrap to second line when space is limited, then get clipped */
 
-/* Priority 1: Hide logo text "haasn" when space is limited */
-@container navigation (max-width: 750px) {
-    .logo-text {
-        display: none;
-    }
-}
-
-/* Priority 2: Hide Publications link */
-@container navigation (max-width: 650px) {
-    .nav-item-publications {
-        display: none;
-    }
-}
-
-/* Priority 3: Apply mobile optimizations - compact spacing */
+/* Mobile optimizations - compact spacing */
 @container navigation (max-width: 550px) {
     nav.container {
         padding-left: 1em;
@@ -1087,6 +1090,10 @@ footer a:hover {
     .nav-links {
         gap: 0.75rem;
         font-size: 0.95rem;
+    }
+
+    .nav-items-wrappable {
+        gap: 0.75rem;
     }
 }
 
@@ -1104,7 +1111,7 @@ footer a:hover {
 
 /* Mobile: Always hide theme toggle on touch devices (regardless of width) */
 @media (hover: none) and (pointer: coarse) {
-    .nav-item-theme {
+    .theme-toggle {
         display: none;
     }
 }
