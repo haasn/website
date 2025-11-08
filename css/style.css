@@ -154,6 +154,8 @@ nav {
     align-items: center;
     container-type: inline-size;
     container-name: navigation;
+    overflow: hidden;
+    height: 2.5em;
 }
 
 nav.container {
@@ -166,6 +168,7 @@ nav.container {
     align-items: center;
     gap: 0.6rem;
     color: var(--primary-color);
+    height: 2.5em;
 }
 
 .logo-icon {
@@ -192,47 +195,62 @@ nav.container {
 
 .nav-links {
     display: flex;
-    list-style: none;
     gap: 2rem;
     align-items: center;
+    height: 2.5em;
 }
 
-.nav-links a {
+.nav-items-wrappable {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    height: 2.5em;
+}
+
+nav a {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
+    white-space: nowrap;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.nav-links a:hover {
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Logo link has special color */
+.logo {
     color: var(--primary-color);
 }
 
 /* Focus states for accessibility */
 /* Fallback for browsers that don't support :focus-visible */
-.nav-links a:focus {
+nav a:focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 4px;
 }
 
 /* Modern browsers: only show focus on keyboard navigation */
-.nav-links a:focus-visible {
+nav a:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 4px;
 }
 
 /* Modern browsers: hide focus outline on mouse/touch interaction */
-.nav-links a:focus:not(:focus-visible) {
+nav a:focus:not(:focus-visible) {
     outline: none;
 }
 
-.nav-links a:active {
+nav a:active {
     opacity: 0.7;
-}
-
-/* Disable tap highlight on mobile */
-.nav-links a {
-    -webkit-tap-highlight-color: transparent;
 }
 
 /* Theme Toggle */
@@ -1055,16 +1073,11 @@ footer a:hover {
 }
 
 /* Responsive Design - Container Queries */
+/* Nav items now hide automatically via flex-wrap + overflow:hidden */
+/* Elements wrap to second line when space is limited, then get clipped */
 
-/* Nav: Hide logo text when nav is narrower, keep icon only */
-@container navigation (max-width: 850px) {
-    .logo-text {
-        display: none;
-    }
-}
-
-/* Nav: Adjust layout and hide Publications when space is tight */
-@container navigation (max-width: 768px) {
+/* Mobile optimizations - compact spacing */
+@container navigation (max-width: 550px) {
     nav.container {
         padding-left: 1em;
         padding-right: 1em;
@@ -1076,24 +1089,16 @@ footer a:hover {
     }
 
     .nav-links {
-        flex-wrap: nowrap;
-        justify-content: flex-end;
         gap: 0.75rem;
         font-size: 0.95rem;
     }
 
-    /* Hide Publications link to save space */
-    .nav-links .nav-publications {
-        display: none;
-    }
-
-    /* Hide theme toggle - users should use system preference */
-    .theme-toggle {
-        display: none;
+    .nav-items-wrappable {
+        gap: 0.75rem;
     }
 }
 
-/* Nav: Keep icon-only logo even when very narrow for branding */
+/* Very narrow: Reduce logo size */
 @container navigation (max-width: 470px) {
     .logo {
         gap: 0;
@@ -1102,6 +1107,17 @@ footer a:hover {
     .logo-icon {
         width: 28px;
         height: 28px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+}
+
+/* Mobile: Always hide theme toggle on touch devices (regardless of width) */
+@media (hover: none) and (pointer: coarse) {
+    .theme-toggle {
+        display: none;
     }
 }
 
