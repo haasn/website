@@ -151,7 +151,7 @@ header {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     container-type: inline-size;
     container-name: navigation;
     overflow: hidden;
@@ -166,7 +166,7 @@ nav.container {
 .logo-group {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     align-content: flex-start;
 }
 
@@ -175,7 +175,6 @@ nav.container {
     align-items: center;
     gap: 0.6rem;
     color: var(--primary-color);
-    height: 2.5em;
 }
 
 .logo-icon {
@@ -204,17 +203,15 @@ nav.container {
     display: flex;
     list-style: none;
     gap: 2rem;
-    align-items: flex-start;
-    height: 2.5em;
+    align-items: center;
 }
 
 .nav-items-wrappable {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
     align-content: flex-start;
     flex-wrap: wrap;
-    height: 2.5em;
     justify-content: flex-end;
 }
 
@@ -224,7 +221,6 @@ nav.container {
     font-weight: 500;
     transition: color 0.3s;
     white-space: nowrap;
-    line-height: 2.5em;
 }
 
 .nav-links a:hover {
