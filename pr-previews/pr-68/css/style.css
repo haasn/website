@@ -151,11 +151,11 @@ header {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     container-type: inline-size;
     container-name: navigation;
     overflow: hidden;
-    max-height: 3em;
+    height: 2.5em;
 }
 
 nav.container {
