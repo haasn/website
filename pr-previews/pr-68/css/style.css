@@ -163,14 +163,6 @@ nav.container {
     padding-bottom: 0.2em;
 }
 
-.logo-group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: flex-start;
-    height: 2.5em;
-}
-
 .logo {
     display: flex;
     align-items: center;
