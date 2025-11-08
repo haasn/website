@@ -1072,10 +1072,21 @@ footer a:hover {
     }
 }
 
-/* Priority 3: Hide Projects link */
+/* Priority 3: Apply mobile optimizations - compact spacing */
 @container navigation (max-width: 550px) {
-    .nav-item-projects {
-        display: none;
+    nav.container {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .logo {
+        margin-left: -1em;
+        margin-right: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 0.75rem;
+        font-size: 0.95rem;
     }
 }
 
