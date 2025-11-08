@@ -166,7 +166,8 @@ nav.container {
 .logo-group {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
+    align-content: flex-start;
 }
 
 .logo {
@@ -174,6 +175,7 @@ nav.container {
     align-items: center;
     gap: 0.6rem;
     color: var(--primary-color);
+    height: 2.5em;
 }
 
 .logo-icon {
@@ -202,15 +204,17 @@ nav.container {
     display: flex;
     list-style: none;
     gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 2.5em;
 }
 
 .nav-items-wrappable {
     display: flex;
     gap: 2rem;
-    align-items: center;
+    align-items: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
+    height: 2.5em;
 }
 
 .nav-links a {
@@ -219,6 +223,7 @@ nav.container {
     font-weight: 500;
     transition: color 0.3s;
     white-space: nowrap;
+    line-height: 2.5em;
 }
 
 .nav-links a:hover {
