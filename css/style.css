@@ -177,11 +177,17 @@ nav.container {
 .logo-text {
     font-size: 1.3rem;
     font-weight: 300;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.35em;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.logo-text-n {
+    background: none;
+    -webkit-text-fill-color: var(--text-secondary);
+    color: var(--text-secondary);
 }
 
 .nav-links {
