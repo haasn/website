@@ -1098,7 +1098,7 @@ footer a:hover {
     }
 }
 
-/* Very narrow: Reduce logo icon size */
+/* Very narrow: Reduce logo size */
 @container navigation (max-width: 470px) {
     .logo {
         gap: 0;
@@ -1107,6 +1107,10 @@ footer a:hover {
     .logo-icon {
         width: 28px;
         height: 28px;
+    }
+
+    .logo-text {
+        display: none;
     }
 }
 
