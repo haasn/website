@@ -215,6 +215,7 @@ nav.container {
     align-content: flex-start;
     flex-wrap: wrap;
     height: 2.5em;
+    justify-content: flex-end;
 }
 
 .nav-links a {
