@@ -306,11 +306,12 @@ nav a:active {
 }
 
 .hero-logo-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 2rem;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 2.5rem;
     display: block;
     color: var(--primary-color);
+    opacity: 0.25;
 }
 
 #hero h1 {
