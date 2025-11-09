@@ -305,25 +305,17 @@ nav a:active {
     container-name: hero-section;
 }
 
-.hero-bracket {
+.hero-logo-icon {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: auto;
-    height: 80%;
-    max-height: 450px;
+    height: 150%;
     color: var(--primary-color);
-    opacity: 0.12;
+    opacity: 0.02;
     z-index: 0;
     pointer-events: none;
-}
-
-.hero-bracket-left {
-    left: 5%;
-}
-
-.hero-bracket-right {
-    right: 5%;
 }
 
 #hero h1 {
