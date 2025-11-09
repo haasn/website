@@ -253,6 +253,145 @@ nav a:active {
     opacity: 0.7;
 }
 
+/* Hue Control */
+.hue-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 2.5em;
+}
+
+.hue-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.hue-label:hover {
+    color: var(--primary-color);
+}
+
+.hue-icon {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hue-slider-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(-0.5rem);
+    z-index: 1001;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.hue-control:hover .hue-slider-container,
+.hue-slider-container:hover {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.hue-slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(
+        to right,
+        hsl(0, 70%, 50%),
+        hsl(30, 70%, 50%),
+        hsl(60, 70%, 50%),
+        hsl(90, 70%, 50%),
+        hsl(120, 70%, 50%),
+        hsl(150, 70%, 50%),
+        hsl(180, 70%, 50%),
+        hsl(210, 70%, 50%),
+        hsl(240, 70%, 50%),
+        hsl(270, 70%, 50%),
+        hsl(300, 70%, 50%),
+        hsl(330, 70%, 50%),
+        hsl(360, 70%, 50%)
+    );
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.hue-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s;
+}
+
+.hue-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.hue-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s;
+}
+
+.hue-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+}
+
+.hue-reset {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    font-size: 0.875rem;
+}
+
+.hue-reset:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.hue-reset .material-icons {
+    font-size: 1.125rem;
+}
+
 /* Theme Toggle */
 .theme-toggle {
     text-decoration: none;
