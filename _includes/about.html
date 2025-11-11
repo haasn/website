@@ -3,7 +3,16 @@
                 <div class="about-content">
                     <div class="about-intro">
                         <div class="about-photo">
-                            <img src="{{ '/assets/images/photo.jpg' | relative_url }}" alt="Niklas Haas" class="profile-photo">
+                            <img src="{{ '/assets/images/photo.jpg' | relative_url }}"
+                                 srcset="{{ '/assets/images/photo.jpg' | relative_url }} 300w,
+                                         {{ '/assets/images/photo-375.jpg' | relative_url }} 375w,
+                                         {{ '/assets/images/photo-450.jpg' | relative_url }} 450w,
+                                         {{ '/assets/images/photo-525.jpg' | relative_url }} 525w,
+                                         {{ '/assets/images/photo-600.jpg' | relative_url }} 600w,
+                                         {{ '/assets/images/photo-1200.jpg' | relative_url }} 1200w"
+                                 sizes="300px"
+                                 alt="Portrait photo of Niklas Haas"
+                                 class="profile-photo">
                         </div>
                         <div class="about-intro-text">
                             <h3>Hello, I'm Niklas Haas</h3>
