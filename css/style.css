@@ -447,22 +447,13 @@ h2 {
     top: 100px;
 }
 
-.photo-placeholder {
+.profile-photo {
     width: 300px;
-    height: 300px;
+    height: 400px;
     border-radius: 0.75rem;
-    background: var(--gradient-placeholder);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     box-shadow: var(--shadow-lg);
-    border: 3px dashed var(--border-color);
-}
-
-.photo-placeholder span {
-    color: var(--text-secondary);
-    font-size: 1.125rem;
-    font-weight: 500;
+    object-fit: cover;
+    display: block;
 }
 
 .about-intro-text h3 {
