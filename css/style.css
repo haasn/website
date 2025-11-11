@@ -5,64 +5,64 @@
     box-sizing: border-box;
 }
 
-/* Light theme (default) - Blue/Cyan Edition */
+/* Light theme (default) - Cyan Edition */
 :root {
-    --primary-color: #0284c7;
-    --primary-dark: #0369a1;
-    --accent-color: #0ea5e9;
+    --primary-color: #0891b2;
+    --primary-dark: #0e7490;
+    --accent-color: #06b6d4;
     --secondary-color: #64748b;
     --text-primary: #0f172a;
     --text-secondary: #475569;
-    --bg-primary: #fdfeff;
-    --bg-secondary: #eff6fb;
-    --bg-tertiary: #dbeafe;
-    --border-color: #bfdbfe;
-    --header-bg: rgba(253, 254, 255, 0.90);
-    --hero-gradient-start: #f0f9ff;
-    --hero-gradient-mid: #e0f2fe;
-    --hero-gradient-end: #dbeafe;
+    --bg-primary: #fcfeff;
+    --bg-secondary: #f0f9fb;
+    --bg-tertiary: #d5f3f7;
+    --border-color: #bae6ec;
+    --header-bg: rgba(252, 254, 255, 0.90);
+    --hero-gradient-start: #f0fbfd;
+    --hero-gradient-mid: #ecf8fa;
+    --hero-gradient-end: #e7f5f7;
     --hero-text-color: #0f172a;
-    --gradient-overlay-1: rgba(14, 165, 233, 0.06);
-    --gradient-overlay-2: rgba(56, 189, 248, 0.06);
+    --gradient-overlay-1: rgba(8, 145, 178, 0.06);
+    --gradient-overlay-2: rgba(6, 182, 212, 0.06);
     --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.08);
     --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.12);
     --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.15);
     --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.18);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(14, 165, 233, 0.35), 0 6px 15px rgba(56, 189, 248, 0.2);
-    --btn-secondary-hover-bg: rgba(14, 165, 233, 0.1);
-    --gradient-placeholder: linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(56, 189, 248, 0.18));
-    --card-overlay: rgba(14, 165, 233, 0.04);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(8, 145, 178, 0.35), 0 6px 15px rgba(6, 182, 212, 0.2);
+    --btn-secondary-hover-bg: rgba(8, 145, 178, 0.1);
+    --gradient-placeholder: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(6, 182, 212, 0.18));
+    --card-overlay: rgba(6, 182, 212, 0.04);
     --talk-gradient-start: #ca8a04;
     --talk-gradient-end: #a16207;
 }
 
-/* Dark theme - Enhanced Blue/Cyan Edition */
+/* Dark theme - Enhanced Cyan Edition */
 :root[data-theme="dark"] {
-    --primary-color: #60a5fa;
-    --primary-dark: #3b82f6;
-    --accent-color: #93c5fd;
+    --primary-color: #22d3ee;
+    --primary-dark: #06b6d4;
+    --accent-color: #67e8f9;
     --secondary-color: #94a3b8;
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
-    --bg-primary: #0c1521;
-    --bg-secondary: #111b2b;
-    --bg-tertiary: #1e293b;
-    --border-color: #1e3a8a;
-    --header-bg: rgba(12, 21, 33, 0.90);
-    --hero-gradient-start: #0f1729;
-    --hero-gradient-mid: #0c1521;
-    --hero-gradient-end: #0a1019;
+    --bg-primary: #0a1419;
+    --bg-secondary: #0f1c22;
+    --bg-tertiary: #164e63;
+    --border-color: #155e75;
+    --header-bg: rgba(10, 20, 25, 0.90);
+    --hero-gradient-start: #0d1a1f;
+    --hero-gradient-mid: #0b1619;
+    --hero-gradient-end: #0a1419;
     --hero-text-color: #f1f5f9;
-    --gradient-overlay-1: rgba(96, 165, 250, 0.03);
-    --gradient-overlay-2: rgba(147, 197, 253, 0.04);
+    --gradient-overlay-1: rgba(34, 211, 238, 0.03);
+    --gradient-overlay-2: rgba(103, 232, 249, 0.04);
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
-    --btn-primary-hover-shadow: 0 10px 25px rgba(96, 165, 250, 0.45), 0 6px 15px rgba(147, 197, 253, 0.25);
-    --btn-secondary-hover-bg: rgba(96, 165, 250, 0.13);
-    --gradient-placeholder: linear-gradient(135deg, rgba(96, 165, 250, 0.24), rgba(147, 197, 253, 0.26));
-    --card-overlay: rgba(96, 165, 250, 0.04);
+    --btn-primary-hover-shadow: 0 10px 25px rgba(34, 211, 238, 0.45), 0 6px 15px rgba(103, 232, 249, 0.25);
+    --btn-secondary-hover-bg: rgba(34, 211, 238, 0.13);
+    --gradient-placeholder: linear-gradient(135deg, rgba(34, 211, 238, 0.24), rgba(103, 232, 249, 0.26));
+    --card-overlay: rgba(34, 211, 238, 0.04);
 }
 
 /* Dark theme specific overrides
