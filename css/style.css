@@ -5,22 +5,22 @@
     box-sizing: border-box;
 }
 
-/* Light theme (default) - Cyan Edition */
+/* Light theme (default) - Teal/Cyan Edition */
 :root {
-    --primary-color: #0891b2;
-    --primary-dark: #0e7490;
-    --accent-color: #06b6d4;
-    --secondary-color: #64748b;
+    --primary-color: #0e7490;
+    --primary-dark: #155e75;
+    --accent-color: #0891b2;
+    --secondary-color: #5f7c8a;
     --text-primary: #0f172a;
     --text-secondary: #475569;
-    --bg-primary: #fcfeff;
-    --bg-secondary: #f0f9fb;
-    --bg-tertiary: #d5f3f7;
-    --border-color: #bae6ec;
-    --header-bg: rgba(252, 254, 255, 0.90);
-    --hero-gradient-start: #f0fbfd;
-    --hero-gradient-mid: #ecf8fa;
-    --hero-gradient-end: #e7f5f7;
+    --bg-primary: #fbfeff;
+    --bg-secondary: #edf8f8;
+    --bg-tertiary: #d5f2f2;
+    --border-color: #b8e0e0;
+    --header-bg: rgba(251, 254, 255, 0.90);
+    --hero-gradient-start: #f0fdf4;
+    --hero-gradient-mid: #edf8f8;
+    --hero-gradient-end: #e3f4f4;
     --hero-text-color: #0f172a;
     --gradient-overlay-1: rgba(8, 145, 178, 0.06);
     --gradient-overlay-2: rgba(6, 182, 212, 0.06);
@@ -31,26 +31,26 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(8, 145, 178, 0.35), 0 6px 15px rgba(6, 182, 212, 0.2);
     --btn-secondary-hover-bg: rgba(8, 145, 178, 0.1);
     --gradient-placeholder: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(6, 182, 212, 0.18));
-    --card-overlay: rgba(6, 182, 212, 0.04);
+    --card-overlay: rgba(8, 145, 178, 0.04);
     --talk-gradient-start: #ca8a04;
     --talk-gradient-end: #a16207;
 }
 
-/* Dark theme - Enhanced Cyan Edition */
+/* Dark theme - Enhanced Teal/Cyan Edition */
 :root[data-theme="dark"] {
-    --primary-color: #22d3ee;
-    --primary-dark: #06b6d4;
-    --accent-color: #67e8f9;
-    --secondary-color: #94a3b8;
+    --primary-color: #6dd4e0;
+    --primary-dark: #4ab8cc;
+    --accent-color: #aee4ed;
+    --secondary-color: #7dc0b5;
     --text-primary: #f1f5f9;
     --text-secondary: #cbd5e1;
     --bg-primary: #0a1419;
-    --bg-secondary: #0f1c22;
-    --bg-tertiary: #164e63;
-    --border-color: #155e75;
+    --bg-secondary: #0f1f25;
+    --bg-tertiary: #132830;
+    --border-color: #1e3a47;
     --header-bg: rgba(10, 20, 25, 0.90);
-    --hero-gradient-start: #0d1a1f;
-    --hero-gradient-mid: #0b1619;
+    --hero-gradient-start: #0d1d24;
+    --hero-gradient-mid: #0b181e;
     --hero-gradient-end: #0a1419;
     --hero-text-color: #f1f5f9;
     --gradient-overlay-1: rgba(34, 211, 238, 0.03);
@@ -62,7 +62,7 @@
     --btn-primary-hover-shadow: 0 10px 25px rgba(34, 211, 238, 0.45), 0 6px 15px rgba(103, 232, 249, 0.25);
     --btn-secondary-hover-bg: rgba(34, 211, 238, 0.13);
     --gradient-placeholder: linear-gradient(135deg, rgba(34, 211, 238, 0.24), rgba(103, 232, 249, 0.26));
-    --card-overlay: rgba(34, 211, 238, 0.04);
+    --card-overlay: rgba(103, 232, 249, 0.04);
 }
 
 /* Dark theme specific overrides
