@@ -1,8 +1,8 @@
 <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
     <style>
-        line { stroke: #0e7490; }
+        line { stroke: #0e6990; }
         @media (prefers-color-scheme: dark) {
-            line { stroke: #6dd4e0; }
+            line { stroke: #6dcae0; }
         }
     </style>
     <line x1="12" y1="12" x2="12" y2="38" stroke-width="4" stroke-linecap="round"/>
