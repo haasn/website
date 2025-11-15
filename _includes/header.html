@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="{{ '/js/theme-switcher.js' | relative_url }}"></script>
+    <script src="{{ '/js/hue-adjuster.js' | relative_url }}"></script>
     <script src="{{ '/js/section-collapse.js' | relative_url }}"></script>
     <script>initTheme();</script>
     {% if page.custom_css %}
@@ -42,6 +43,17 @@
                     <a href="{{ '/' | relative_url }}#publications">Publications</a>
                 </div>
                 <a href="{{ '/' | relative_url }}#contact">Contact</a>
+                <div class="hue-control" id="hueControl">
+                    <label for="hueInput" class="hue-label" aria-label="Adjust color hue">
+                        <span class="material-icons hue-icon">palette</span>
+                    </label>
+                    <div class="hue-slider-container">
+                        <input type="range" id="hueInput" class="hue-slider" min="0" max="360" value="0" step="1" aria-label="Hue rotation">
+                        <button id="hueReset" class="hue-reset" aria-label="Reset colors">
+                            <span class="material-icons">refresh</span>
+                        </button>
+                    </div>
+                </div>
                 <a href="#" class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <span class="material-icons theme-icon">brightness_4</span>
                 </a>
