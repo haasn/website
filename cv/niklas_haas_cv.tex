@@ -71,32 +71,35 @@
 
 \vspace{8pt}
 
-% Professional Summary
 \section*{Professional Summary}
 
-Independent IT consultant with nearly 20 years of programming experience, specializing in high-performance computing, GPU algorithms, and low-level CPU optimization. Recognized expert in multimedia processing and color management with extensive contributions to industry-leading open source projects. Member of FFmpeg and VideoLAN technical committees. Seeking opportunities to apply deep technical expertise in performance optimization and algorithmic development to challenging problems in fintech and AI.
+Open-source developer with nearly 20 years of active programming
+experience, specializing in high-performance data processing, GPU algorithms,
+and low-level CPU optimization. Recognized expert in multimedia processing
+and color management, with an extensive, 15-year history of contributions to
+industry-leading open source projects. Maintainer of multiple widely used software
+projects, and member of the FFmpeg and VideoLAN technical committees. Seeking
+opportunities to apply my deep technical expertise to challenging problems in emerging fields.
 
 \vspace{4pt}
 
-% Core Competencies
 \section*{Core Competencies}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Low-Level CPU Optimization:} SIMD programming (x86 SSE/AVX2/AVX512, ARM NEON, RISC-V Vectors), assembly optimization, performance profiling and tuning, cache optimization
+    \item \textbf{Low-Level Optimization:} SIMD programming (x86 SSE/AVX2/AVX512, ARM NEON, RISC-V Vectors), assembly optimization, performance profiling and tuning, cache optimization
     \item \textbf{GPU Computing:} Vulkan compute shaders, GPGPU algorithm design, GPU pipeline optimization, OpenGL/GLSL, parallel processing architectures
-    \item \textbf{Language Theory \& Compilers:} Type systems, functional programming (Haskell, ML), dependent types, compiler design, JIT compilation, runtime code generation
-    \item \textbf{Systems Programming:} C/C++, kernel drivers, memory management, concurrency, lock-free data structures
-    \item \textbf{Performance Engineering:} Profiling, benchmarking, algorithmic complexity analysis, micro-optimizations, cache-aware programming
+    \item \textbf{Language Theory \& Compilers:} Type systems, functional programming, compiler design, JIT compilation, runtime code generation
+    \item \textbf{Systems Programming:} C/C++, kernel drivers, memory management, concurrency, lock-free data structures, software transactional memory
+    \item \textbf{Performance Engineering:} Profiling, benchmarking, algorithmic complexity analysis, cache-oblivious data structures
 \end{itemize}
 
 \vspace{4pt}
 
-% Professional Experience
 \section*{Professional Experience}
 
-\experience{Independent IT Consultant}{2017 --- Present}{Germany}{
+\experience{Independent Consultant}{2017 --- Present}{Germany}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Developed novel SIMD-based pixel format conversion system for FFmpeg's libswscale, achieving dramatic performance improvements through runtime assembly of optimized code fragments using continuation passing style
+    \item Developed novel SIMD-based pixel format conversion system for FFmpeg's libswscale, achieving dramatic performance improvements through runtime compilation and assembly of custom domain-specific AST.
     \item Designed and implemented GPU-accelerated image processing pipelines using Vulkan compute shaders for real-time video processing
     \item Optimized critical multimedia processing routines achieving 2-10x speedups through SIMD vectorization (AVX2/AVX512/NEON/RVV)
     \item Led architectural design and implementation of high-performance color management systems supporting HDR workflows
@@ -120,15 +123,15 @@ Independent IT consultant with nearly 20 years of programming experience, specia
 % Key Projects
 \section*{Key Technical Projects}
 
-\project{libswscale Reimplementation (Sovereign Tech Fund)}{2024}{
-Complete refactor of FFmpeg's pixel format conversion library. Developed innovative approach combining SIMD fragments at runtime to generate optimized conversion routines, dramatically reducing code complexity while improving performance across all supported formats. Utilized advanced compiler techniques including continuation passing style for code generation.
+\project{libswscale Reimplementation}{2024 --- 2025}{
+Complete refactor of FFmpeg's pixel format conversion code. Developed innovative approach combining SIMD fragments at runtime to generate optimized conversion routines, dramatically reducing code complexity while improving performance across all supported formats. Utilized advanced compiler techniques, including heavily templated SIMD, custom ABIs and continuation passing style for code generation.
 }
 
 \project{libplacebo --- GPU Processing Library}{2017 --- Present}{
-Designed and implemented comprehensive GPU computing framework using Vulkan for real-time image processing. Features include: dynamic tone mapping with on-the-fly frame analysis, GPU film grain synthesis, high-quality scaling algorithms, and complete HDR color management pipeline. Requires deep understanding of GPU architecture, parallel algorithms, and shader optimization.
+Designed and implemented comprehensive cross-platform GPU computing framework using Vulkan / OpenGL / Direct3D for real-time image processing. Features include: fully dynamic rendering pipeline, GPU film grain synthesis, high-quality scaling algorithms, and completely novel real-time tone mapping algorithm. Active and ongoing maintainership role. Used in VLC, FFmpeg, mpv, and more.
 }
 
-\project{GPU-based AV1 Decoder Prototype (dav1d)}{2019}{
+\project{GPU-based AV1 Decoder (dav1d)}{2019}{
 Experimental implementation of video decoder using Vulkan compute shaders, exploring feasibility of fully GPU-based video decoding. Demonstrates expertise in algorithm parallelization and GPU performance optimization.
 }
 
@@ -138,38 +141,13 @@ Experimental implementation of video decoder using Vulkan compute shaders, explo
 \section*{Technical Skills}
 
 \begin{description}[leftmargin=0pt, itemsep=4pt]
-    \item[\textbf{Languages:}] C/C++ (expert), Assembly (x86/ARM/RISC-V), GLSL/HLSL, Python, Haskell, Lua, Go, JavaScript, C\#, Prolog
-    \item[\textbf{Performance:}] SIMD (SSE, AVX2, AVX512, NEON, RVV), Profiling Tools (perf, VTune, Instruments), Cache Optimization, Branch Prediction
-    \item[\textbf{GPU:}] Vulkan, OpenGL, CUDA concepts, Compute Shaders, Pipeline Optimization, Memory Hierarchy Management
-    \item[\textbf{Systems:}] Linux Kernel, Driver Development, Threading/Concurrency, Memory Management, Build Systems
+    \item[\textbf{Languages:}] C (expert), Assembly (x86/ARM/RISC-V), GLSL/HLSL, Haskell (expert), Python, Lua, Go, JavaScript, C\#, Prolog
+    \item[\textbf{GPU:}] Vulkan, OpenGL, RDNA architecture, Compute Shaders, Pipeline Optimization, Memory Hierarchy Management
+    \item[\textbf{Performance:}] SIMD (SSE, AVX2, AVX512, NEON, RVV), Profiling Tools (perf, Radeon GPU Profiler, checkasm)
+    \item[\textbf{Systems:}] Linux, Mesa (RADV), Threading/Concurrency, Memory Management, Cache Optimization
     \item[\textbf{Algorithms:}] Signal Processing, Computer Vision, Machine Learning/AI, Codec Design, Numerical Methods
-    \item[\textbf{Tools:}] Git, GDB, LLDB, Compiler Internals (GCC/Clang), CMake, Meson, Docker
+    \item[\textbf{Tools:}] Git, GDB, Toolchains (GCC/LLVM), Meson, Docker
 \end{description}
-
-\vspace{4pt}
-
-% Publications
-\section*{Selected Publications \& Conference Talks}
-
-\publication{libswscale reimagined}{VideoLAN Dev Days 2025}{November 2025}{
-Detailed presentation on novel SIMD code generation approach, combining assembly fragments using continuation passing style for runtime optimization. Demonstrates advanced understanding of compiler design and performance engineering.
-}
-
-\publication{Faster (and better) GPU (down)scaling}{VideoLAN Dev Days 2023}{September 2023}{
-Technical talk on leveraging GPU texture sampling for efficient convolution computation on positive kernels. Covers signal reconstruction theory and GPU architecture optimization.
-}
-
-\publication{HDR tone-mapping in VLC/libplacebo}{VideoLAN Dev Days 2018}{September 2018}{
-Presentation on dynamic tone-mapping algorithm design and implementation for real-time video processing.
-}
-
-\publication{State of the Art in Cryptocurrency Network Simulation}{Bachelor's Thesis, Ulm University}{August 2017}{
-Comparative analysis of Bitcoin network simulators, including detailed performance benchmarks and architectural evaluations. Demonstrates analytical skills and understanding of distributed systems.
-}
-
-\publication{Random Linear Network Coding: Use cases and Implementations}{Ulm University}{June 2016}{
-Research on network coding algorithms, implementations, and applications in distributed systems.
-}
 
 \vspace{4pt}
 
@@ -178,12 +156,7 @@ Research on network coding algorithms, implementations, and applications in dist
 
 \textbf{Bachelor of Science in Computer Science}\\
 Ulm University, Germany \hfill 2014 --- 2017\\
-\textit{Graduated with highest honors (Sehr Gut)}
-
-\vspace{4pt}
-
-\textbf{Abitur (German University Entrance Qualification)}\\
-\textit{Awarded for exceptional academic performance}
+\textit{Graduated with highest honors}
 
 \vspace{8pt}
 
@@ -191,9 +164,8 @@ Ulm University, Germany \hfill 2014 --- 2017\\
 \section*{Additional Information}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Languages:} German (native), English (native, bilingual upbringing), Norwegian (B2)
-    \item \textbf{Open Source:} Active contributor with 15+ years in open source community, maintainer of multiple widely-used projects
-    \item \textbf{Location:} Currently based in Germany, open to relocation (Dublin, Zurich)
+    \item \textbf{Languages:} German (native), English (native), Norwegian (B2)
+    \item \textbf{Location:} Currently based in Germany, open to relocation (e.g. Dublin, Zurich, Munich)
     \item \textbf{Work Authorization:} EU citizen (German)
 \end{itemize}
 
