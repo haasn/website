@@ -112,12 +112,16 @@ Research on network coding algorithms, implementations, and applications in dist
 
 **Bachelor of Science in Computer Science**
 Ulm University, Germany | 2014 --- 2017
+*Graduated with highest honors (Sehr Gut)*
+
+**Abitur (German University Entrance Qualification)**
+*Awarded for exceptional academic performance*
 
 ---
 
 ## Additional Information
 
-- **Languages:** German (native), English (fluent)
+- **Languages:** German (native), English (native, bilingual upbringing), Norwegian (B2)
 - **Open Source:** Active contributor with 15+ years in open source community, maintainer of multiple widely-used projects
 - **Location:** Currently based in Germany, open to relocation (Dublin, Zurich)
 - **Work Authorization:** EU citizen (German)
