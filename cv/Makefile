@@ -3,7 +3,7 @@
 all: niklas_haas_cv.pdf
 
 niklas_haas_cv.pdf: niklas_haas_cv.tex
-	xelatex niklas_haas_cv.tex
+	pdflatex niklas_haas_cv.tex
 	@echo "PDF generated successfully!"
 
 clean:

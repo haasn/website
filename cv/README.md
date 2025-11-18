@@ -10,31 +10,24 @@ This directory contains my formal CV for applications to fintech and AI companie
 
 ## Compiling the PDF
 
-### Using XeLaTeX (recommended)
-
-```bash
-xelatex niklas_haas_cv.tex
-```
-
-### Using Make
+### Using Make (recommended)
 
 ```bash
 make
 ```
 
-### Using LuaLaTeX (alternative)
+### Using pdflatex directly
 
 ```bash
-lualatex niklas_haas_cv.tex
+pdflatex niklas_haas_cv.tex
 ```
 
 ## Requirements
 
-- XeLaTeX or LuaLaTeX (for font support)
-- Latin Modern fonts (usually included in TeX distributions)
-- Standard LaTeX packages: geometry, titlesec, enumitem, hyperref, xcolor, fontspec, microtype
+- TexLive (standard Linux distribution) or MiKTeX
+- Standard LaTeX packages: inputenc, fontenc, lmodern, geometry, titlesec, enumitem, hyperref, xcolor, microtype
 
-Most modern TeX distributions (TeX Live, MiKTeX) include all required packages.
+All required packages are included in standard TexLive installations.
 
 ## Customization
 
