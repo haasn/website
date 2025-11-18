@@ -1,6 +1,6 @@
 # NIKLAS HAAS
 
-**Senior Software Engineer --- Performance Optimization & GPU Computing**
+**Staff Software Engineer --- Performance Optimization & GPU Computing**
 
 📧 jobs@niklashaas.de | 🌐 [niklashaas.de](https://niklashaas.de) | 💻 [github.com/haasn](https://github.com/haasn)
 
