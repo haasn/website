@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{microtype}
+
+% Configure hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdfauthor={Niklas Haas},
+    pdftitle={Niklas Haas - Curriculum Vitae}
+}
+
+% Set fonts
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\sffamily}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\experience}[4]{
+    \subsection*{#1 \hfill \normalfont\textit{#2}}
+    \textit{#3}\\[2pt]
+    #4
+    \vspace{6pt}
+}
+
+\newcommand{\project}[3]{
+    \subsection*{#1 \hfill \normalfont\textit{#2}}
+    #3
+    \vspace{6pt}
+}
+
+\newcommand{\publication}[4]{
+    \textbf{#1}\\
+    \textit{#2}, #3\\
+    #4
+    \vspace{4pt}
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge\bfseries\sffamily NIKLAS HAAS}\\[8pt]
+    {\large Senior Software Engineer --- Performance Optimization \& GPU Computing}\\[8pt]
+    \href{mailto:niklas@niklashaas.de}{niklas@niklashaas.de} $\cdot$
+    \href{https://niklashaas.de}{niklashaas.de} $\cdot$
+    \href{https://github.com/haasn}{github.com/haasn}
+\end{center}
+
+\vspace{8pt}
+
+% Professional Summary
+\section*{Professional Summary}
+
+Independent IT consultant with nearly 20 years of programming experience, specializing in high-performance computing, GPU algorithms, and low-level CPU optimization. Recognized expert in multimedia processing and color management with extensive contributions to industry-leading open source projects. Member of FFmpeg and VideoLAN technical committees. Seeking opportunities to apply deep technical expertise in performance optimization and algorithmic development to challenging problems in fintech and AI.
+
+\vspace{4pt}
+
+% Core Competencies
+\section*{Core Competencies}
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Low-Level CPU Optimization:} SIMD programming (x86 SSE/AVX2/AVX512, ARM NEON, RISC-V Vectors), assembly optimization, performance profiling and tuning, cache optimization
+    \item \textbf{GPU Computing:} Vulkan compute shaders, GPGPU algorithm design, GPU pipeline optimization, OpenGL/GLSL, parallel processing architectures
+    \item \textbf{Algorithm Development:} Novel approach to runtime code generation through SIMD fragment composition, dynamic optimization, JIT compilation techniques
+    \item \textbf{Systems Programming:} C/C++, kernel drivers, memory management, concurrency, lock-free data structures
+    \item \textbf{Performance Engineering:} Profiling, benchmarking, algorithmic complexity analysis, micro-optimizations, cache-aware programming
+\end{itemize}
+
+\vspace{4pt}
+
+% Professional Experience
+\section*{Professional Experience}
+
+\experience{Independent IT Consultant}{2017 --- Present}{Germany}{
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Developed novel SIMD-based pixel format conversion system for FFmpeg's libswscale, achieving dramatic performance improvements through runtime assembly of optimized code fragments using continuation passing style
+    \item Designed and implemented GPU-accelerated image processing pipelines using Vulkan compute shaders for real-time video processing
+    \item Optimized critical multimedia processing routines achieving 2-10x speedups through SIMD vectorization (AVX2/AVX512/NEON/RVV)
+    \item Led architectural design and implementation of high-performance color management systems supporting HDR workflows
+    \item Performed in-depth performance analysis and optimization of large-scale codebases, identifying and resolving bottlenecks across CPU and GPU workloads
+    \item Delivered comprehensive code reviews and technical audits for performance-critical systems
+\end{itemize}
+}
+
+\experience{Open Source Maintainer \& Core Developer}{2014 --- Present}{FFmpeg, VideoLAN, libplacebo}{
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{libplacebo} (Author \& Maintainer): Created cross-platform GPU-accelerated library featuring advanced compute shader algorithms for real-time image processing, now integrated into VLC, mpv, and FFmpeg
+    \item \textbf{FFmpeg} (Technical Committee): Architectural improvements, format negotiation optimization, first open-source implementations of ITU-R H.274, AFGS1, SMPTE RDD5, MV-HEVC
+    \item \textbf{checkasm} (Maintainer): Overhauled SIMD verification and benchmarking framework, enabling cycle-accurate performance metrics for large-scale projects
+    \item \textbf{dav1d}: Developed experimental GPU-based Vulkan decoder using compute shaders, implemented RISC-V SIMD routines
+    \item \textbf{VLC} (Technical Committee): Integrated Vulkan rendering pipeline, enabled HDR and Dolby Vision support
+\end{itemize}
+}
+
+\vspace{4pt}
+
+% Key Projects
+\section*{Key Technical Projects}
+
+\project{libswscale Reimplementation (Sovereign Tech Fund)}{2024}{
+Complete refactor of FFmpeg's pixel format conversion library. Developed innovative approach combining SIMD fragments at runtime to generate optimized conversion routines, dramatically reducing code complexity while improving performance across all supported formats. Utilized advanced compiler techniques including continuation passing style for code generation.
+}
+
+\project{libplacebo --- GPU Processing Library}{2017 --- Present}{
+Designed and implemented comprehensive GPU computing framework using Vulkan for real-time image processing. Features include: dynamic tone mapping with on-the-fly frame analysis, GPU film grain synthesis, high-quality scaling algorithms, and complete HDR color management pipeline. Requires deep understanding of GPU architecture, parallel algorithms, and shader optimization.
+}
+
+\project{GPU-based AV1 Decoder Prototype (dav1d)}{2019}{
+Experimental implementation of video decoder using Vulkan compute shaders, exploring feasibility of fully GPU-based video decoding. Demonstrates expertise in algorithm parallelization and GPU performance optimization.
+}
+
+\vspace{4pt}
+
+% Technical Skills
+\section*{Technical Skills}
+
+\begin{description}[leftmargin=0pt, itemsep=4pt]
+    \item[\textbf{Languages:}] C/C++ (expert), Assembly (x86/ARM/RISC-V), GLSL/HLSL, Python, Haskell, Lua, Go, JavaScript, C\#, Prolog
+    \item[\textbf{Performance:}] SIMD (SSE, AVX2, AVX512, NEON, RVV), Profiling Tools (perf, VTune, Instruments), Cache Optimization, Branch Prediction
+    \item[\textbf{GPU:}] Vulkan, OpenGL, CUDA concepts, Compute Shaders, Pipeline Optimization, Memory Hierarchy Management
+    \item[\textbf{Systems:}] Linux Kernel, Driver Development, Threading/Concurrency, Memory Management, Build Systems
+    \item[\textbf{Algorithms:}] Signal Processing, Computer Vision, Machine Learning/AI, Codec Design, Numerical Methods
+    \item[\textbf{Tools:}] Git, GDB, LLDB, Compiler Internals (GCC/Clang), CMake, Meson, Docker
+\end{description}
+
+\vspace{4pt}
+
+% Publications
+\section*{Selected Publications \& Conference Talks}
+
+\publication{libswscale reimagined}{VideoLAN Dev Days 2025}{November 2025}{
+Detailed presentation on novel SIMD code generation approach, combining assembly fragments using continuation passing style for runtime optimization. Demonstrates advanced understanding of compiler design and performance engineering.
+}
+
+\publication{Faster (and better) GPU (down)scaling}{VideoLAN Dev Days 2023}{September 2023}{
+Technical talk on leveraging GPU texture sampling for efficient convolution computation on positive kernels. Covers signal reconstruction theory and GPU architecture optimization.
+}
+
+\publication{HDR tone-mapping in VLC/libplacebo}{VideoLAN Dev Days 2018}{September 2018}{
+Presentation on dynamic tone-mapping algorithm design and implementation for real-time video processing.
+}
+
+\publication{State of the Art in Cryptocurrency Network Simulation}{Bachelor's Thesis, Ulm University}{August 2017}{
+Comparative analysis of Bitcoin network simulators, including detailed performance benchmarks and architectural evaluations. Demonstrates analytical skills and understanding of distributed systems.
+}
+
+\publication{Random Linear Network Coding: Use cases and Implementations}{Ulm University}{June 2016}{
+Research on network coding algorithms, implementations, and applications in distributed systems.
+}
+
+\vspace{4pt}
+
+% Education
+\section*{Education}
+
+\textbf{Bachelor of Science in Computer Science}\\
+Ulm University, Germany \hfill 2014 --- 2017
+
+\vspace{8pt}
+
+% Additional Information
+\section*{Additional Information}
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Languages:} German (native), English (fluent)
+    \item \textbf{Open Source:} Active contributor with 15+ years in open source community, maintainer of multiple widely-used projects
+    \item \textbf{Location:} Currently based in Germany, open to relocation (Dublin, Zurich)
+    \item \textbf{Work Authorization:} EU citizen (German)
+\end{itemize}
+
+\end{document}
