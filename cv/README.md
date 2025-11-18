@@ -25,7 +25,8 @@ pdflatex niklas_haas_cv.tex
 ## Requirements
 
 - TexLive (standard Linux distribution) or MiKTeX
-- Standard LaTeX packages: inputenc, fontenc, lmodern, geometry, titlesec, enumitem, hyperref, xcolor, microtype
+- Standard LaTeX packages: inputenc, fontenc, lmodern, geometry, titlesec, enumitem, graphicx, hyperref, xcolor, microtype, fontawesome5
+- Profile photo (photo.jpg - automatically copied from assets/)
 
 All required packages are included in standard TexLive installations.
 

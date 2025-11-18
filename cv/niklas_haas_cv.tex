@@ -7,9 +7,11 @@
 \usepackage[margin=1.5cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{microtype}
+\usepackage{fontawesome5}
 
 % Configure hyperlinks
 \hypersetup{
@@ -53,13 +55,19 @@
 \begin{document}
 
 % Header
-\begin{center}
+\noindent
+\begin{minipage}[c]{0.2\textwidth}
+    \includegraphics[width=\textwidth,keepaspectratio]{photo.jpg}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.75\textwidth}
+    \raggedright
     {\Huge\bfseries\sffamily NIKLAS HAAS}\\[8pt]
     {\large Senior Software Engineer --- Performance Optimization \& GPU Computing}\\[8pt]
-    \href{mailto:niklas@niklashaas.de}{niklas@niklashaas.de} $\cdot$
+    \href{mailto:jobs@niklashaas.de}{jobs@niklashaas.de} $\cdot$
     \href{https://niklashaas.de}{niklashaas.de} $\cdot$
-    \href{https://github.com/haasn}{github.com/haasn}
-\end{center}
+    \href{https://github.com/haasn}{\faGithub\ github.com/haasn}
+\end{minipage}
 
 \vspace{8pt}
 
