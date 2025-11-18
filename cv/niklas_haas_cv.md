@@ -18,7 +18,7 @@ Independent IT consultant with nearly 20 years of programming experience, specia
 
 - **GPU Computing:** Vulkan compute shaders, GPGPU algorithm design, GPU pipeline optimization, OpenGL/GLSL, parallel processing architectures
 
-- **Algorithm Development:** Novel approach to runtime code generation through SIMD fragment composition, dynamic optimization, JIT compilation techniques
+- **Language Theory & Compilers:** Type systems, functional programming (Haskell, ML), dependent types, compiler design, JIT compilation, runtime code generation
 
 - **Systems Programming:** C/C++, kernel drivers, memory management, concurrency, lock-free data structures
 
