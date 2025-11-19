@@ -5,28 +5,27 @@ This directory contains my formal CV for applications to fintech and AI companie
 ## Files
 
 - `niklas_haas_cv.tex` - LaTeX source file for the CV
-- `niklas_haas_cv.pdf` - Compiled PDF version (generated)
 - `niklas_haas_cv.md` - Markdown version for quick reference
+- `photo.jpg` - Profile photo
 
-## Compiling the PDF
+## Accessing the PDF
 
-### Using Make (recommended)
+The CV is automatically compiled to PDF during site deployment and is available at:
+
+**https://niklashaas.de/assets/cv.pdf**
+
+## Local Compilation (Optional)
+
+If you want to compile the PDF locally for testing:
 
 ```bash
-make
+xelatex niklas_haas_cv.tex
 ```
 
-### Using pdflatex directly
+### Requirements
 
-```bash
-pdflatex niklas_haas_cv.tex
-```
-
-## Requirements
-
-- TexLive (standard Linux distribution) or MiKTeX
+- XeLaTeX (part of TexLive)
 - Standard LaTeX packages: inputenc, fontenc, lmodern, geometry, titlesec, enumitem, graphicx, hyperref, xcolor, microtype, fontawesome5
-- Profile photo (photo.jpg - automatically copied from assets/)
 
 All required packages are included in standard TexLive installations.
 
