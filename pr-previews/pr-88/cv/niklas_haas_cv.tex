@@ -77,8 +77,8 @@
 Performance engineering leader with 15+ years optimizing systems that process
 billions of operations daily. Technical committee member shaping technical direction
 of FFmpeg (2600+ companies) and VideoLAN (5B+ downloads), influencing decisions
-affecting infrastructure at Meta, Google, Netflix, and Spotify. Track record of
-4-5x performance improvements through novel SIMD optimization, GPU acceleration,
+affecting operations at Meta, Google, Netflix, Spotify, Comcast, Twitch and more.
+Track record of 5x-10x performance improvements through SIMD optimization, GPU acceleration,
 and algorithmic innovation. Expert in high-throughput data processing, low-latency
 systems, and production-scale optimization.
 
@@ -87,18 +87,18 @@ systems, and production-scale optimization.
 \section*{Core Competencies}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Performance Engineering:} Profiling, benchmarking, algorithm optimization, achieving 4-5x+ improvements in production systems
+    \item \textbf{Performance Engineering:} Profiling, benchmarking, algorithm optimization, achieving 5x-10x+ improvements in production systems on average
     \item \textbf{Low-Level Optimization:} SIMD programming (x86 SSE/AVX2/AVX512, ARM NEON, RISC-V Vectors), assembly language, cache optimization, memory hierarchy tuning
     \item \textbf{GPU Computing:} Vulkan compute shaders, GPU pipeline optimization, OpenGL/GLSL, parallel algorithm design for throughput-oriented workloads
     \item \textbf{Systems Programming:} C/C++, lock-free algorithms, concurrency, memory management, thread-safe data structures
-    \item \textbf{Technical Leadership:} Design reviews, mentorship, cross-team coordination, technical decision-making for projects with 50+ contributors
+    \item \textbf{Technical Leadership:} Design reviews, mentorship, cross-company collaboration (Meta, Dolby, Comcast), technical decision-making for projects with 50+ contributors
 \end{itemize}
 
 \vspace{4pt}
 
 \section*{Professional Experience}
 
-\experience{Independent Consultant}{January 2024 --- Present}{Self-employed}{
+\experience{Independent Consultant}{January 2024 --- Present}{Self-employed $\cdot$ Full Time}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
     \item Provided specialized consulting on performance optimization and feature development for multimedia infrastructure
     \item Led complete rewrite of FFmpeg's pixel format conversion system (libswscale), achieving 4-5x average speedup through novel runtime code generation approach
@@ -109,12 +109,12 @@ systems, and production-scale optimization.
 \experience{Senior Software Engineer}{2021 --- July 2025}{FFlabs SAS $\cdot$ Remote}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
     \item Core developer and technical committee member for FFmpeg, used by 2600+ companies including Meta, Google, Netflix, Spotify; make architectural decisions affecting infrastructure processing billions of videos daily
-    \item Led redesign of core format negotiation system, enabling support for advanced codecs (Dolby Vision, MV-HEVC) across the ecosystem; authored design proposals and coordinated implementation across 20+ contributors
-    \item Mentored junior engineers through code reviews and design feedback; 50+ substantial code reviews annually, focusing on performance optimization and correctness
-    \item Authored first open-source implementations of industry-standard video technologies (Dolby Vision, ITU-R H.274, SMPTE RDD5), reducing industry dependency on proprietary solutions
+    \item Led redesign of core format negotiation system, enabling support for advanced codecs across the ecosystem; authored design proposals and coordinated implementation across multiple contributors
+    \item Mentored junior engineers through code reviews and design feedback; 50+ substantial code reviews annually, focusing on maintainability, style and correctness
+    \item Authored first open-source implementations of industry-standard video technologies (Dolby Vision, ITU-R H.274, SMPTE RDD5, MV-HEVC), reducing industry dependency on proprietary solutions
     \item Developed and published novel tone-mapping algorithm combining real-time frame analysis with psychovisual models; algorithm adopted by multiple downstream projects
     \item Debugged and fixed critical race conditions in multi-threaded processing pipeline affecting production deployments at major streaming companies
-    \item Technical speaker: Presented architecture decisions and optimization techniques at FFmpeg developer meetings; published technical blog posts explaining complex optimization work
+    \item Technical speaker: Presented architecture decisions and optimization techniques at VideoLAN developer meetings; published technical posts and design documents explaining complex algorithms and optimization work
 \end{itemize}
 }
 
@@ -123,7 +123,7 @@ systems, and production-scale optimization.
     \item Created and maintain libplacebo (3200+ commits, \textasciitilde{}50 community contributors), integrated into VLC (5+ billion downloads), mpv, and FFmpeg; processing millions of frames daily across diverse platforms
     \item Designed and implemented GPU-accelerated real-time video processing pipeline using Vulkan compute shaders, achieving 10x+ performance improvements over CPU-only approaches
     \item Led Vulkan integration enabling HDR and Dolby Vision playback in VLC; feature used by 50M+ monthly active users
-    \item Contributed GPU driver fixes and performance improvements to Mesa/Vulkan ecosystem, benefiting 200K+ AMD GPU users with 15\% performance gains
+    \item Contributed fixes and debugging work improving stability of the Linux AMD ecosystem, used by millions of users including Steam Deck
 \end{itemize}
 }
 
@@ -137,7 +137,7 @@ systems, and production-scale optimization.
 \experience{System Administrator}{2015 --- 2018}{Ulm University $\cdot$ Part-time $\cdot$ On-site}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
     \item Administration of Linux servers and user-facing systems for the computer science faculty
-    \item Managed infrastructure, security, and performance of critical university systems
+    \item Managed infrastructure, security, and reliability of critical university systems
     \item Provided technical support and troubleshooting for faculty and students
 \end{itemize}
 }
@@ -150,21 +150,22 @@ systems, and production-scale optimization.
 \begin{itemize}[leftmargin=*, itemsep=2pt]
     \item \textbf{Technical Committee Member:} FFmpeg (50 active developers, 10,000+ commits/year) and VideoLAN (VLC media player, 200+ active contributors)
     \item Review and approve major architectural changes, set technical direction, resolve disputes on API design and performance tradeoffs
-    \item \textbf{Mentorship:} Guided 15+ first-time contributors through their initial patches; several became regular contributors
+    \item \textbf{Mentorship:} Guided 10+ first-time contributors through their initial patches; several became regular contributors
+    \item \textbf{Maintainership:} Reviewed and merged 1000+ pull requests on FFmpeg/VLC/libplacebo
 \end{itemize}
 
 \subsection*{Project Leadership \& Adoption}
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{libplacebo:} Created and maintain GPU computing framework (3200+ commits, 50 community contributors); integrated into VLC (5B+ downloads), FFmpeg, mpv
-    \item \textbf{libswscale:} Led team of 3 engineers through complete rewrite achieving 4-5x performance improvement; coordinated testing across 200+ supported formats
-    \item \textbf{checkasm:} Overhauled benchmarking tool used by 10+ major projects (350+ GitHub references); improvements reduced CI/CD pipeline time by 40\% across ecosystem
+    \item \textbf{libplacebo:} Created and maintain GPU computing framework (3,700+ commits, 50 community contributors); integrated into VLC (5B+ downloads), FFmpeg, mpv and more (17,700+ GitHub references, 660+ stars)
+    \item \textbf{libswscale:} Led team of 3 engineers through complete rewrite achieving 4-5x performance improvement; coordinated testing across 200+ supported formats and 5+ supported architectures
+    \item \textbf{checkasm:} Overhauled benchmarking and correctness validation tool used by 10+ major projects including FFmpeg, dav1d, and x264 (350+ GitHub references); improvements reduced benchmark runtime and noise floor by 80\%+
 \end{itemize}
 
 \subsection*{Technical Influence}
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Design Documents:} Authored 12+ technical design proposals for major architectural changes in FFmpeg and VLC
-    \item \textbf{Conference Speaking:} Presented optimization techniques at FFmpeg Dev Meeting 2024, fostering knowledge sharing across the community
-    \item \textbf{Publications:} Technical blog explaining SIMD optimization techniques; 5,000+ views, referenced by Google engineers in internal discussions
+    \item \textbf{Design Documents:} Authored 4+ technical design proposals for major architectural changes in FFmpeg
+    \item \textbf{Conference Speaking:} Held 4+ presentations on optimization techniques and algorithm designs at VideoLAN Dev Days, fostering knowledge sharing across the community
+    \item \textbf{Publications:} Author of technical documentation and blog posts; referenced during the hiring process at Open Broadcast Systems
 \end{itemize}
 
 \vspace{4pt}
@@ -172,13 +173,13 @@ systems, and production-scale optimization.
 \section*{Technical Skills}
 
 \begin{description}[leftmargin=0pt, itemsep=4pt]
-    \item[\textbf{Languages:}] C (expert), Assembly (x86/ARM/RISC-V), GLSL/HLSL, Haskell, Python, Lua, Go, C++
+    \item[\textbf{Languages:}] C (expert), Haskell (expert), Assembly (x86/ARM/RISC-V), GLSL/HLSL, Python, Lua, Go, C++
     \item[\textbf{GPU \& Parallel Computing:}] Vulkan, OpenGL, Compute Shaders, GPU Architecture, Pipeline Optimization
-    \item[\textbf{Performance Optimization:}] SIMD (SSE, AVX2, AVX512, NEON, RVV), Profiling (perf, GPU profilers), Cache Optimization
+    \item[\textbf{Performance Optimization:}] SIMD (SSE, AVX2, AVX512, NEON, RVV), Profiling (CPU, GPU), Cache Optimization
     \item[\textbf{Systems:}] Linux, Threading/Concurrency, Memory Management, GPU Drivers (Mesa)
     \item[\textbf{Domains:}] Real-time Processing, Signal Processing, Algorithm Design, Codec Development
     \item[\textbf{Tools:}] Git, GDB, GCC/LLVM, Meson, Docker
-    \item[\textbf{Leadership \& Communication:}] Technical writing (design documents, performance analysis reports, public blog posts), code review (500+ reviews in FFmpeg/VLC, established review guidelines for performance-critical code), cross-team coordination across distributed open-source communities
+    \item[\textbf{Leadership \& Communication:}] Technical writing (design documents, performance analysis reports, public blog posts), cross-team coordination across distributed open-source communities
 \end{description}
 
 \vspace{4pt}
