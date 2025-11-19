@@ -63,7 +63,7 @@
 \begin{minipage}[c]{0.75\textwidth}
     \raggedright
     {\Huge\bfseries\sffamily NIKLAS HAAS}\\[8pt]
-    {\large Staff Software Engineer (L6) --- Performance Optimization \& GPU Computing}\\[8pt]
+    {\large Staff Software Engineer (L6) --- Algorithm Design, Performance \& GPU Computing}\\[8pt]
     \href{mailto:jobs@niklashaas.de}{jobs@niklashaas.de} $\cdot$
     \href{https://niklashaas.de}{niklashaas.de} $\cdot$
     \href{https://github.com/haasn}{\faGithub\ github.com/haasn} $\cdot$
@@ -74,24 +74,25 @@
 
 \section*{Professional Summary}
 
-Performance engineering leader with 15+ years optimizing systems that process
+Algorithm design and performance engineering leader with 15+ years optimizing systems that process
 billions of operations daily. Serves as a technical committee member shaping technical direction
 of FFmpeg (2600+ companies) and VideoLAN (5B+ downloads), influencing decisions
 affecting operations at Meta, Google, Netflix, Spotify, Comcast, Twitch and more.
-Track record of 5x-10x performance improvements through SIMD optimization, GPU acceleration,
-and algorithmic innovation. Expert in high-throughput data processing, low-latency
-systems, and production-scale optimization.
+Track record of balancing psychovisual quality with performance through research, prototyping,
+and A/B testing---achieving 5x-10x performance improvements while maintaining or improving
+subjective quality. Expert in algorithm design, GPU computing, SIMD optimization, and making
+strategic tradeoffs between quality, performance, and complexity in production-scale systems.
 
 \vspace{4pt}
 
 \section*{Core Competencies}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Performance Engineering:} Profiling, benchmarking, algorithm optimization, achieving 5x-10x improvements in production systems on average
+    \item \textbf{Algorithm Design \& Research:} Developing novel algorithms balancing quality and performance; prototyping and A/B testing to validate psychovisual improvements; 5x-10x performance gains while maintaining or improving subjective quality
     \item \textbf{Low-Level Optimization:} SIMD programming (x86 SSE/AVX2/AVX512, ARM NEON, RISC-V Vectors), assembly language, cache optimization, memory hierarchy tuning
     \item \textbf{GPU Computing:} Vulkan compute shaders, GPU pipeline optimization, OpenGL/GLSL, parallel algorithm design for throughput-oriented workloads
     \item \textbf{Systems Programming:} C/C++, lock-free algorithms, concurrency, memory management, thread-safe data structures
-    \item \textbf{Technical Leadership:} Design reviews, mentorship, cross-company collaboration (Meta, Dolby, Comcast), technical decision-making for projects with 50+ contributors
+    \item \textbf{Technical Leadership:} Design reviews, mentorship, cross-company collaboration (Meta, Dolby, Comcast), technical decision-making for projects with 50+ contributors, navigating quality-vs-performance tradeoffs
 \end{itemize}
 
 \vspace{4pt}
@@ -100,8 +101,9 @@ systems, and production-scale optimization.
 
 \experience{Independent Consultant}{January 2024 --- Present}{Self-employed $\cdot$ Full Time}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Provided specialized consulting on performance optimization and feature development for multimedia infrastructure
-    \item Led complete rewrite of FFmpeg's pixel format conversion system (libswscale), achieving 4-5x average speedup through novel runtime code generation approach
+    \item Provided specialized consulting on algorithm design, performance optimization and feature development for multimedia infrastructure
+    \item Led complete rewrite of FFmpeg's pixel format conversion system (libswscale), achieving 4-5x average speedup through novel runtime code generation approach while maintaining bit-exact output quality
+    \item Designed and prototyped quality-preserving optimization strategies, validating visual fidelity through subjective testing and automated quality metrics
 \end{itemize}
 }
 
@@ -109,9 +111,10 @@ systems, and production-scale optimization.
 \begin{itemize}[leftmargin=*, itemsep=2pt]
     \item Core developer for FFmpeg, used by 2600+ companies including Meta, Google, Netflix, Spotify; work affects infrastructure processing billions of videos daily
     \item Led redesign of core format negotiation system, enabling support for advanced codecs across the ecosystem; coordinated implementation across multiple contributors
+    \item Researched, prototyped, and validated novel tone-mapping algorithms through A/B testing and subjective quality evaluation; published approach combining real-time frame analysis with psychovisual models, adopted by multiple downstream projects
+    \item Designed quality-performance tradeoffs for video processing features, balancing computational cost against perceptual improvements through iterative prototyping and user feedback
     \item Mentored junior engineers through code reviews and design feedback; 50+ substantial code reviews annually, focusing on maintainability, style and correctness
     \item Authored first open-source implementations of industry-standard video technologies (Dolby Vision, ITU-R H.274, SMPTE RDD5, MV-HEVC), reducing industry dependency on proprietary solutions
-    \item Developed and published novel tone-mapping algorithm combining real-time frame analysis with psychovisual models; algorithm adopted by multiple downstream projects
     \item Debugged and fixed critical race conditions in multi-threaded processing pipeline affecting production deployments at major streaming companies
 \end{itemize}
 }
@@ -119,7 +122,8 @@ systems, and production-scale optimization.
 \experience{Software Engineer}{2018 --- 2021}{Videolabs SAS $\cdot$ Remote}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
     \item Created and maintain libplacebo, a GPU computing framework integrated into VLC, mpv, and FFmpeg; processing millions of frames daily across diverse platforms
-    \item Designed and implemented GPU-accelerated real-time video processing pipeline using Vulkan compute shaders, achieving 10x+ performance improvements over CPU-only approaches
+    \item Researched and implemented psychovisually-optimized algorithms for HDR tone mapping, upscaling, and color management; designed quality-focused features balancing perceptual accuracy with real-time performance constraints
+    \item Designed and implemented GPU-accelerated real-time video processing pipeline using Vulkan compute shaders, achieving 10x+ performance improvements over CPU-only approaches while maintaining visual quality
     \item Led Vulkan integration enabling HDR and Dolby Vision playback in VLC; feature used by 50M+ monthly active users
     \item Contributed fixes and debugging work improving stability of the Linux AMD ecosystem, used by millions of users including Steam Deck
 \end{itemize}
@@ -175,7 +179,7 @@ systems, and production-scale optimization.
     \item[\textbf{GPU \& Parallel Computing:}] Vulkan, OpenGL, Compute Shaders, GPU Architecture, Pipeline Optimization
     \item[\textbf{Performance Optimization:}] SIMD (SSE, AVX2, AVX512, NEON, RVV), Profiling (CPU, GPU), Cache Optimization
     \item[\textbf{Systems:}] Linux, Threading/Concurrency, Memory Management, GPU Drivers (Mesa)
-    \item[\textbf{Domains:}] Real-time Processing, Signal Processing, Algorithm Design, Codec Development
+    \item[\textbf{Domains:}] Algorithm Design, Psychovisual Quality Optimization, Signal Processing, Codec Development, Real-time Processing
     \item[\textbf{Tools:}] Git, GDB, GCC/LLVM, Meson, Docker
     \item[\textbf{Leadership \& Communication:}] Technical writing (design documents, performance analysis reports, public blog posts), cross-team coordination across distributed open-source communities
 \end{description}
