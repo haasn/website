@@ -138,6 +138,12 @@ Ulm University, Germany | 2014 --- 2017
 
 ---
 
+## Honors & Awards
+
+- **Landessieger Mathematik & Informatik** (State Winner), Jugend Forscht Baden-Württemberg | 2013
+
+---
+
 ## Additional Information
 
 - **Languages:** German (native), English (native, bilingual upbringing), Norwegian (B2)
