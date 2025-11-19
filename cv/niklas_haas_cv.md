@@ -2,7 +2,7 @@
 
 **Staff Software Engineer --- Performance Optimization & GPU Computing**
 
-📧 jobs@niklashaas.de | 🌐 [niklashaas.de](https://niklashaas.de) | 💻 [github.com/haasn](https://github.com/haasn)
+📧 jobs@niklashaas.de | 🌐 [niklashaas.de](https://niklashaas.de) | 💻 [github.com/haasn](https://github.com/haasn) | 💼 [LinkedIn](https://www.linkedin.com/in/niklas-haas-238761297/)
 
 ---
 
@@ -28,24 +28,43 @@ Independent IT consultant with nearly 20 years of programming experience, specia
 
 ## Professional Experience
 
-### Independent IT Consultant
-*2017 --- Present | Germany*
+### Independent Consultant
+*January 2024 --- Present | Self-employed*
 
-- Developed novel SIMD-based pixel format conversion system for FFmpeg's libswscale, achieving dramatic performance improvements through runtime assembly of optimized code fragments using continuation passing style
-- Designed and implemented GPU-accelerated image processing pipelines using Vulkan compute shaders for real-time video processing
-- Optimized critical multimedia processing routines achieving 2-10x speedups through SIMD vectorization (AVX2/AVX512/NEON/RVV)
-- Led architectural design and implementation of high-performance color management systems supporting HDR workflows
+- Providing specialized consulting services to various clients, focusing on performance optimization and development of new features
+- Developed novel SIMD-based pixel format conversion system for FFmpeg's libswscale, achieving dramatic performance improvements through runtime compilation and assembly of custom domain-specific AST
 - Performed in-depth performance analysis and optimization of large-scale codebases, identifying and resolving bottlenecks across CPU and GPU workloads
 - Delivered comprehensive code reviews and technical audits for performance-critical systems
 
-### Open Source Maintainer & Core Developer
-*2014 --- Present | FFmpeg, VideoLAN, libplacebo*
+### Senior Software Engineer
+*2021 --- July 2025 | FFlabs · Remote*
 
-- **libplacebo** (Author & Maintainer): Created cross-platform GPU-accelerated library featuring advanced compute shader algorithms for real-time image processing, now integrated into VLC, mpv, and FFmpeg
-- **FFmpeg** (Technical Committee): Architectural improvements, format negotiation optimization, first open-source implementations of ITU-R H.274, AFGS1, SMPTE RDD5, MV-HEVC
-- **checkasm** (Maintainer): Overhauled SIMD verification and benchmarking framework, enabling cycle-accurate performance metrics for large-scale projects
-- **dav1d**: Developed experimental GPU-based Vulkan decoder using compute shaders, implemented RISC-V SIMD routines
-- **VLC** (Technical Committee): Integrated Vulkan rendering pipeline, enabled HDR and Dolby Vision support
+- Project leader, chief developer and maintainer for libplacebo: created cross-platform GPU-accelerated library featuring advanced compute shader algorithms for real-time image processing, now integrated into VLC, mpv, and FFmpeg
+- Core developer for FFmpeg: architectural improvements, format negotiation optimization, first open-source implementations of ITU-R H.274, AFGS1, SMPTE RDD5, MV-HEVC
+- Contributed to Mesa/Vulkan/amdgpu ecosystem: GPU driver optimizations and Vulkan implementation enhancements
+- Optimized critical multimedia processing routines achieving 2-10x speedups through SIMD vectorization (AVX2/AVX512/NEON/RVV)
+- Led architectural design and implementation of high-performance color management systems supporting HDR workflows
+
+### Software Engineer
+*2018 --- 2021 | Videolabs · Remote*
+
+- Project leader for development and integration of libplacebo into VLC media player
+- Designed and implemented GPU-accelerated image processing pipelines using Vulkan compute shaders for real-time video processing
+- Integrated Vulkan rendering pipeline into VLC, enabling HDR and Dolby Vision support
+- Developed advanced tone-mapping algorithms and color space transformation systems
+
+### Software Engineer
+*2018 | Pebbles Digital Media · Contract · Remote*
+
+- Vulkan development and GPU optimization for multimedia applications
+- libmpv integration and performance enhancements
+
+### System Administrator
+*2015 --- 2018 | Ulm University · Part-time · On-site*
+
+- Administration of Linux servers and user-facing systems for the computer science faculty
+- Managed infrastructure, security, and performance of critical university systems
+- Provided technical support and troubleshooting for faculty and students
 
 ---
 
