@@ -181,12 +181,23 @@ nav.container {
     font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 0.25em;
+}
+
+.logo-text-gradient {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
+.logo-text-highlight {
+    background: var(--text-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Legacy class for backwards compatibility */
 .logo-text-n {
     background: none;
     -webkit-text-fill-color: var(--text-secondary);
@@ -312,12 +323,23 @@ nav a:active {
     margin-bottom: 1rem;
     letter-spacing: clamp(0.1rem, 0.3cqi, 0.3rem);
     text-transform: uppercase;
+}
+
+.hero-text-gradient {
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
+.hero-text-highlight {
+    background: var(--text-secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Legacy class for backwards compatibility */
 .hero-text-n {
     background: var(--text-secondary);
     background-clip: text;
