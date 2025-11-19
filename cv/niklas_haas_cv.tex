@@ -63,7 +63,7 @@
 \begin{minipage}[c]{0.75\textwidth}
     \raggedright
     {\Huge\bfseries\sffamily NIKLAS HAAS}\\[8pt]
-    {\large Staff Software Engineer --- Performance Optimization \& GPU Computing}\\[8pt]
+    {\large Staff Software Engineer (L6) --- Performance Optimization \& GPU Computing}\\[8pt]
     \href{mailto:jobs@niklashaas.de}{jobs@niklashaas.de} $\cdot$
     \href{https://niklashaas.de}{niklashaas.de} $\cdot$
     \href{https://github.com/haasn}{\faGithub\ github.com/haasn} $\cdot$
@@ -77,9 +77,9 @@
 Open-source developer with nearly 20 years of active programming
 experience, specializing in high-performance data processing, GPU algorithms,
 and low-level CPU optimization. Recognized expert in multimedia processing
-and color management, with an extensive, 15-year history of contributions to
+and color management, with an extensive history of contributions to
 industry-leading open source projects. Maintainer of multiple widely used software
-projects, and member of the FFmpeg and VideoLAN technical committees. Seeking
+projects, as well as a member of the FFmpeg and VideoLAN technical committees. Seeking
 opportunities to apply my deep technical expertise to challenging problems in emerging fields.
 
 \vspace{4pt}
@@ -100,36 +100,34 @@ opportunities to apply my deep technical expertise to challenging problems in em
 
 \experience{Independent Consultant}{January 2024 --- Present}{Self-employed}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Providing specialized consulting services to various clients, focusing on performance optimization and development of new features
+    \item Provided specialized consulting services to various clients, focusing on performance optimization, bug fixing and development of new features
     \item Developed novel SIMD-based pixel format conversion system for FFmpeg's libswscale, achieving dramatic performance improvements through runtime compilation and assembly of custom domain-specific AST
-    \item Performed in-depth performance analysis and optimization of large-scale codebases, identifying and resolving bottlenecks across CPU and GPU workloads
-    \item Delivered comprehensive code reviews and technical audits for performance-critical systems
+    \item Rewrote low-level benchmarking and assembly verification tools used in various open-source projects
 \end{itemize}
 }
 
-\experience{Senior Software Engineer}{2021 --- July 2025}{FFlabs $\cdot$ Remote}{
+\experience{Senior Software Engineer}{2021 --- July 2025}{FFlabs SAS $\cdot$ Remote}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Project leader, chief developer and maintainer for libplacebo: created cross-platform GPU-accelerated library featuring advanced compute shader algorithms for real-time image processing, now integrated into VLC, mpv, and FFmpeg
-    \item Core developer for FFmpeg: architectural improvements, format negotiation optimization, first open-source implementations of ITU-R H.274, AFGS1, SMPTE RDD5, MV-HEVC
-    \item Contributed to Mesa/Vulkan/amdgpu ecosystem: GPU driver optimizations and Vulkan implementation enhancements
-    \item Optimized critical multimedia processing routines achieving 2-10x speedups through SIMD vectorization (AVX2/AVX512/NEON/RVV)
-    \item Led architectural design and implementation of high-performance color management systems supporting HDR workflows
+    \item Core developer for FFmpeg, focusing on many architectural improvements including extended format negotiation
+    \item Solved difficult, long-standing bugs involving concurrency issues and race conditions
+    \item Authored world's first open-source implementations of Dolby Vision, ITU-R H.274, AFGS1, SMPTE RDD5 and MV-HEVC
+    \item Developed and refined novel approach to HDR tone-mapping, based on real-time frame analysis and application of advanced psychovisual colorimetric models
 \end{itemize}
 }
 
-\experience{Software Engineer}{2018 --- 2021}{Videolabs $\cdot$ Remote}{
+\experience{Software Engineer}{2018 --- 2021}{Videolabs SAS $\cdot$ Remote}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Project leader for development and integration of libplacebo into VLC media player
-    \item Designed and implemented GPU-accelerated image processing pipelines using Vulkan compute shaders for real-time video processing
-    \item Integrated Vulkan rendering pipeline into VLC, enabling HDR and Dolby Vision support
-    \item Developed advanced tone-mapping algorithms and color space transformation systems
+    \item Project leader and chief developer of libplacebo, as well as integration into VLC media player, mpv and FFmpeg
+    \item Designed and implemented GPU-accelerated image processing pipeline using Vulkan compute shaders for real-time video processing
+    \item Contributed to Mesa/Vulkan/amdgpu ecosystem to deliver GPU driver fixes and Vulkan implementation enhancements
+    \item Integrated Vulkan rendering subsystem into VLC, enabling HDR and Dolby Vision support
 \end{itemize}
 }
 
 \experience{Software Engineer}{2018}{Pebbles Digital Media $\cdot$ Contract $\cdot$ Remote}{
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Vulkan development and GPU optimization for multimedia applications
-    \item libmpv integration and performance enhancements
+    \item Developed a Vulkan backend for use in multimedia applications
+    \item Integrated libmpv for seamless video playback and control
 \end{itemize}
 }
 
@@ -146,21 +144,32 @@ opportunities to apply my deep technical expertise to challenging problems in em
 % Key Projects
 \section*{Key Technical Projects}
 
-\project{libswscale Reimplementation}{2024 --- 2025}{
-Complete refactor of FFmpeg's pixel format conversion code. Developed innovative approach combining SIMD fragments at runtime to generate optimized conversion routines, dramatically reducing code complexity while improving performance across all supported formats. Utilized advanced compiler techniques, including heavily templated SIMD, custom ABIs and continuation passing style for code generation.
-}
-
-\project{libplacebo --- GPU Processing Library}{2017 --- Present}{
+\project{libplacebo -- Project Leader}{2017 --- Present}{
 Designed and implemented comprehensive cross-platform GPU computing framework using Vulkan / OpenGL / Direct3D for real-time image processing. Features include: fully dynamic rendering pipeline, GPU film grain synthesis, high-quality scaling algorithms, and completely novel real-time tone mapping algorithm. Active and ongoing maintainership role. Used in VLC, FFmpeg, mpv, and more.
 }
 
-\project{GPU-based AV1 Decoder (dav1d)}{2019}{
-Experimental implementation of video decoder using Vulkan compute shaders, exploring feasibility of fully GPU-based video decoding. Demonstrates expertise in algorithm parallelization and GPU performance optimization.
+\project{libswscale -- Project Leader}{2024 --- 2025}{
+Complete rewrite of FFmpeg's pixel format conversion code. Developed innovative approach combining SIMD fragments at runtime to generate optimized conversion routines, dramatically reducing code complexity while improving performance across all supported formats. Utilized advanced compiler techniques, including heavily templated SIMD, custom ABIs, continuation passing style and peephole optimization for code generation.
+}
+
+\project{checkasm -- Project Leader}{2025 --- Present}{
+Complete refactor of the popular 'checkasm' tool, used for verifying correctness of SIMD
+functions, as well as added a powerful benchmarking framework. Cleaned up
+the codebase to make it fully portable, thread-safe and reusable across projects.
+Major overhaul of the benchmarking and statistical evaluation subsystems to vastly
+improve the quality and display of performance data, and reduce runtime by over
+an order of magnitude.
+}
+
+\project{dav1d --- Developer}{2018 --- 2024}{
+Experimental implementation of AV1 video decoder using Vulkan compute shaders,
+exploring feasibility of fully GPU-based video decoding. Rewrote several key
+DSP functions in RISC-V assembly, using RVV instructions. Implemented CPU and
+GPU film grain synthesis algorithm.
 }
 
 \vspace{4pt}
 
-% Technical Skills
 \section*{Technical Skills}
 
 \begin{description}[leftmargin=0pt, itemsep=4pt]
@@ -174,16 +183,14 @@ Experimental implementation of video decoder using Vulkan compute shaders, explo
 
 \vspace{4pt}
 
-% Education
 \section*{Education}
 
 \textbf{Bachelor of Science in Computer Science}\\
-Ulm University, Germany \hfill 2014 --- 2017\\
+Ulm University, Germany \hfill 2014 --- 2019\\
 \textit{Graduated with highest honors}
 
 \vspace{8pt}
 
-% Additional Information
 \section*{Additional Information}
 
 \begin{itemize}[leftmargin=*, itemsep=2pt]
