@@ -35,12 +35,13 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y texlive-xetex texlive-fonts-recommended texlive-fonts-extra fonts-lmodern texlive-latex-extra
 
-      - name: Generate CV PDF
+      - name: Generate CV PDFs
         run: |
           cd cv
-          xelatex niklas_haas_cv.tex
+          make all
           mkdir -p ../_site/assets
           cp niklas_haas_cv.pdf ../_site/assets/cv.pdf
+          cp cv_nophoto.pdf ../_site/assets/cv_nophoto.pdf
 
       - name: Add .nojekyll to prevent GitHub Pages from processing with Jekyll
         run: touch _site/.nojekyll
