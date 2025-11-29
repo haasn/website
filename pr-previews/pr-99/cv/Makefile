@@ -1,10 +1,10 @@
 # Makefile for building CV PDFs
-# Builds both versions: with photo (niklas_haas_cv.pdf) and without photo (cv_nophoto.pdf)
+# Builds both versions: with photo ($(OUTPUT_STANDARD)) and without photo ($(OUTPUT_NOPHOTO))
 
 LATEX = xelatex
 SOURCE = niklas_haas_cv.tex
 OUTPUT_STANDARD = niklas_haas_cv.pdf
-OUTPUT_NOPHOTO = cv_nophoto.pdf
+OUTPUT_NOPHOTO = niklas_haas_cv_nophoto.pdf
 
 .PHONY: all clean standard nophoto
 
@@ -21,7 +21,7 @@ $(OUTPUT_STANDARD): $(SOURCE) photo.jpg
 nophoto: $(OUTPUT_NOPHOTO)
 
 $(OUTPUT_NOPHOTO): $(SOURCE)
-	$(LATEX) -jobname=cv_nophoto "\def\nophoto{}\input{$(SOURCE)}"
+	$(LATEX) -jobname=niklas_haas_cv_nophoto "\def\nophoto{}\input{$(SOURCE)}"
 
 # Clean auxiliary files
 clean:
