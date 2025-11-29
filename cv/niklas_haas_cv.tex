@@ -52,15 +52,7 @@
     \vspace{4pt}
 }
 
-\begin{document}
-
-% Header
-\noindent
-\begin{minipage}[c]{0.2\textwidth}
-    \includegraphics[width=\textwidth,keepaspectratio]{photo.jpg}
-\end{minipage}%
-\hfill
-\begin{minipage}[c]{0.75\textwidth}
+\newcommand{\headertext}{
     \raggedright
     {\Huge\bfseries\sffamily NIKLAS HAAS}\\[8pt]
     {\large Staff Software Engineer --- Performance Engineering, GPU Computing \& Compilers}\\[8pt]
@@ -68,7 +60,27 @@
     \href{https://niklashaas.de}{niklashaas.de} $\cdot$
     \href{https://github.com/haasn}{\faGithub\ github.com/haasn} $\cdot$
     \href{https://www.linkedin.com/in/niklas-haas-238761297/}{\faLinkedin\ LinkedIn}
-\end{minipage}
+}
+
+\begin{document}
+
+% Header
+\noindent
+\ifdefined\nophoto
+    % No photo version - use full width for text
+    \begin{minipage}[c]{\textwidth}
+        \headertext
+    \end{minipage}
+\else
+    % Standard version with photo
+    \begin{minipage}[c]{0.2\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio]{photo.jpg}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{0.75\textwidth}
+        \headertext
+    \end{minipage}
+\fi
 
 \vspace{8pt}
 
