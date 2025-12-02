@@ -1,0 +1,192 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{fontawesome5}
+
+% Configure hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdfauthor={Niklas Haas},
+    pdftitle={Niklas Haas - Curriculum Vitae}
+}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\sffamily}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{8pt}{4pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom commands
+\newcommand{\experience}[4]{
+    \subsection*{#1 \hfill \normalfont\textit{#2}}
+    \textit{#3}\\[2pt]
+    #4
+    \vspace{6pt}
+}
+
+\newcommand{\project}[3]{
+    \subsection*{#1 \hfill \normalfont\textit{#2}}
+    #3
+    \vspace{6pt}
+}
+
+\newcommand{\publication}[4]{
+    \textbf{#1}\\
+    \textit{#2}, #3\\
+    #4
+    \vspace{4pt}
+}
+
+\newcommand{\headertext}{
+    \raggedright
+    {\Huge\bfseries\sffamily NIKLAS HAAS}\\[8pt]
+    {\large Staff Software Engineer --- Multimedia Systems \& Video Processing Expert}\\[8pt]
+    \href{mailto:jobs@niklashaas.de}{jobs@niklashaas.de} $\cdot$
+    \href{https://niklashaas.de}{niklashaas.de} $\cdot$
+    \href{https://github.com/haasn}{\faGithub\ github.com/haasn} $\cdot$
+    \href{https://www.linkedin.com/in/niklas-haas-238761297/}{\faLinkedin\ LinkedIn}
+}
+
+\begin{document}
+
+% Header
+\noindent
+\ifdefined\nophoto
+    % No photo version - use full width for text
+    \begin{minipage}[c]{\textwidth}
+        \headertext
+    \end{minipage}
+\else
+    % Standard version with photo
+    \begin{minipage}[c]{0.2\textwidth}
+        \includegraphics[width=\textwidth,keepaspectratio]{photo.jpg}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[c]{0.75\textwidth}
+        \headertext
+    \end{minipage}
+\fi
+
+\vspace{8pt}
+
+\section*{Professional Summary}
+
+Multimedia systems engineer with nearly 20 years of programming experience and 7+ years
+developing video processing infrastructure used by billions. Technical committee member for
+FFmpeg (2600+ companies) and VideoLAN (5B+ downloads), directly shaping the technology
+behind modern video delivery and media playback. Author and maintainer of libplacebo, the
+industry-leading open-source GPU color management and video processing library. Deep
+expertise in video codecs, HDR workflows, color science, GPU-accelerated media processing,
+and real-time video rendering. Proven track record implementing novel algorithms for tone
+mapping, upscaling, and color management.
+
+\vspace{4pt}
+
+\section*{Core Competencies}
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Video Processing \& Codecs:} Expert-level knowledge of modern video codecs and processing pipelines; developed first open-source implementations of Dolby Vision and other critical video technologies; deep understanding of video compression, filtering, and transcoding workflows
+    \item \textbf{Color Management \& HDR:} Comprehensive expertise in color science, HDR workflows, tone mapping algorithms, and color space transformations; implemented production-grade color management systems used by millions
+    \item \textbf{GPU-Accelerated Media Processing:} Vulkan and OpenGL expert; designed and implemented GPU compute pipelines for real-time video processing, achieving 10x+ performance improvements; author of libplacebo, industry-leading GPU video processing framework
+    \item \textbf{Multimedia Algorithm Design:} Developed novel perceptually-motivated algorithms for tone mapping, upscaling, and image enhancement; expertise in signal processing and psychovisual modeling
+    \item \textbf{Performance Optimization:} Achieved 5x-10x improvements through SIMD programming, GPU acceleration, and algorithmic innovation; expert in profiling and tuning multimedia workloads
+    \item \textbf{Technical Leadership:} FFmpeg and VideoLAN technical committee member; mentorship, design reviews, cross-company collaboration; technical decision-making for projects processing billions of videos daily
+\end{itemize}
+
+\vspace{4pt}
+
+\section*{Professional Experience}
+
+\experience{Independent Consultant}{January 2024 --- Present}{Self-employed $\cdot$ Full Time}{
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Specialized consulting on video processing systems, codec integration, color management pipelines, and multimedia algorithm development
+    \item Led complete rewrite of FFmpeg's pixel format conversion system (libswscale), a critical component for video transcoding and format conversion used by every major streaming platform; achieved 4-5x average speedup through novel approach combining SIMD optimization with runtime code generation
+\end{itemize}
+}
+
+\experience{Senior Software Engineer}{2021 --- Present}{FFlabs SAS $\cdot$ Remote}{
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Core developer for FFmpeg, the foundational video processing library used by 2600+ companies including Meta, Google, Netflix; direct impact on infrastructure processing billions of videos daily
+    \item Authored first open-source implementations of critical video technologies including Dolby Vision HDR metadata and tone mapping, film grain synthesis, and multiview video codecs
+    \item Developed and published novel perceptually-motivated tone-mapping algorithm combining real-time HDR frame analysis with psychovisual models; adopted by VLC, mpv, and other major media players
+    \item Led architectural redesign of FFmpeg's format negotiation system to support advanced color spaces and HDR metadata propagation across complex filtering pipelines
+    \item Technical mentorship through code reviews focusing on video processing correctness and multimedia best practices; 50+ substantial reviews annually
+\end{itemize}
+}
+
+\experience{Software Engineer}{2018 --- 2021}{Videolabs SAS $\cdot$ Remote}{
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Created and maintain libplacebo, the industry-leading open-source GPU video processing library integrated into VLC (5B+ downloads), mpv, and FFmpeg; powers real-time HDR video playback for millions of users worldwide
+    \item Designed and implemented complete GPU-accelerated video rendering pipeline using Vulkan, supporting HDR tone mapping, color space conversion, upscaling, and film grain synthesis; achieved 10x+ performance improvements
+    \item Developed advanced perceptually-motivated algorithms for HDR-to-SDR tone mapping with dynamic scene analysis and high-quality video upscaling
+    \item Led end-to-end integration of Vulkan-based GPU video output in VLC, bringing support for HDR and wide color gamut displays; feature used by 50M+ monthly active users
+    \item Contributed GPU driver fixes to Mesa/AMD stack improving video playback stability for Linux users
+\end{itemize}
+}
+
+\experience{Software Engineer}{2018}{Pebbles Digital Media $\cdot$ Contract $\cdot$ Remote}{
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Developed GPU-accelerated Vulkan rendering backend for multimedia applications with real-time video compositing
+    \item Integrated libmpv video player engine providing advanced playback control, format support, and hardware decoding
+\end{itemize}
+}
+
+\vspace{4pt}
+
+\section*{Technical Skills}
+
+\begin{description}[leftmargin=0pt, itemsep=4pt]
+    \item[\textbf{Video \& Multimedia:}] Video codecs (H.264, HEVC, AV1, VP9), FFmpeg, multimedia processing pipelines, video transcoding, format conversion, codec integration
+    \item[\textbf{Color Science:}] HDR workflows (Dolby Vision, HDR10+), tone mapping algorithms, color space transformations, ICC profiles, perceptual color models
+    \item[\textbf{GPU Video Processing:}] Vulkan (expert), OpenGL, compute shaders, GPU pipeline optimization, real-time rendering, hardware video decode/encode
+    \item[\textbf{Signal Processing:}] Image and video filtering, upscaling algorithms, psychovisual modeling, film grain synthesis
+    \item[\textbf{Performance Engineering:}] SIMD optimization (SSE, AVX2, AVX512, RISC-V), assembly language, profiling and benchmarking
+    \item[\textbf{Programming Languages:}] C (expert), GLSL/HLSL (shaders), Assembly (x86/RISC-V), Haskell, Python, Lua, Go, C++
+    \item[\textbf{Systems:}] Linux, threading/concurrency for multimedia, memory management, GPU drivers
+    \item[\textbf{Tools \& Infrastructure:}] Git, GDB, GCC/LLVM, Meson, FFmpeg tooling
+    \item[\textbf{Leadership:}] Technical writing, conference speaking, cross-company collaboration, open-source community coordination
+\end{description>
+
+\vspace{4pt}
+
+\section*{Education}
+
+\textbf{Bachelor of Science in Computer Science}\\
+Ulm University, Germany \hfill 2014 --- 2019\\
+\textit{Graduated with highest honors}
+
+\vspace{8pt}
+
+\section*{Honors \& Awards}
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Landessieger Mathematik \& Informatik} (State Winner), Jugend Forscht Baden-Württemberg \hfill 2013\\
+    \textit{Project: Developed a Haskell library using type system metaprogramming to automatically track and verify physical units throughout computations, preventing dimensional analysis errors at compile time}
+\end{itemize}
+
+\vspace{8pt}
+
+\section*{Additional Information}
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Languages:} German (native), English (native), Norwegian (B2)
+    \item \textbf{Location:} Currently based in Germany, open to relocation (e.g. Dublin, Zurich, Munich)
+    \item \textbf{Work Authorization:} EU citizen (German)
+\end{itemize}
+
+\end{document}
