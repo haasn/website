@@ -41,7 +41,7 @@ jobs:
           make all
           mkdir -p ../_site/assets
           cp niklas_haas_cv.pdf ../_site/assets/cv.pdf
-          cp niklas_haas_cv_nophoto.pdf ../_site/assets/cv_nophoto.pdf
+          cp niklas_haas_cv_photo.pdf ../_site/assets/cv_photo.pdf
 
       - name: Add .nojekyll to prevent GitHub Pages from processing with Jekyll
         run: touch _site/.nojekyll

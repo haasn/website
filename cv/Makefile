@@ -1,27 +1,27 @@
 # Makefile for building CV PDFs
-# Builds both versions: with photo ($(OUTPUT_STANDARD)) and without photo ($(OUTPUT_NOPHOTO))
+# Builds both versions: without photo ($(OUTPUT_STANDARD)) and with photo ($(OUTPUT_PHOTO))
 
 LATEX = xelatex
 SOURCE = niklas_haas_cv.tex
 OUTPUT_STANDARD = niklas_haas_cv.pdf
-OUTPUT_NOPHOTO = niklas_haas_cv_nophoto.pdf
+OUTPUT_PHOTO = niklas_haas_cv_photo.pdf
 
-.PHONY: all clean standard nophoto
+.PHONY: all clean standard photo
 
 # Default target: build both versions
-all: standard nophoto
+all: standard photo
 
-# Build standard version (with photo)
+# Build standard version (without photo)
 standard: $(OUTPUT_STANDARD)
 
-$(OUTPUT_STANDARD): $(SOURCE) photo.jpg
-	$(LATEX) $(SOURCE)
+$(OUTPUT_STANDARD): $(SOURCE)
+	$(LATEX) -jobname=niklas_haas_cv "\def\nophoto{}\input{$(SOURCE)}"
 
-# Build version without photo
-nophoto: $(OUTPUT_NOPHOTO)
+# Build version with photo
+photo: $(OUTPUT_PHOTO)
 
-$(OUTPUT_NOPHOTO): $(SOURCE)
-	$(LATEX) -jobname=niklas_haas_cv_nophoto "\def\nophoto{}\input{$(SOURCE)}"
+$(OUTPUT_PHOTO): $(SOURCE) photo.jpg
+	$(LATEX) -jobname=niklas_haas_cv_photo $(SOURCE)
 
 # Clean auxiliary files
 clean:
@@ -29,4 +29,4 @@ clean:
 
 # Clean everything including PDFs
 distclean: clean
-	rm -f $(OUTPUT_STANDARD) $(OUTPUT_NOPHOTO)
+	rm -f $(OUTPUT_STANDARD) $(OUTPUT_PHOTO)
