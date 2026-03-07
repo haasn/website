@@ -59,6 +59,11 @@
     .hero-scroll-hint { animation: none; }
 }
 
+/* --- Scroll offset for fixed nav (direct hash navigation) --- */
+#top, #schedule, #travel, #rsvp {
+    scroll-margin-top: 52px;
+}
+
 /* --- Reset & Base ------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
