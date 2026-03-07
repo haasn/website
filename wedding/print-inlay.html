@@ -49,7 +49,7 @@ body {
 .sheet {
     width: 297mm;
     height: 210mm;
-    background: #fdf7f0;
+    background: white;
     position: relative;
     display: flex;
     overflow: hidden;
@@ -105,109 +105,81 @@ body {
     transform: rotate(180deg) scaleX(-1);
 }
 
-/* ── Left half content ── */
-.invite-names {
-    font-size: 26pt;
-    font-weight: 300;
-    color: #3d2535;
-    text-align: center;
-    letter-spacing: .04em;
-    line-height: 1.1;
-    margin-bottom: 1mm;
-}
-.invite-names .amp {
-    font-style: italic;
-    color: #c08090;
-    font-size: 21pt;
-}
-.invite-kana {
-    font-size: 9pt;
-    color: #c08090;
-    letter-spacing: .2em;
-    text-align: center;
-    margin-bottom: 3mm;
-}
-.invite-date {
-    font-size: 8.5pt;
-    font-weight: 300;
-    color: #9a7070;
-    text-align: center;
-    letter-spacing: .12em;
-    line-height: 1.9;
-    margin-bottom: 5mm;
-}
-.invite-date .tokyo {
-    font-size: 10pt;
-    color: #c08090;
-    letter-spacing: .08em;
-}
-
+/* ── Left half: QR + RSVP ── */
 .qr-img {
-    width: 62mm;
-    height: 62mm;
+    width: 74mm;
+    height: 74mm;
     object-fit: contain;
     display: block;
-    margin-bottom: 3mm;
+    margin-bottom: 4mm;
 }
-
 .qr-url {
     font-family: 'Lato', sans-serif;
-    font-size: 6.5pt;
+    font-size: 7.5pt;
     font-weight: 300;
-    color: #bba0a8;
-    letter-spacing: .1em;
+    color: #9a7070;
+    letter-spacing: .12em;
     text-align: center;
+    margin-bottom: 2.5mm;
 }
-
-/* ── Right half content ── */
-.prose {
-    max-width: 114mm;
-    text-align: center;
-}
-
-.prose-title {
-    font-size: 15pt;
+.qr-rsvp {
+    font-size: 9pt;
     font-style: italic;
     font-weight: 300;
     color: #c08090;
-    letter-spacing: .06em;
-    margin-bottom: 5mm;
-}
-
-.prose-ornament {
-    color: #e8a0ae;
-    font-size: 10pt;
-    letter-spacing: .3em;
-    margin-bottom: 5mm;
-    display: block;
-}
-
-.prose p {
-    font-size: 10pt;
-    font-weight: 300;
-    color: #5a3a40;
-    line-height: 1.75;
-    margin-bottom: 4mm;
+    letter-spacing: .05em;
     text-align: center;
 }
 
-.prose p:last-of-type {
+/* ── Right half: announcement ── */
+.announce {
+    text-align: center;
+}
+.announce-tagline {
+    font-size: 13pt;
+    font-style: italic;
+    font-weight: 300;
+    color: #c08090;
+    letter-spacing: .08em;
+    margin-bottom: 5mm;
+}
+.announce-ornament {
+    color: #e8a0ae;
+    font-size: 9pt;
+    letter-spacing: .28em;
+    display: block;
     margin-bottom: 6mm;
 }
-
-.prose-sig {
-    font-size: 10pt;
-    font-style: italic;
+.announce-names {
+    font-size: 32pt;
     font-weight: 300;
     color: #3d2535;
-    line-height: 1.7;
-    text-align: center;
+    letter-spacing: .04em;
+    line-height: 1.05;
+    margin-bottom: 1.5mm;
 }
-.prose-sig-names {
-    font-size: 13pt;
+.announce-names .amp {
+    font-style: italic;
     color: #c08090;
-    display: block;
-    margin-top: 1mm;
+    font-size: 26pt;
+}
+.announce-kana {
+    font-size: 9pt;
+    color: #c08090;
+    letter-spacing: .22em;
+    margin-bottom: 7mm;
+}
+.announce-date {
+    font-size: 9pt;
+    font-weight: 300;
+    color: #9a7070;
+    letter-spacing: .14em;
+    line-height: 2;
+}
+.announce-date .tokyo {
+    font-size: 11pt;
+    color: #c08090;
+    letter-spacing: .08em;
 }
 </style>
 </head>
@@ -220,7 +192,7 @@ body {
      ══════════════════════════════════════════════════════════ -->
 <div class="sheet" lang="en">
 
-    <!-- LEFT: QR code -->
+    <!-- LEFT: QR + RSVP -->
     <div class="half half-left">
 
         <svg class="deco-tr" viewBox="0 0 130 112" fill="none" aria-hidden="true">
@@ -268,19 +240,13 @@ body {
             <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#fbd0d8" opacity=".45" transform="rotate(20,66,56)"/>
         </svg>
 
-        <h1 class="invite-names">Niklas <span class="amp">&amp;</span> Oksana</h1>
-        <p class="invite-kana" lang="ja">結 婚 式</p>
-        <p class="invite-date">
-            20 – 22 November 2026<br>
-            <span class="tokyo" lang="ja">東京</span> &thinsp;·&thinsp; Tokyo
-        </p>
-
-        <img src="qr-wedding.png" class="qr-img" alt="QR code for niklashaas.de/wedding#en">
-        <p class="qr-url">niklashaas.de/wedding#en</p>
+        <img src="qr-wedding.png" class="qr-img" alt="QR code for niklashaas.de/wedding">
+        <p class="qr-url">niklashaas.de/wedding</p>
+        <p class="qr-rsvp">Please RSVP via the website</p>
 
     </div>
 
-    <!-- RIGHT: Prose -->
+    <!-- RIGHT: Announcement -->
     <div class="half half-right">
 
         <svg class="deco-tl" viewBox="0 0 130 112" fill="none" aria-hidden="true">
@@ -318,26 +284,14 @@ body {
             <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#fbd0d8" opacity=".45" transform="rotate(20,66,56)"/>
         </svg>
 
-        <div class="prose">
-            <p class="prose-title">Japan in November</p>
-            <span class="prose-ornament">✿ ✿ ✿</span>
-
-            <p>November in Japan is a season of quiet, extraordinary
-            beauty — maples blazing red and gold above mossy stone,
-            incense drifting through temple courtyards, the soft
-            lantern-glow of old Asakusa in the evening.</p>
-
-            <p>We have long dreamed of beginning our life together
-            in this luminous place, and we cannot imagine doing so
-            without the people we love most beside us.</p>
-
-            <p>It would mean the world to us to share this journey
-            with you — the journey to Tokyo, and the one that
-            begins when we arrive.</p>
-
-            <p class="prose-sig">
-                With all our love,
-                <span class="prose-sig-names">Niklas &amp; Oksana</span>
+        <div class="announce">
+            <p class="announce-tagline">We're getting married</p>
+            <span class="announce-ornament">✿ ✿ ✿</span>
+            <h1 class="announce-names">Niklas <span class="amp">&amp;</span> Oksana</h1>
+            <p class="announce-kana" lang="ja">結 婚 式</p>
+            <p class="announce-date">
+                20 – 22 November 2026<br>
+                <span class="tokyo" lang="ja">東京</span> &thinsp;·&thinsp; Tokyo
             </p>
         </div>
 
@@ -351,7 +305,7 @@ body {
      ══════════════════════════════════════════════════════════ -->
 <div class="sheet" lang="de">
 
-    <!-- LEFT: QR code -->
+    <!-- LEFT: QR + RSVP -->
     <div class="half half-left">
 
         <svg class="deco-tr" viewBox="0 0 130 112" fill="none" aria-hidden="true">
@@ -399,19 +353,13 @@ body {
             <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#fbd0d8" opacity=".45" transform="rotate(20,66,56)"/>
         </svg>
 
-        <h1 class="invite-names">Niklas <span class="amp">&amp;</span> Oksana</h1>
-        <p class="invite-kana" lang="ja">結 婚 式</p>
-        <p class="invite-date">
-            20. – 22. November 2026<br>
-            <span class="tokyo" lang="ja">東京</span> &thinsp;·&thinsp; Tokio
-        </p>
-
-        <img src="qr-wedding.png" class="qr-img" alt="QR-Code für niklashaas.de/wedding#de">
-        <p class="qr-url">niklashaas.de/wedding#de</p>
+        <img src="qr-wedding.png" class="qr-img" alt="QR-Code für niklashaas.de/wedding">
+        <p class="qr-url">niklashaas.de/wedding</p>
+        <p class="qr-rsvp">Bitte um Rückmeldung über die Website</p>
 
     </div>
 
-    <!-- RIGHT: Prose -->
+    <!-- RIGHT: Announcement -->
     <div class="half half-right">
 
         <svg class="deco-tl" viewBox="0 0 130 112" fill="none" aria-hidden="true">
@@ -449,27 +397,14 @@ body {
             <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#fbd0d8" opacity=".45" transform="rotate(20,66,56)"/>
         </svg>
 
-        <div class="prose">
-            <p class="prose-title">Japan im November</p>
-            <span class="prose-ornament">✿ ✿ ✿</span>
-
-            <p>Der November in Japan trägt eine ganz eigene Schönheit —
-            Ahornbäume in leuchtendem Rot und Gold über moosbedeckten
-            Steinwegen, Weihrauch der durch stille Tempelgärten zieht,
-            das warme Lichterscheinen Asakusas am Abend.</p>
-
-            <p>Wir träumen schon lange davon, unser gemeinsames Leben
-            an diesem leuchtenden Ort zu beginnen — und können uns
-            nicht vorstellen, es ohne die Menschen zu tun, die uns
-            am meisten bedeuten.</p>
-
-            <p>Es würde uns von Herzen freuen, diese Reise mit euch
-            zu teilen — die Reise nach Tokio, und jene, die dort
-            für uns alle beginnt.</p>
-
-            <p class="prose-sig">
-                Von Herzen,
-                <span class="prose-sig-names">Niklas &amp; Oksana</span>
+        <div class="announce">
+            <p class="announce-tagline">Wir heiraten</p>
+            <span class="announce-ornament">✿ ✿ ✿</span>
+            <h1 class="announce-names">Niklas <span class="amp">&amp;</span> Oksana</h1>
+            <p class="announce-kana" lang="ja">結 婚 式</p>
+            <p class="announce-date">
+                20. – 22. November 2026<br>
+                <span class="tokyo" lang="ja">東京</span> &thinsp;·&thinsp; Tokio
             </p>
         </div>
 
