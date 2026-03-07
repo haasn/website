@@ -140,15 +140,15 @@ body {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: 0;
+    z-index: 10;
     overflow: hidden;
 }
 
 .petal {
     position: absolute;
-    top: -30px;
-    width: 10px;
-    height: 14px;
+    top: -40px;
+    width: 14px;
+    height: 20px;
     background: var(--sakura);
     opacity: 0;
     border-radius: 50% 0 50% 0;
@@ -158,9 +158,9 @@ body {
 
 @keyframes petal-fall {
     0%   { transform: translateY(0)     rotate(0deg)   translateX(0);    opacity: 0; }
-    5%   { opacity: 0.6; }
-    50%  { transform: translateY(50vh)  rotate(200deg) translateX(40px);  opacity: 0.45; }
-    95%  { opacity: 0.2; }
+    5%   { opacity: 0.85; }
+    50%  { transform: translateY(50vh)  rotate(200deg) translateX(40px);  opacity: 0.65; }
+    95%  { opacity: 0.3; }
     100% { transform: translateY(115vh) rotate(420deg) translateX(-20px); opacity: 0; }
 }
 
@@ -389,14 +389,13 @@ section { position: relative; padding: 5rem 1.5rem; }
 .schedule { background: var(--bg); }
 
 .schedule-note {
-    font-size: 0.92rem;
-    font-weight: 300;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
     color: var(--text-mid);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-    padding: 0.9rem 1.2rem;
-    border-left: 2px solid var(--sakura);
-    background: var(--sakura-light);
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .days-grid {

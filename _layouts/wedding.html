@@ -25,7 +25,7 @@
     (function(){
         try {
             var l=localStorage.getItem('wedding-lang');
-            if(l)document.body.classList.add('lang-'+l);
+            if(l){document.body.classList.remove('lang-en','lang-de');document.body.classList.add('lang-'+l);}
         } catch(e) {}
     })();
 </script>
