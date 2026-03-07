@@ -23,7 +23,7 @@ function toggleWeddingTheme() {
 }
 
 // Language switcher
-function setLang(lang, updateHash) {
+function setLang(lang, updateUrl) {
     document.body.classList.remove('lang-en', 'lang-de');
     document.body.classList.add('lang-' + lang);
     try { localStorage.setItem('wedding-lang', lang); } catch(e) {}
@@ -37,7 +37,8 @@ function setLang(lang, updateHash) {
         btnDe.classList.toggle('active', lang === 'de');
         btnDe.setAttribute('aria-pressed', String(lang === 'de'));
     }
-    if (updateHash) history.replaceState(null, '', '#' + lang);
+    // Use query parameter — more reliable than hash on iOS Safari
+    if (updateUrl) history.replaceState(null, '', '?lang=' + lang + (location.hash || ''));
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -66,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Determine initial language: URL hash (#en / #de) takes priority over body class
+    // Determine initial language: ?lang= query param is most reliable (especially on iOS Safari),
+    // with #en/#de hash as legacy fallback, then localStorage (via body class), then default EN
+    var params = new URLSearchParams(location.search);
+    var langFromParam = /^(en|de)$/.test(params.get('lang')) ? params.get('lang') : null;
     var hash = location.hash;
     var langFromHash = (hash === '#en' || hash === '#de') ? hash.slice(1) : null;
-    var lang = langFromHash || (document.body.className.match(/lang-(\w+)/) || [])[1] || 'en';
-    setLang(lang);
+    var lang = langFromParam || langFromHash || (document.body.className.match(/lang-(\w+)/) || [])[1] || 'en';
+    // Canonicalise hash-based URLs to query param so links can be shared reliably
+    setLang(lang, !!(langFromHash && !langFromParam));
 
     // Smooth scroll for anchor links
     var langBar = document.querySelector('.lang-bar');
