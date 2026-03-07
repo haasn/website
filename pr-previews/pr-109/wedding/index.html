@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niklas &amp; Oksana · Tokyo 2026</title>
+    <meta name="description" content="Join us in Tokyo to celebrate the wedding of Niklas &amp; Oksana, 20–22 November 2026.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Noto+Serif+JP:wght@300;400;600&family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/pr-previews/pr-109/css/wedding.css">
+    <script>
+        (function(){
+            try {
+                var sysPref = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                var stored   = localStorage.getItem('wedding-theme');
+                var isManual = localStorage.getItem('wedding-theme-manual') === 'true';
+                var lastSys  = localStorage.getItem('wedding-theme-system');
+                localStorage.setItem('wedding-theme-system', sysPref);
+                var theme;
+                if (isManual && stored) {
+                    // If system pref changed since last visit, follow it and reset manual flag
+                    if (lastSys && lastSys !== sysPref) {
+                        theme = sysPref;
+                        localStorage.setItem('wedding-theme', theme);
+                        localStorage.setItem('wedding-theme-manual', 'false');
+                    } else {
+                        theme = stored;
+                    }
+                } else {
+                    theme = sysPref;
+                    localStorage.setItem('wedding-theme', theme);
+                }
+                if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body class="lang-en">
+<script>
+    (function(){
+        try {
+            var l=localStorage.getItem('wedding-lang');
+            if(l){document.body.classList.remove('lang-en','lang-de');document.body.classList.add('lang-'+l);}
+        } catch(e) {}
+    })();
+</script>
+<!-- =====================================================
+     Falling sakura petals
+     ===================================================== -->
+<div class="petals" aria-hidden="true">
+    <div class="petal" style="--x:  5%; --dur: 11s; --delay:  0s;"></div>
+    <div class="petal" style="--x: 12%; --dur:  9s; --delay:  4s;"></div>
+    <div class="petal" style="--x: 20%; --dur: 13s; --delay:  8s;"></div>
+    <div class="petal" style="--x: 28%; --dur:  8s; --delay:  1s;"></div>
+    <div class="petal" style="--x: 36%; --dur: 15s; --delay:  6s;"></div>
+    <div class="petal" style="--x: 44%; --dur: 10s; --delay: 11s;"></div>
+    <div class="petal" style="--x: 52%; --dur: 12s; --delay:  3s;"></div>
+    <div class="petal" style="--x: 59%; --dur:  9s; --delay:  9s;"></div>
+    <div class="petal" style="--x: 66%; --dur: 14s; --delay:  2s;"></div>
+    <div class="petal" style="--x: 73%; --dur: 11s; --delay:  7s;"></div>
+    <div class="petal" style="--x: 80%; --dur:  8s; --delay: 13s;"></div>
+    <div class="petal" style="--x: 87%; --dur: 13s; --delay:  5s;"></div>
+    <div class="petal" style="--x: 92%; --dur: 10s; --delay: 10s;"></div>
+    <div class="petal" style="--x: 96%; --dur: 12s; --delay:  0s;"></div>
+</div>
+
+<!-- =====================================================
+     Language bar
+     ===================================================== -->
+<nav class="lang-bar" role="navigation" aria-label="Language / Sprache">
+    <div class="lang-bar-nav">
+        <a href="#schedule"><span class="en" lang="en">Schedule</span><span class="de" lang="de">Ablauf</span></a>
+        <a href="#travel"><span class="en" lang="en">Getting There</span><span class="de" lang="de">Anreise</span></a>
+        <a href="#rsvp">RSVP</a>
+    </div>
+    <button class="lang-btn" id="btn-en" aria-label="Switch to English" aria-pressed="true">EN</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" id="btn-de" aria-label="Auf Deutsch umschalten" aria-pressed="false">DE</button>
+    <span class="lang-sep">·</span>
+    <button class="lang-btn" id="btn-theme" aria-label="Toggle dark mode" aria-pressed="false">☽</button>
+</nav>
+
+<main>
+
+<!-- =====================================================
+     Hero
+     ===================================================== -->
+<section class="hero" id="top">
+
+    <!-- Sakura branch decorations -->
+    <svg class="hero-sakura-right" viewBox="0 0 300 450" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Main branch -->
+        <path d="M300,450 C260,380 200,300 165,210 S100,80 120,0"
+              stroke="#c4a882" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <!-- Sub branches -->
+        <path d="M165,210 C135,185 115,178 90,182"
+              stroke="#c4a882" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <path d="M142,270 C110,248 94,245 70,252"
+              stroke="#c4a882" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+        <path d="M120,0 C115,20 108,35 95,50"
+              stroke="#c4a882" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.45"/>
+        <!-- Flower 1 -->
+        <g transform="translate(88, 180)" opacity="0.88">
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(288)"/>
+            <circle r="5.5" fill="#fde0e8"/>
+            <circle r="2.5" fill="#e8869a"/>
+        </g>
+        <!-- Flower 2 -->
+        <g transform="translate(68, 250)" opacity="0.82">
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(15)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(87)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(159)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(231)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(303)"/>
+            <circle r="4.5" fill="#fde0e8"/>
+            <circle r="2" fill="#e8869a"/>
+        </g>
+        <!-- Flower 3 (small, near top) -->
+        <g transform="translate(97, 48)" opacity="0.72">
+            <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f2b8c6" transform="rotate(5)"/>
+            <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f2b8c6" transform="rotate(77)"/>
+            <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f2b8c6" transform="rotate(149)"/>
+            <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f2b8c6" transform="rotate(221)"/>
+            <ellipse cx="0" cy="-9" rx="6" ry="10" fill="#f2b8c6" transform="rotate(293)"/>
+            <circle r="3.5" fill="#fde0e8"/>
+        </g>
+        <!-- Scattered petals -->
+        <ellipse cx="200" cy="150" rx="5" ry="8" fill="#f2b8c6" opacity="0.3" transform="rotate(35,200,150)"/>
+        <ellipse cx="240" cy="320" rx="4" ry="7" fill="#f2b8c6" opacity="0.25" transform="rotate(-20,240,320)"/>
+        <ellipse cx="50"  cy="380" rx="5" ry="8" fill="#f2b8c6" opacity="0.2" transform="rotate(50,50,380)"/>
+    </svg>
+
+    <svg class="hero-sakura-left" viewBox="0 0 300 450" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- (mirrored via CSS scaleX(-1)) -->
+        <path d="M300,450 C260,380 200,300 165,210 S100,80 120,0"
+              stroke="#c4a882" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <path d="M165,210 C135,185 115,178 90,182"
+              stroke="#c4a882" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <path d="M142,270 C110,248 94,245 70,252"
+              stroke="#c4a882" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+        <g transform="translate(88, 180)" opacity="0.88">
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-14" rx="9"  ry="15" fill="#f2b8c6" transform="rotate(288)"/>
+            <circle r="5.5" fill="#fde0e8"/>
+            <circle r="2.5" fill="#e8869a"/>
+        </g>
+        <g transform="translate(68, 250)" opacity="0.82">
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(15)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(87)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(159)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(231)"/>
+            <ellipse cx="0" cy="-11" rx="7.5" ry="12" fill="#edaabb" transform="rotate(303)"/>
+            <circle r="4.5" fill="#fde0e8"/>
+            <circle r="2" fill="#e8869a"/>
+        </g>
+        <ellipse cx="200" cy="150" rx="5" ry="8" fill="#f2b8c6" opacity="0.3" transform="rotate(35,200,150)"/>
+    </svg>
+
+    <!-- Hero content -->
+    <div class="hero-content">
+        <p class="hero-kana" lang="ja">結 婚 式</p>
+
+        <h1 class="hero-names">
+            Niklas <span class="hero-amp">&amp;</span> Oksana
+        </h1>
+
+        <div class="hero-ornament">✿</div>
+
+        <p class="hero-date">
+            <span class="en" lang="en">20 – 22 November 2026</span>
+            <span class="de" lang="de">20. – 22. November 2026</span>
+        </p>
+        <p class="hero-location">Tokyo · <span lang="ja">東京</span></p>
+
+        <p class="hero-tagline">
+            <span class="en" lang="en">We are getting married in Tokyo and would love to celebrate with you.</span>
+            <span class="de" lang="de">Wir heiraten in Tokio und würden uns freuen, gemeinsam mit euch zu feiern.</span>
+        </p>
+
+        <a href="#rsvp" class="btn-rsvp">
+            <span class="en" lang="en">RSVP</span>
+            <span class="de" lang="de">Anmeldung</span>
+        </a>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
+
+<!-- =====================================================
+     Schedule
+     ===================================================== -->
+<section class="schedule" id="schedule">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">
+                <span class="en" lang="en"><span lang="ja">日程</span></span>
+                <span class="de" lang="de"><span lang="ja">日程</span></span>
+            </span>
+            <h2 class="section-title">
+                <span class="en" lang="en"><em>Schedule</em></span>
+                <span class="de" lang="de"><em>Ablauf</em></span>
+            </h2>
+            <div class="divider">✿</div>
+        </div>
+
+        <p class="schedule-note">
+            <span class="en" lang="en">Friday's events will all take place in and around <strong>Asakusa</strong> (浅草). Details for Saturday and Sunday to follow.</span>
+            <span class="de" lang="de">Alle Veranstaltungen am Freitag finden in und um <strong>Asakusa</strong> (<span lang="ja">浅草</span>) statt. Details für Samstag und Sonntag folgen.</span>
+        </p>
+
+        <div class="days-grid">
+
+            <!-- Day 1 -->
+            <article class="day-card">
+                <div class="day-card-header">
+                    <div>
+                        <div class="day-name">
+                            <span class="en" lang="en">Wedding Day</span>
+                            <span class="de" lang="de">Hochzeitstag</span>
+                        </div>
+                        <div class="day-date-label">
+                            <span class="en" lang="en">Friday, 20 November</span>
+                            <span class="de" lang="de">Freitag, 20. November</span>
+                        </div>
+                    </div>
+                    <div class="day-num-jp" lang="ja">一</div>
+                </div>
+                <div class="day-card-body">
+                    <div class="event">
+                        <div class="event-time">
+                            <span class="en" lang="en">Morning</span>
+                            <span class="de" lang="de">Vormittag</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                <span class="en" lang="en">Tea Ceremony &amp; Kimono Rental</span>
+                                <span class="de" lang="de">Teezeremonie &amp; Kimono-Verleih</span>
+                            </div>
+                            <div class="event-desc placeholder-note">
+                                <span class="en" lang="en">Details to follow.</span>
+                                <span class="de" lang="de">Details folgen.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="event-time">
+                            <span class="en" lang="en">Lunchtime</span>
+                            <span class="de" lang="de">Mittag</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                <span class="en" lang="en">Ceremony</span>
+                                <span class="de" lang="de">Zeremonie</span>
+                            </div>
+                            <div class="event-desc placeholder-note">
+                                <span class="en" lang="en">Details to follow.</span>
+                                <span class="de" lang="de">Details folgen.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="event-time">
+                            <span class="en" lang="en">Evening</span>
+                            <span class="de" lang="de">Abend</span>
+                        </div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                <span class="en" lang="en">Reception &amp; Dinner</span>
+                                <span class="de" lang="de">Empfang &amp; Abendessen</span>
+                            </div>
+                            <div class="event-desc placeholder-note">
+                                <span class="en" lang="en">Details to follow.</span>
+                                <span class="de" lang="de">Details folgen.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Day 2 -->
+            <article class="day-card">
+                <div class="day-card-header">
+                    <div>
+                        <div class="day-name">
+                            <span class="en" lang="en">Saturday</span>
+                            <span class="de" lang="de">Samstag</span>
+                        </div>
+                        <div class="day-date-label">
+                            <span class="en" lang="en">21 November</span>
+                            <span class="de" lang="de">21. November</span>
+                        </div>
+                    </div>
+                    <div class="day-num-jp" lang="ja">二</div>
+                </div>
+                <div class="day-card-body">
+                    <div class="event">
+                        <div class="event-time">TBD</div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                <span class="en" lang="en">Optional Activities</span>
+                                <span class="de" lang="de">Optionale Aktivitäten</span>
+                            </div>
+                            <div class="event-desc placeholder-note">
+                                <span class="en" lang="en">Optional – details to follow.</span>
+                                <span class="de" lang="de">Optional – Details folgen.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Day 3 -->
+            <article class="day-card">
+                <div class="day-card-header">
+                    <div>
+                        <div class="day-name">
+                            <span class="en" lang="en">Sunday</span>
+                            <span class="de" lang="de">Sonntag</span>
+                        </div>
+                        <div class="day-date-label">
+                            <span class="en" lang="en">22 November</span>
+                            <span class="de" lang="de">22. November</span>
+                        </div>
+                    </div>
+                    <div class="day-num-jp" lang="ja">三</div>
+                </div>
+                <div class="day-card-body">
+                    <div class="event">
+                        <div class="event-time">TBD</div>
+                        <div class="event-info">
+                            <div class="event-title">
+                                <span class="en" lang="en">Optional Activities</span>
+                                <span class="de" lang="de">Optionale Aktivitäten</span>
+                            </div>
+                            <div class="event-desc placeholder-note">
+                                <span class="en" lang="en">Optional – details to follow.</span>
+                                <span class="de" lang="de">Optional – Details folgen.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     Getting There
+     ===================================================== -->
+<section class="travel" id="travel">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">
+                <span class="en" lang="en"><span lang="ja">交通</span></span>
+                <span class="de" lang="de"><span lang="ja">交通</span></span>
+            </span>
+            <h2 class="section-title">
+                <span class="en" lang="en"><em>Getting There</em></span>
+                <span class="de" lang="de"><em>Anreise</em></span>
+            </h2>
+            <div class="divider">✿</div>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-block">
+                <div class="info-icon">✈</div>
+                <div class="info-title">
+                    <span class="en" lang="en">Flights</span>
+                    <span class="de" lang="de">Flüge</span>
+                </div>
+                <div class="info-body">
+                    <span class="en" lang="en">Tokyo is served by two international airports: Narita (NRT) and Haneda (HND). Haneda is closer to the city centre.</span>
+                    <span class="de" lang="de">Tokio wird von zwei internationalen Flughäfen bedient: Narita (NRT) und Haneda (HND). Haneda liegt näher am Stadtzentrum.</span>
+                    <p class="placeholder-note">
+                        <span class="en" lang="en">Recommended airlines and routes – details to follow.</span>
+                        <span class="de" lang="de">Empfohlene Airlines und Routen – Details folgen.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-icon">🚆</div>
+                <div class="info-title">
+                    <span class="en" lang="en">Getting Around</span>
+                    <span class="de" lang="de">Fortbewegung</span>
+                </div>
+                <div class="info-body">
+                    <span class="en" lang="en">Tokyo has an excellent public transport network. We recommend purchasing a Suica or Pasmo IC card for easy travel on trains and buses.</span>
+                    <span class="de" lang="de">Tokio verfügt über ein hervorragendes öffentliches Verkehrsnetz. Wir empfehlen die Anschaffung einer Suica oder Pasmo IC-Karte für einfaches Reisen mit Zügen und Bussen.</span>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-icon">🏨</div>
+                <div class="info-title">
+                    <span class="en" lang="en">Accommodation</span>
+                    <span class="de" lang="de">Unterkunft</span>
+                </div>
+                <div class="info-body">
+                    <span class="en" lang="en">There is no single best area to stay — it depends on how much you want to explore. If you plan to travel widely around Tokyo or take a day trip to Mt Fuji, <strong>Shinjuku</strong> has excellent rail connections. We will share more specific suggestions closer to the date.</span>
+                    <span class="de" lang="de">Es gibt keine generell beste Gegend — es hängt davon ab, wie viel ihr erkunden möchtet. Wer viel in Tokio unterwegs sein oder einen Tagesausflug zum Fuji machen möchte, ist in der Nähe des Bahnhofs <strong>Shinjuku</strong> gut aufgehoben. Konkretere Empfehlungen folgen rechtzeitig.</span>
+                </div>
+            </div>
+
+            <div class="info-block">
+                <div class="info-icon">🗾</div>
+                <div class="info-title">
+                    <span class="en" lang="en">Visa &amp; Entry</span>
+                    <span class="de" lang="de">Visum &amp; Einreise</span>
+                </div>
+                <div class="info-body">
+                    <span class="en" lang="en">Most EU and US passport holders can enter Japan visa-free for up to 90 days. Please check the requirements for your nationality.</span>
+                    <span class="de" lang="de">Die meisten EU- und US-Passinhabenden können visumfrei für bis zu 90 Tage nach Japan einreisen. Bitte prüft die Anforderungen für eure Nationalität.</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =====================================================
+     RSVP
+     ===================================================== -->
+<section class="rsvp" id="rsvp">
+    <div class="container">
+        <span class="section-label">
+            <span class="en" lang="en"><span lang="ja">出欠確認</span></span>
+            <span class="de" lang="de"><span lang="ja">出欠確認</span></span>
+        </span>
+        <h2 class="section-title">
+            <span class="en" lang="en"><em>RSVP</em></span>
+            <span class="de" lang="de"><em>Anmeldung</em></span>
+        </h2>
+
+        <div class="rsvp-ornament">✿ ✿ ✿</div>
+
+        <p class="rsvp-body">
+            <span class="en" lang="en">Please let us know whether you will be joining us in Tokyo, along with any dietary requirements or questions you may have.</span>
+            <span class="de" lang="de">Bitte teilt uns mit, ob ihr in Tokio dabei sein werdet, und gebt uns Bescheid über etwaige Ernährungsbedürfnisse oder Fragen.</span>
+        </p>
+
+        <span class="rsvp-deadline">
+            <span class="en" lang="en">Please RSVP by <strong>1 April 2026</strong></span>
+            <span class="de" lang="de">Bitte bis zum <strong>1. April 2026</strong> anmelden</span>
+        </span>
+
+        <br>
+
+        <a href="https://forms.gle/wrJ35srnwyP9j8ga6" target="_blank" rel="noopener noreferrer" class="btn-rsvp-main">
+            <span class="en" lang="en">Open RSVP Form</span>
+            <span class="de" lang="de">Anmeldeformular öffnen</span>
+        </a>
+
+        <p class="rsvp-note">
+            <span class="en" lang="en">The link will open an external Google Form.</span>
+            <span class="de" lang="de">Der Link öffnet ein externes Google-Formular.</span>
+        </p>
+    </div>
+</section>
+
+</main>
+
+<!-- =====================================================
+     Footer
+     ===================================================== -->
+<footer class="wedding-footer">
+    <span class="footer-names" lang="ja">ニクラス &amp; オクサナ · 東京 · 二〇二六年</span>
+    Niklas &amp; Oksana · Tokyo · 2026
+</footer>
+
+<script src="/pr-previews/pr-109/js/wedding.js"></script>
+</body>
+</html>
