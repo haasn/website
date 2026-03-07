@@ -599,6 +599,23 @@ section { position: relative; padding: 3.5rem 1.5rem; }
     margin-top: 0.4rem;
 }
 
+/* --- Gifts -------------------------------------------------- */
+.gifts {
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+
+.gifts-text {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.8;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* --- RSVP --------------------------------------------------- */
 .rsvp {
     background: var(--bg-dark);
