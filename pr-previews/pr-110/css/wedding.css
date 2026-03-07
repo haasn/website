@@ -280,13 +280,14 @@ section { position: relative; padding: 3.5rem 1.5rem; }
 
 .hero-names {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-size: clamp(2.2rem, 10vw, 6.5rem);
     font-weight: 400;
     font-style: italic;
     line-height: 1;
     color: var(--text);
     margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
+    white-space: nowrap;
 }
 
 .hero-amp {
@@ -707,6 +708,3 @@ footer.wedding-footer .footer-names {
     .btn-rsvp-main { padding: 0.9rem 2.5rem; }
 }
 
-@media (max-width: 400px) {
-    .hero-names { font-size: 2.6rem; }
-}
