@@ -12,14 +12,15 @@ function applyWeddingTheme(theme) {
 function toggleWeddingTheme() {
     var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     var next = isDark ? 'light' : 'dark';
-    localStorage.setItem('wedding-theme', next);
+    try { localStorage.setItem('wedding-theme', next); } catch(e) {}
     applyWeddingTheme(next);
 }
 
 // Language switcher
 function setLang(lang) {
-    document.body.className = 'lang-' + lang;
-    localStorage.setItem('wedding-lang', lang);
+    document.body.classList.remove('lang-en', 'lang-de');
+    document.body.classList.add('lang-' + lang);
+    try { localStorage.setItem('wedding-lang', lang); } catch(e) {}
     var btnEn = document.getElementById('btn-en');
     var btnDe = document.getElementById('btn-de');
     if (btnEn) btnEn.classList.toggle('active', lang === 'en');
@@ -27,6 +28,14 @@ function setLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Wire up language buttons
+    var btnEn = document.getElementById('btn-en');
+    var btnDe = document.getElementById('btn-de');
+    var btnTheme = document.getElementById('btn-theme');
+    if (btnEn) btnEn.addEventListener('click', function () { setLang('en'); });
+    if (btnDe) btnDe.addEventListener('click', function () { setLang('de'); });
+    if (btnTheme) btnTheme.addEventListener('click', toggleWeddingTheme);
+
     // Sync theme button icon with current theme
     var currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     applyWeddingTheme(currentTheme);
@@ -34,26 +43,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // Listen for system preference changes
     if (window.matchMedia) {
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-            if (!localStorage.getItem('wedding-theme')) {
+            try {
+                if (!localStorage.getItem('wedding-theme')) {
+                    applyWeddingTheme(e.matches ? 'dark' : 'light');
+                }
+            } catch(e) {
                 applyWeddingTheme(e.matches ? 'dark' : 'light');
             }
         });
     }
 
     // Sync button active state with current lang
-    var lang = document.body.className.replace('lang-', '') || 'en';
-    var btnEn = document.getElementById('btn-en');
-    var btnDe = document.getElementById('btn-de');
+    var lang = (document.body.className.match(/lang-(\w+)/) || [])[1] || 'en';
     if (btnEn) btnEn.classList.toggle('active', lang === 'en');
     if (btnDe) btnDe.classList.toggle('active', lang === 'de');
 
     // Smooth scroll for anchor links
+    var langBar = document.querySelector('.lang-bar');
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {
         a.addEventListener('click', function (e) {
-            var target = document.querySelector(this.getAttribute('href'));
+            var href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            var id = href.slice(1);
+            if (!id) return;
+            var target = document.getElementById(id);
             if (target) {
                 e.preventDefault();
-                var offset = 52; // lang bar height
+                var offset = langBar ? langBar.offsetHeight : 52;
                 var top = target.getBoundingClientRect().top + window.scrollY - offset;
                 window.scrollTo({ top: top, behavior: 'smooth' });
             }

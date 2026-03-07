@@ -12,15 +12,22 @@
     <link rel="stylesheet" href="{{ '/css/wedding.css' | relative_url }}">
     <script>
         (function(){
-            var t=localStorage.getItem('wedding-theme');
-            if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-            if(t==='dark')document.documentElement.setAttribute('data-theme','dark');
+            try {
+                var t=localStorage.getItem('wedding-theme');
+                if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+                if(t==='dark')document.documentElement.setAttribute('data-theme','dark');
+            } catch(e) {}
         })();
     </script>
 </head>
 <body class="lang-en">
 <script>
-    (function(){var l=localStorage.getItem('wedding-lang');if(l)document.body.className='lang-'+l;})();
+    (function(){
+        try {
+            var l=localStorage.getItem('wedding-lang');
+            if(l)document.body.classList.add('lang-'+l);
+        } catch(e) {}
+    })();
 </script>
 {{ content }}
 <script src="{{ '/js/wedding.js' | relative_url }}"></script>

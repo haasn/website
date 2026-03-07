@@ -52,6 +52,13 @@
     background: var(--bg-alt);
 }
 
+/* --- Reduced Motion ----------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .petal { animation: none; opacity: 0; }
+    .hero-scroll-hint { animation: none; }
+}
+
 /* --- Reset & Base ------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
