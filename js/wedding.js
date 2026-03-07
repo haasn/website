@@ -23,7 +23,7 @@ function toggleWeddingTheme() {
 }
 
 // Language switcher
-function setLang(lang) {
+function setLang(lang, updateHash) {
     document.body.classList.remove('lang-en', 'lang-de');
     document.body.classList.add('lang-' + lang);
     try { localStorage.setItem('wedding-lang', lang); } catch(e) {}
@@ -37,7 +37,7 @@ function setLang(lang) {
         btnDe.classList.toggle('active', lang === 'de');
         btnDe.setAttribute('aria-pressed', String(lang === 'de'));
     }
-    history.replaceState(null, '', '#' + lang);
+    if (updateHash) history.replaceState(null, '', '#' + lang);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var btnEn = document.getElementById('btn-en');
     var btnDe = document.getElementById('btn-de');
     var btnTheme = document.getElementById('btn-theme');
-    if (btnEn) btnEn.addEventListener('click', function () { setLang('en'); });
-    if (btnDe) btnDe.addEventListener('click', function () { setLang('de'); });
+    if (btnEn) btnEn.addEventListener('click', function () { setLang('en', true); });
+    if (btnDe) btnDe.addEventListener('click', function () { setLang('de', true); });
     if (btnTheme) btnTheme.addEventListener('click', toggleWeddingTheme);
 
     // Sync theme button icon with current theme
