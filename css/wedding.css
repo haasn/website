@@ -502,6 +502,12 @@ section { position: relative; padding: 5rem 1.5rem; }
     color: var(--text-light);
 }
 
+.additional-note {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--text-light);
+}
+
 /* --- Venues ------------------------------------------------- */
 .venues { background: var(--bg-alt); }
 
