@@ -11,7 +11,7 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-@page { size: A4 landscape; margin: 0; }
+@page { size: 240mm 170mm; margin: 0; }
 
 body {
     background: #e8ddd8;
@@ -45,10 +45,10 @@ body {
     .sheet { break-after: page; }
 }
 
-/* ── Sheet: A4 landscape ── */
+/* ── Sheet: 24×17 cm ── */
 .sheet {
-    width: 297mm;
-    height: 210mm;
+    width: 240mm;
+    height: 170mm;
     background: white;
     position: relative;
     display: flex;
@@ -57,14 +57,14 @@ body {
 
 /* ── Two halves ── */
 .half {
-    width: 148.5mm;
-    height: 210mm;
+    width: 120mm;
+    height: 170mm;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12mm 11mm;
+    padding: 10mm 9mm;
     overflow: hidden;
 }
 
@@ -76,14 +76,14 @@ body {
 .deco-tr {
     position: absolute;
     top: 0; right: 0;
-    width: 50mm; height: 42mm;
+    width: 40mm; height: 34mm;
     opacity: 0.5;
     pointer-events: none;
 }
 .deco-bl {
     position: absolute;
     bottom: 0; left: 0;
-    width: 36mm; height: 30mm;
+    width: 29mm; height: 24mm;
     opacity: 0.35;
     pointer-events: none;
     transform: rotate(180deg);
@@ -91,7 +91,7 @@ body {
 .deco-tl {
     position: absolute;
     top: 0; left: 0;
-    width: 44mm; height: 36mm;
+    width: 36mm; height: 29mm;
     opacity: 0.45;
     pointer-events: none;
     transform: scaleX(-1);
@@ -99,7 +99,7 @@ body {
 .deco-br {
     position: absolute;
     bottom: 0; right: 0;
-    width: 32mm; height: 26mm;
+    width: 26mm; height: 21mm;
     opacity: 0.3;
     pointer-events: none;
     transform: rotate(180deg) scaleX(-1);
@@ -107,8 +107,8 @@ body {
 
 /* ── Left half: QR + RSVP ── */
 .qr-img {
-    width: 74mm;
-    height: 74mm;
+    width: 60mm;
+    height: 60mm;
     object-fit: contain;
     display: block;
     margin-bottom: 4mm;
@@ -185,7 +185,7 @@ body {
 </head>
 <body>
 
-<p class="print-hint">Print · A4 landscape · 100% scale · no margins · two pages</p>
+<p class="print-hint">Print · Custom 24×17 cm · 100% scale · no margins · two pages</p>
 
 <!-- ══════════════════════════════════════════════════════════
      PAGE 1 — ENGLISH
