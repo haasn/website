@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Niklas &amp; Oksana · Invitation Inlay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,7 +222,7 @@ body {
     <div class="card">
 
         <!-- ══ LEFT: ENGLISH ══ -->
-        <div class="panel panel-en">
+        <div class="panel panel-en" lang="en">
             <!-- cherry blossom top-right -->
             <svg class="blossom-top" viewBox="0 0 110 95" fill="none" aria-hidden="true">
                 <!-- branch -->
@@ -282,8 +283,8 @@ body {
             </p>
 
             <div class="qr-wrap">
-                <div class="qr-box" id="qr-en" role="img" aria-label="QR code: niklashaas.de/wedding"></div>
-                <p class="qr-url">niklashaas.de/wedding</p>
+                <div class="qr-box" id="qr-en" role="img" aria-label="QR code: niklashaas.de/wedding#en"></div>
+                <p class="qr-url">niklashaas.de/wedding#en</p>
             </div>
 
             <div class="rsvp">
@@ -293,7 +294,7 @@ body {
         </div>
 
         <!-- ══ RIGHT: GERMAN ══ -->
-        <div class="panel panel-de">
+        <div class="panel panel-de" lang="de">
             <svg class="blossom-top" viewBox="0 0 110 95" fill="none" aria-hidden="true">
                 <path d="M105 5 Q85 30 60 45 Q40 58 20 70 Q10 76 5 85" stroke="#e8b0bc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
                 <path d="M85 12 Q75 25 65 32" stroke="#e8b0bc" stroke-width="1" fill="none" stroke-linecap="round"/>
@@ -349,8 +350,8 @@ body {
             </p>
 
             <div class="qr-wrap">
-                <div class="qr-box" id="qr-de" role="img" aria-label="QR-Code: niklashaas.de/wedding"></div>
-                <p class="qr-url">niklashaas.de/wedding</p>
+                <div class="qr-box" id="qr-de" role="img" aria-label="QR-Code: niklashaas.de/wedding#de"></div>
+                <p class="qr-url">niklashaas.de/wedding#de</p>
             </div>
 
             <div class="rsvp" lang="de">
@@ -362,24 +363,27 @@ body {
     </div><!-- .card -->
 </div><!-- .sheet -->
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"
+        integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb"
+        crossorigin="anonymous"></script>
 <script>
 (function () {
-    var url  = 'https://niklashaas.de/wedding';
+    var urlEn = 'https://niklashaas.de/wedding#en';
+    var urlDe = 'https://niklashaas.de/wedding#de';
     var opts = {
         type: 'svg',
         errorCorrectionLevel: 'M',
         margin: 1,
         color: { dark: '#3d2535', light: '#ffffff' }
     };
-    function render(id) {
+    function render(id, url) {
         var el = document.getElementById(id);
         if (!el) return;
         QRCode.toString(url, opts, function (err, svg) {
             el.innerHTML = err ? '<span style="font-size:7pt">' + url + '</span>' : svg;
         });
     }
-    function init() { render('qr-en'); render('qr-de'); }
+    function init() { render('qr-en', urlEn); render('qr-de', urlDe); }
     if (typeof QRCode !== 'undefined') {
         init();
     } else {
