@@ -388,6 +388,17 @@ section { position: relative; padding: 5rem 1.5rem; }
 /* --- Schedule ----------------------------------------------- */
 .schedule { background: var(--bg); }
 
+.schedule-note {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    padding: 0.9rem 1.2rem;
+    border-left: 2px solid var(--sakura);
+    background: var(--sakura-light);
+}
+
 .days-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
