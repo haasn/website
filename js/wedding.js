@@ -12,7 +12,10 @@ function applyWeddingTheme(theme) {
 function toggleWeddingTheme() {
     var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     var next = isDark ? 'light' : 'dark';
-    try { localStorage.setItem('wedding-theme', next); } catch(e) {}
+    try {
+        localStorage.setItem('wedding-theme', next);
+        localStorage.setItem('wedding-theme-manual', 'true');
+    } catch(e) {}
     applyWeddingTheme(next);
 }
 
@@ -40,16 +43,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     applyWeddingTheme(currentTheme);
 
-    // Listen for system preference changes
+    // Listen for system preference changes — always follow, reset manual flag
     if (window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (evt) {
+            var newSysPref = evt.matches ? 'dark' : 'light';
             try {
-                if (!localStorage.getItem('wedding-theme')) {
-                    applyWeddingTheme(e.matches ? 'dark' : 'light');
-                }
-            } catch(e) {
-                applyWeddingTheme(e.matches ? 'dark' : 'light');
-            }
+                localStorage.setItem('wedding-theme-system', newSysPref);
+                localStorage.setItem('wedding-theme', newSysPref);
+                localStorage.setItem('wedding-theme-manual', 'false');
+            } catch(err) {}
+            applyWeddingTheme(newSysPref);
         });
     }
 

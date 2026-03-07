@@ -13,9 +13,26 @@
     <script>
         (function(){
             try {
-                var t=localStorage.getItem('wedding-theme');
-                if(!t)t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-                if(t==='dark')document.documentElement.setAttribute('data-theme','dark');
+                var sysPref = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                var stored   = localStorage.getItem('wedding-theme');
+                var isManual = localStorage.getItem('wedding-theme-manual') === 'true';
+                var lastSys  = localStorage.getItem('wedding-theme-system');
+                localStorage.setItem('wedding-theme-system', sysPref);
+                var theme;
+                if (isManual && stored) {
+                    // If system pref changed since last visit, follow it and reset manual flag
+                    if (lastSys && lastSys !== sysPref) {
+                        theme = sysPref;
+                        localStorage.setItem('wedding-theme', theme);
+                        localStorage.setItem('wedding-theme-manual', 'false');
+                    } else {
+                        theme = stored;
+                    }
+                } else {
+                    theme = sysPref;
+                    localStorage.setItem('wedding-theme', theme);
+                }
+                if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
             } catch(e) {}
         })();
     </script>
