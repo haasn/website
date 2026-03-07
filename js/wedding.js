@@ -1,3 +1,21 @@
+// Theme switcher
+function applyWeddingTheme(theme) {
+    if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+    var btn = document.getElementById('btn-theme');
+    if (btn) btn.textContent = theme === 'dark' ? '☀' : '☽';
+}
+
+function toggleWeddingTheme() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var next = isDark ? 'light' : 'dark';
+    localStorage.setItem('wedding-theme', next);
+    applyWeddingTheme(next);
+}
+
 // Language switcher
 function setLang(lang) {
     document.body.className = 'lang-' + lang;
@@ -9,6 +27,19 @@ function setLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Sync theme button icon with current theme
+    var currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    applyWeddingTheme(currentTheme);
+
+    // Listen for system preference changes
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+            if (!localStorage.getItem('wedding-theme')) {
+                applyWeddingTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+
     // Sync button active state with current lang
     var lang = document.body.className.replace('lang-', '') || 'en';
     var btnEn = document.getElementById('btn-en');

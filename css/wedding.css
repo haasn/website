@@ -26,6 +26,32 @@
     --font-body:       'Lato', system-ui, sans-serif;
 }
 
+/* --- Dark Mode --------------------------------------------- */
+[data-theme="dark"] {
+    --bg:           #1a1118;
+    --bg-alt:       #221620;
+    --bg-dark:      #0d080b;
+    --sakura-light: #2d1a24;
+    --sakura-dark:  #e8a0ae;
+    --text:         #f0e4dc;
+    --text-mid:     #c4a4a0;
+    --text-light:   #7a6468;
+    --border:       #3d2535;
+    --gold-light:   #e8c870;
+}
+
+[data-theme="dark"] .lang-bar {
+    background: rgba(26, 17, 24, 0.92);
+}
+
+[data-theme="dark"] .hero {
+    background: linear-gradient(160deg, #1a1118 0%, #2d1425 40%, #1a1118 100%);
+}
+
+[data-theme="dark"] .day-card {
+    background: var(--bg-alt);
+}
+
 /* --- Reset & Base ------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
