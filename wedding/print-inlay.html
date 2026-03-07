@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niklas &amp; Oksana · Wedding Invitation Inlay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        background: #e8e0d8;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* ── Screen preview ── */
+    @media screen {
+        body { padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+        .page { background: white; box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+    }
+
+    /* ── Print layout ── */
+    @media print {
+        @page { size: A4 portrait; margin: 0; }
+        body { background: white; padding: 0; display: block; }
+        .page { page-break-after: always; }
+        .page:last-child { page-break-after: avoid; }
+        .print-hint { display: none; }
+    }
+
+    /* ── Page = one A4 sheet ── */
+    .page {
+        width: 210mm;
+        height: 297mm;
+        position: relative;
+        background: white;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ── Card (17 × 24 cm), centred on A4 ── */
+    .card {
+        width: 170mm;
+        height: 240mm;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12mm 11mm 10mm;
+        background: #fdf8f3;
+        border: 0.3mm solid #c8a89a;
+    }
+
+    /* Cut marks – 5 mm lines, 3 mm gap from card edge */
+    .card::before,
+    .card::after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: #999;
+    }
+
+    /* We draw cut marks via .page::before/after + sibling tricks — easier with corner pseudos on card wrapper */
+    .cut-marks {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+    }
+    .cut-marks span {
+        position: absolute;
+        background: #aaa;
+    }
+    /* top-left */
+    .cut-marks .tl-h { top: calc(50% - 120mm - 3mm); left: calc(50% - 85mm - 8mm); width: 5mm; height: 0.3mm; }
+    .cut-marks .tl-v { top: calc(50% - 120mm - 8mm); left: calc(50% - 85mm - 3mm); width: 0.3mm; height: 5mm; }
+    /* top-right */
+    .cut-marks .tr-h { top: calc(50% - 120mm - 3mm); left: calc(50% + 85mm + 3mm); width: 5mm; height: 0.3mm; }
+    .cut-marks .tr-v { top: calc(50% - 120mm - 8mm); left: calc(50% + 85mm + 3mm); width: 0.3mm; height: 5mm; }
+    /* bottom-left */
+    .cut-marks .bl-h { top: calc(50% + 120mm + 3mm); left: calc(50% - 85mm - 8mm); width: 5mm; height: 0.3mm; }
+    .cut-marks .bl-v { top: calc(50% + 120mm + 3mm); left: calc(50% - 85mm - 3mm); width: 0.3mm; height: 5mm; }
+    /* bottom-right */
+    .cut-marks .br-h { top: calc(50% + 120mm + 3mm); left: calc(50% + 85mm + 3mm); width: 5mm; height: 0.3mm; }
+    .cut-marks .br-v { top: calc(50% + 120mm + 3mm); left: calc(50% + 85mm + 3mm); width: 0.3mm; height: 5mm; }
+
+    /* ── Card contents ── */
+
+    .card-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+    }
+
+    .kamon {
+        font-size: 22pt;
+        color: #b87c7c;
+        letter-spacing: 0.15em;
+        margin-bottom: 3mm;
+        opacity: 0.7;
+    }
+
+    .dear-line {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-style: italic;
+        font-size: 11pt;
+        font-weight: 300;
+        color: #8a6a60;
+        margin-bottom: 1.5mm;
+        align-self: flex-start;
+    }
+
+    .name-line {
+        align-self: flex-start;
+        border-bottom: 0.4mm solid #c8a89a;
+        width: 100%;
+        height: 8mm;
+        margin-bottom: 5mm;
+    }
+
+    .divider-top {
+        width: 40mm;
+        height: 0.3mm;
+        background: linear-gradient(to right, transparent, #c8a89a, transparent);
+        margin: 2mm auto 4mm;
+    }
+
+    .ja-title {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 9pt;
+        letter-spacing: 0.35em;
+        color: #b87c7c;
+        text-align: center;
+        margin-bottom: 1.5mm;
+    }
+
+    .names {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 26pt;
+        font-weight: 300;
+        color: #3d2535;
+        text-align: center;
+        letter-spacing: 0.04em;
+        line-height: 1.15;
+        margin-bottom: 1mm;
+    }
+
+    .names .amp {
+        font-style: italic;
+        color: #b87c7c;
+        font-size: 22pt;
+    }
+
+    .divider-mid {
+        width: 60mm;
+        height: 0.3mm;
+        background: linear-gradient(to right, transparent, #c8a89a, transparent);
+        margin: 3mm auto;
+    }
+
+    /* ── QR code ── */
+    .qr-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2mm;
+        flex: 1;
+        justify-content: center;
+    }
+
+    #qr-en, #qr-de {
+        width: 58mm;
+        height: 58mm;
+    }
+
+    #qr-en svg, #qr-de svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .qr-url {
+        font-family: 'Lato', sans-serif;
+        font-size: 7pt;
+        font-weight: 300;
+        color: #8a6a60;
+        letter-spacing: 0.08em;
+        text-align: center;
+    }
+
+    /* ── Details block ── */
+    .details {
+        text-align: center;
+        width: 100%;
+    }
+
+    .date-place {
+        font-size: 13pt;
+        font-weight: 300;
+        color: #3d2535;
+        letter-spacing: 0.08em;
+        line-height: 1.7;
+        margin-bottom: 3mm;
+    }
+
+    .date-place .sep {
+        color: #b87c7c;
+        margin: 0 1.5mm;
+    }
+
+    .rsvp-block {
+        margin-top: 2mm;
+        border-top: 0.3mm solid #e0c8bc;
+        padding-top: 3mm;
+    }
+
+    .rsvp-label {
+        font-family: 'Lato', sans-serif;
+        font-size: 7pt;
+        font-weight: 300;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #b87c7c;
+        margin-bottom: 1.5mm;
+    }
+
+    .rsvp-text {
+        font-size: 9.5pt;
+        font-style: italic;
+        font-weight: 300;
+        color: #5a3a40;
+        line-height: 1.6;
+    }
+
+    .rsvp-deadline {
+        font-family: 'Lato', sans-serif;
+        font-size: 7.5pt;
+        font-weight: 300;
+        color: #8a6a60;
+        margin-top: 1.5mm;
+        letter-spacing: 0.05em;
+    }
+
+    /* ── Footer ornament ── */
+    .card-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5mm;
+        width: 100%;
+    }
+
+    .divider-bot {
+        width: 40mm;
+        height: 0.3mm;
+        background: linear-gradient(to right, transparent, #c8a89a, transparent);
+        margin-bottom: 1mm;
+    }
+
+    .footer-ja {
+        font-size: 8pt;
+        letter-spacing: 0.3em;
+        color: #c8a89a;
+        font-weight: 300;
+    }
+
+    /* ── Screen hint ── */
+    .print-hint {
+        font-family: 'Lato', sans-serif;
+        font-size: 13px;
+        color: #5a3a40;
+        background: #fdf8f3;
+        border: 1px solid #c8a89a;
+        border-radius: 6px;
+        padding: 10px 18px;
+        max-width: 210mm;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<p class="print-hint">Print this page (Ctrl+P / Cmd+P) at 100% scale, A4, no margins. Cut along the marks.</p>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 1 — ENGLISH
+     ══════════════════════════════════════════════════ -->
+<div class="page" id="page-en">
+    <!-- cut marks -->
+    <div class="cut-marks" aria-hidden="true">
+        <span class="tl-h"></span><span class="tl-v"></span>
+        <span class="tr-h"></span><span class="tr-v"></span>
+        <span class="bl-h"></span><span class="bl-v"></span>
+        <span class="br-h"></span><span class="br-v"></span>
+    </div>
+
+    <div class="card">
+        <div class="card-top">
+            <div class="kamon">✿ ✿ ✿</div>
+
+            <p class="dear-line">Dear</p>
+            <div class="name-line" role="presentation"></div>
+
+            <div class="divider-top"></div>
+
+            <p class="ja-title" lang="ja">結婚式へのご招待</p>
+            <h1 class="names">
+                Niklas <span class="amp">&amp;</span> Oksana
+            </h1>
+            <div class="divider-mid"></div>
+        </div>
+
+        <div class="qr-wrap">
+            <div id="qr-en" role="img" aria-label="QR code linking to niklashaas.de/wedding"></div>
+            <p class="qr-url">niklashaas.de/wedding</p>
+        </div>
+
+        <div class="details">
+            <p class="date-place">
+                20 – 22 November 2026<br>
+                <span lang="ja">東京</span><span class="sep">·</span>Tokyo, Japan
+            </p>
+
+            <div class="rsvp-block">
+                <p class="rsvp-label">RSVP</p>
+                <p class="rsvp-text">
+                    Please scan the QR code to RSVP<br>
+                    and find all the details on our website.
+                </p>
+                <p class="rsvp-deadline">Kindly respond by 1 April 2026</p>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="divider-bot"></div>
+            <p class="footer-ja" lang="ja">共に祝いましょう</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE 2 — GERMAN
+     ══════════════════════════════════════════════════ -->
+<div class="page" id="page-de">
+    <!-- cut marks -->
+    <div class="cut-marks" aria-hidden="true">
+        <span class="tl-h"></span><span class="tl-v"></span>
+        <span class="tr-h"></span><span class="tr-v"></span>
+        <span class="bl-h"></span><span class="bl-v"></span>
+        <span class="br-h"></span><span class="br-v"></span>
+    </div>
+
+    <div class="card">
+        <div class="card-top">
+            <div class="kamon">✿ ✿ ✿</div>
+
+            <p class="dear-line" lang="de">Liebe/r</p>
+            <div class="name-line" role="presentation"></div>
+
+            <div class="divider-top"></div>
+
+            <p class="ja-title" lang="ja">結婚式へのご招待</p>
+            <h1 class="names">
+                Niklas <span class="amp">&amp;</span> Oksana
+            </h1>
+            <div class="divider-mid"></div>
+        </div>
+
+        <div class="qr-wrap">
+            <div id="qr-de" role="img" aria-label="QR-Code zur Website niklashaas.de/wedding"></div>
+            <p class="qr-url">niklashaas.de/wedding</p>
+        </div>
+
+        <div class="details" lang="de">
+            <p class="date-place">
+                20. – 22. November 2026<br>
+                <span lang="ja">東京</span><span class="sep">·</span>Tokio, Japan
+            </p>
+
+            <div class="rsvp-block">
+                <p class="rsvp-label">RSVP</p>
+                <p class="rsvp-text">
+                    Bitte scanne den QR-Code, um deine Zusage zu geben<br>
+                    und alle Informationen auf unserer Website zu finden.
+                </p>
+                <p class="rsvp-deadline">Antwort bis 1. April 2026 erbeten</p>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="divider-bot"></div>
+            <p class="footer-ja" lang="ja">共に祝いましょう</p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+<script>
+(function () {
+    var url = 'https://niklashaas.de/wedding';
+    var opts = {
+        type: 'svg',
+        errorCorrectionLevel: 'M',
+        margin: 1,
+        color: { dark: '#3d2535', light: '#fdf8f3' }
+    };
+
+    function renderQR(containerId) {
+        var el = document.getElementById(containerId);
+        if (!el) return;
+        QRCode.toString(url, opts, function (err, svgStr) {
+            if (err) { el.textContent = url; return; }
+            el.innerHTML = svgStr;
+        });
+    }
+
+    if (typeof QRCode !== 'undefined') {
+        renderQR('qr-en');
+        renderQR('qr-de');
+    } else {
+        document.querySelector('script[src*="qrcode"]').addEventListener('load', function () {
+            renderQR('qr-en');
+            renderQR('qr-de');
+        });
+    }
+})();
+</script>
+</body>
+</html>
