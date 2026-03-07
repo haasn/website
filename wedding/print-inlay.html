@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Niklas &amp; Oksana · Invitation Inlay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,8 +11,7 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* ── Print page: A4 landscape ── */
-@page { size: A4 landscape; margin: 0; }
+@page { size: 240mm 170mm; margin: 0; }
 
 body {
     background: #e8ddd8;
@@ -24,9 +24,8 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         padding: 2rem;
-        gap: 1.5rem;
+        gap: 2rem;
     }
     .print-hint {
         font-family: 'Lato', sans-serif;
@@ -41,351 +40,393 @@ body {
 }
 
 @media print {
-    body { background: white; }
+    body { background: white; padding: 0; gap: 0; }
     .print-hint { display: none; }
+    .sheet { break-after: page; }
 }
 
-/* ── Sheet: A4 landscape (297 × 210 mm) ── */
+/* ── Sheet: 24×17 cm ── */
 .sheet {
-    width: 297mm;
-    height: 210mm;
-    background: white;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ── Card: 240 × 170 mm, centred ── */
-/* Left panel: EN  |  fold  |  Right panel: DE */
-.card {
     width: 240mm;
     height: 170mm;
+    background: linear-gradient(0deg, #fff0f5 0%, #fff 20%, #fff 80%, #fff0f5 100%);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     position: relative;
     display: flex;
+    overflow: hidden;
 }
 
-/* Cut marks — 5 mm strokes, 3 mm clear gap from card edge */
-/* A4 landscape: 297×210. Card offset: left=28.5mm, top=20mm */
-.cut { position: absolute; background: #bbb; }
-/* top-left H */ .c-tlh { width: 5mm; height: .25mm; top: 20mm; left: 20.5mm; }
-/* top-left V */ .c-tlv { width: .25mm; height: 5mm; top: 12mm;  left: 28.5mm; }
-/* top-right H*/ .c-trh { width: 5mm; height: .25mm; top: 20mm; left: 271.5mm; }
-/* top-right V*/ .c-trv { width: .25mm; height: 5mm; top: 12mm;  left: 268.5mm; }
-/* bot-left H */ .c-blh { width: 5mm; height: .25mm; top: 190mm; left: 20.5mm; }
-/* bot-left V */ .c-blv { width: .25mm; height: 5mm; top: 193mm; left: 28.5mm; }
-/* bot-right H*/ .c-brh { width: 5mm; height: .25mm; top: 190mm; left: 271.5mm; }
-/* bot-right V*/ .c-brv { width: .25mm; height: 5mm; top: 193mm; left: 268.5mm; }
-/* fold marks (top & bottom) */
-.c-foldtop { width: .25mm; height: 4mm; top: 14mm; left: 148.5mm; background: #ccc; position: absolute; }
-.c-foldbot { width: .25mm; height: 4mm; top: 192mm; left: 148.5mm; background: #ccc; position: absolute; }
-
-/* ── Each half-panel: 120 × 170 mm ── */
-.panel {
+/* ── Two halves ── */
+.half {
     width: 120mm;
     height: 170mm;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10mm 9mm 9mm;
+    justify-content: center;
+    padding: 10mm 9mm;
     overflow: hidden;
 }
 
-.panel-en { border-right: .2mm dashed #e8c8d0; }
+.half-left {
+    border-right: .3mm solid #c898a8;
+}
 
-/* ── Cherry blossom SVG decoration ── */
-.blossom-top {
+/* ── Sakura SVG decoration ── */
+.deco-tr {
     position: absolute;
     top: 0; right: 0;
-    width: 42mm;
-    height: 36mm;
-    opacity: 0.55;
+    width: 40mm; height: 34mm;
+    opacity: 0.75;
     pointer-events: none;
 }
-.blossom-bot {
+.deco-bl {
     position: absolute;
     bottom: 0; left: 0;
-    width: 28mm;
-    height: 24mm;
-    opacity: 0.35;
+    width: 29mm; height: 24mm;
+    opacity: 0.6;
     pointer-events: none;
     transform: rotate(180deg);
 }
-
-/* ── Panel content ── */
-.dear {
-    font-size: 9.5pt;
-    font-style: italic;
-    font-weight: 300;
-    color: #c0909a;
-    align-self: flex-start;
-    margin-top: 8mm;
-    margin-bottom: .5mm;
+.deco-tl {
+    position: absolute;
+    top: 0; left: 0;
+    width: 36mm; height: 29mm;
+    opacity: 0.7;
+    pointer-events: none;
+    transform: scaleX(-1);
+}
+.deco-br {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 26mm; height: 21mm;
+    opacity: 0.55;
+    pointer-events: none;
+    transform: rotate(180deg) scaleX(-1);
 }
 
-.name-blank {
-    align-self: stretch;
-    border-bottom: .35mm solid #e0c0c8;
-    height: 7mm;
-    margin-bottom: 6mm;
+/* ── Cut guide ── */
+.cut-guide {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 6mm; height: 6mm;
+    border-bottom: .3mm solid #888;
+    border-right: .3mm solid #888;
+    pointer-events: none;
 }
 
-.names {
-    font-size: 22pt;
-    font-weight: 300;
-    color: #3d2535;
-    text-align: center;
-    letter-spacing: .04em;
-    line-height: 1.1;
-    margin-bottom: .5mm;
-}
-.names .amp {
-    font-style: italic;
-    color: #c08090;
-    font-size: 18pt;
-}
-
-.date-loc {
-    font-size: 9pt;
-    font-weight: 300;
-    color: #9a7070;
-    text-align: center;
-    letter-spacing: .12em;
-    line-height: 1.9;
+/* ── Left half: QR + RSVP ── */
+.qr-img {
+    width: 60mm;
+    height: 60mm;
+    object-fit: contain;
+    display: block;
     margin-bottom: 4mm;
 }
-.date-loc .tokyo {
-    font-size: 10pt;
-    color: #c08090;
-    letter-spacing: .08em;
-}
-
-/* ── QR ── */
-.qr-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2mm;
-}
-.qr-box {
-    width: 46mm;
-    height: 46mm;
-}
-.qr-box svg { width: 100%; height: 100%; }
-
 .qr-url {
     font-family: 'Lato', sans-serif;
-    font-size: 6.5pt;
-    font-weight: 300;
-    color: #bba0a8;
-    letter-spacing: .08em;
-}
-
-/* ── RSVP ── */
-.rsvp {
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: #6b3a44;
+    letter-spacing: .12em;
     text-align: center;
-    margin-top: 1mm;
+    margin-bottom: 2.5mm;
 }
-.rsvp-main {
+.qr-rsvp {
     font-size: 9pt;
     font-style: italic;
-    font-weight: 300;
-    color: #5a3a40;
-    line-height: 1.7;
+    font-weight: 400;
+    color: #904060;
+    letter-spacing: .05em;
+    text-align: center;
 }
-.rsvp-date {
-    font-family: 'Lato', sans-serif;
-    font-size: 6.5pt;
-    font-weight: 300;
-    color: #bba0a8;
+
+/* ── Right half: announcement ── */
+.announce {
+    text-align: center;
+}
+.announce-tagline {
+    font-size: 13pt;
+    font-style: italic;
+    font-weight: 400;
+    color: #904060;
     letter-spacing: .08em;
-    margin-top: 1.5mm;
+    margin-bottom: 5mm;
+}
+.announce-ornament {
+    color: #b86878;
+    font-size: 9pt;
+    letter-spacing: .28em;
+    display: block;
+    margin-bottom: 6mm;
+}
+.announce-names {
+    font-size: 32pt;
+    font-weight: 300;
+    color: #2e1828;
+    letter-spacing: .04em;
+    line-height: 1.05;
+    margin-bottom: 1.5mm;
+}
+.announce-names .amp {
+    font-style: italic;
+    color: #904060;
+    font-size: 26pt;
+}
+.announce-kana {
+    font-size: 9pt;
+    color: #904060;
+    letter-spacing: .22em;
+    margin-bottom: 7mm;
+}
+.announce-date {
+    font-size: 9pt;
+    font-weight: 400;
+    color: #6b3a44;
+    letter-spacing: .14em;
+    line-height: 2;
+}
+.announce-date .tokyo {
+    font-size: 11pt;
+    color: #904060;
+    letter-spacing: .08em;
 }
 </style>
 </head>
 <body>
 
-<p class="print-hint">Print · A4 landscape · 100% scale · no margins · fold &amp; cut on the marks</p>
+<p class="print-hint">Print · Custom 24×17 cm · 100% scale · no margins · two pages</p>
 
-<div class="sheet">
-    <!-- cut + fold marks -->
-    <div class="cut c-tlh"></div><div class="cut c-tlv"></div>
-    <div class="cut c-trh"></div><div class="cut c-trv"></div>
-    <div class="cut c-blh"></div><div class="cut c-blv"></div>
-    <div class="cut c-brh"></div><div class="cut c-brv"></div>
-    <div class="cut c-foldtop"></div><div class="cut c-foldbot"></div>
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 1 — ENGLISH
+     ══════════════════════════════════════════════════════════ -->
+<div class="sheet" lang="en">
 
-    <div class="card">
+    <!-- LEFT: QR + RSVP -->
+    <div class="half half-left">
 
-        <!-- ══ LEFT: ENGLISH ══ -->
-        <div class="panel panel-en">
-            <!-- cherry blossom top-right -->
-            <svg class="blossom-top" viewBox="0 0 110 95" fill="none" aria-hidden="true">
-                <!-- branch -->
-                <path d="M105 5 Q85 30 60 45 Q40 58 20 70 Q10 76 5 85" stroke="#e8b0bc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <path d="M85 12 Q75 25 65 32" stroke="#e8b0bc" stroke-width="1" fill="none" stroke-linecap="round"/>
-                <!-- flowers -->
-                <g transform="translate(60,45)">
-                    <ellipse rx="5" ry="9" fill="#fbd0d8" transform="rotate(0) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#fbd0d8" transform="rotate(72) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#f8c4ce" transform="rotate(144) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#fbd0d8" transform="rotate(216) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#f8c4ce" transform="rotate(288) translate(0,-7)"/>
-                    <circle r="3.5" fill="#f0a8b8"/>
-                </g>
-                <g transform="translate(85,15)">
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(20) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(92) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(164) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(236) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(308) translate(0,-5)"/>
-                    <circle r="2.5" fill="#f0a8b8"/>
-                </g>
-                <g transform="translate(35,65)">
-                    <ellipse rx="3.5" ry="6.5" fill="#fbd0d8" transform="rotate(10) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#fad4dc" transform="rotate(82) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#f8c4ce" transform="rotate(154) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#fbd0d8" transform="rotate(226) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#fad4dc" transform="rotate(298) translate(0,-5)"/>
-                    <circle r="2" fill="#f0a8b8"/>
-                </g>
-                <!-- loose petals -->
-                <ellipse cx="15" cy="55" rx="4" ry="7" fill="#fbd0d8" opacity=".5" transform="rotate(-30,15,55)"/>
-                <ellipse cx="48" cy="78" rx="3" ry="5.5" fill="#fbd0d8" opacity=".4" transform="rotate(15,48,78)"/>
-                <ellipse cx="72" cy="28" rx="3" ry="5" fill="#fad4dc" opacity=".5" transform="rotate(-50,72,28)"/>
-            </svg>
+        <svg class="deco-tr" viewBox="0 0 130 112" fill="none" aria-hidden="true">
+            <path d="M125 5 Q100 35 72 53 Q48 68 24 82 Q12 89 6 100" stroke="#c87890" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M100 14 Q88 30 78 38" stroke="#c87890" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <g transform="translate(72,53)">
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(0) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(72) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(144) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(216) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(288) translate(0,-8)"/>
+                <circle r="4" fill="#e07898"/>
+            </g>
+            <g transform="translate(100,17)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(20) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(92) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(164) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(236) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(308) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <g transform="translate(40,78)">
+                <ellipse rx="4" ry="7" fill="#f0a8bc" transform="rotate(10) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#f0aebf" transform="rotate(82) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#ec98ae" transform="rotate(154) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#f0a8bc" transform="rotate(226) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#f0aebf" transform="rotate(298) translate(0,-5.5)"/>
+                <circle r="2.5" fill="#e07898"/>
+            </g>
+            <ellipse cx="18" cy="65" rx="4.5" ry="8" fill="#f0a8bc" opacity=".45" transform="rotate(-30,18,65)"/>
+            <ellipse cx="56" cy="92" rx="3.5" ry="6" fill="#f0a8bc" opacity=".4" transform="rotate(15,56,92)"/>
+            <ellipse cx="86" cy="33" rx="3.5" ry="6" fill="#f0aebf" opacity=".5" transform="rotate(-50,86,33)"/>
+        </svg>
 
-            <!-- bottom-left small accent -->
-            <svg class="blossom-bot" viewBox="0 0 75 65" fill="none" aria-hidden="true">
-                <path d="M70 60 Q50 40 30 25 Q15 14 5 5" stroke="#e8b0bc" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                <g transform="translate(30,25)">
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(0) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(72) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(144) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(216) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(288) translate(0,-5)"/>
-                    <circle r="2.5" fill="#f0a8b8"/>
-                </g>
-                <ellipse cx="55" cy="48" rx="3" ry="5.5" fill="#fbd0d8" opacity=".45" transform="rotate(20,55,48)"/>
-            </svg>
+        <svg class="deco-bl" viewBox="0 0 90 76" fill="none" aria-hidden="true">
+            <path d="M84 72 Q60 48 36 30 Q18 16 6 6" stroke="#c87890" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <g transform="translate(36,30)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(0) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(72) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(144) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(216) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(288) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#f0a8bc" opacity=".45" transform="rotate(20,66,56)"/>
+        </svg>
 
-            <p class="dear">Dear</p>
-            <div class="name-blank"></div>
+        <img src="qr-en.png" class="qr-img" alt="QR code for niklashaas.de/wedding">
+        <p class="qr-url">niklashaas.de/wedding</p>
+        <p class="qr-rsvp">Please RSVP via the website</p>
 
-            <h1 class="names">Niklas <span class="amp">&amp;</span> Oksana</h1>
-            <p class="date-loc">
+    </div>
+
+    <!-- RIGHT: Announcement -->
+    <div class="half half-right">
+
+        <svg class="deco-tl" viewBox="0 0 130 112" fill="none" aria-hidden="true">
+            <path d="M125 5 Q100 35 72 53 Q48 68 24 82 Q12 89 6 100" stroke="#c87890" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M100 14 Q88 30 78 38" stroke="#c87890" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <g transform="translate(72,53)">
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(0) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(72) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(144) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(216) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(288) translate(0,-8)"/>
+                <circle r="4" fill="#e07898"/>
+            </g>
+            <g transform="translate(100,17)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(20) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(92) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(164) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(236) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(308) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <ellipse cx="86" cy="33" rx="3.5" ry="6" fill="#f0aebf" opacity=".5" transform="rotate(-50,86,33)"/>
+        </svg>
+
+        <svg class="deco-br" viewBox="0 0 90 76" fill="none" aria-hidden="true">
+            <path d="M84 72 Q60 48 36 30 Q18 16 6 6" stroke="#c87890" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <g transform="translate(36,30)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(0) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(72) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(144) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(216) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(288) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#f0a8bc" opacity=".45" transform="rotate(20,66,56)"/>
+        </svg>
+
+        <div class="announce">
+            <p class="announce-tagline">We're getting married</p>
+            <span class="announce-ornament">✿ ✿ ✿</span>
+            <h1 class="announce-names">Niklas <span class="amp">&amp;</span> Oksana</h1>
+            <p class="announce-kana" lang="ja">結 婚 式</p>
+            <p class="announce-date">
                 20 – 22 November 2026<br>
                 <span class="tokyo" lang="ja">東京</span> &thinsp;·&thinsp; Tokyo
             </p>
-
-            <div class="qr-wrap">
-                <div class="qr-box" id="qr-en" role="img" aria-label="QR code: niklashaas.de/wedding"></div>
-                <p class="qr-url">niklashaas.de/wedding</p>
-            </div>
-
-            <div class="rsvp">
-                <p class="rsvp-main">Please scan to RSVP and find<br>all the details on our website.</p>
-                <p class="rsvp-date">Kindly respond by 1 April 2026</p>
-            </div>
         </div>
 
-        <!-- ══ RIGHT: GERMAN ══ -->
-        <div class="panel panel-de">
-            <svg class="blossom-top" viewBox="0 0 110 95" fill="none" aria-hidden="true">
-                <path d="M105 5 Q85 30 60 45 Q40 58 20 70 Q10 76 5 85" stroke="#e8b0bc" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                <path d="M85 12 Q75 25 65 32" stroke="#e8b0bc" stroke-width="1" fill="none" stroke-linecap="round"/>
-                <g transform="translate(60,45)">
-                    <ellipse rx="5" ry="9" fill="#fbd0d8" transform="rotate(0) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#fbd0d8" transform="rotate(72) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#f8c4ce" transform="rotate(144) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#fbd0d8" transform="rotate(216) translate(0,-7)"/>
-                    <ellipse rx="5" ry="9" fill="#f8c4ce" transform="rotate(288) translate(0,-7)"/>
-                    <circle r="3.5" fill="#f0a8b8"/>
-                </g>
-                <g transform="translate(85,15)">
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(20) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(92) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(164) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(236) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(308) translate(0,-5)"/>
-                    <circle r="2.5" fill="#f0a8b8"/>
-                </g>
-                <g transform="translate(35,65)">
-                    <ellipse rx="3.5" ry="6.5" fill="#fbd0d8" transform="rotate(10) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#fad4dc" transform="rotate(82) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#f8c4ce" transform="rotate(154) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#fbd0d8" transform="rotate(226) translate(0,-5)"/>
-                    <ellipse rx="3.5" ry="6.5" fill="#fad4dc" transform="rotate(298) translate(0,-5)"/>
-                    <circle r="2" fill="#f0a8b8"/>
-                </g>
-                <ellipse cx="15" cy="55" rx="4" ry="7" fill="#fbd0d8" opacity=".5" transform="rotate(-30,15,55)"/>
-                <ellipse cx="48" cy="78" rx="3" ry="5.5" fill="#fbd0d8" opacity=".4" transform="rotate(15,48,78)"/>
-                <ellipse cx="72" cy="28" rx="3" ry="5" fill="#fad4dc" opacity=".5" transform="rotate(-50,72,28)"/>
-            </svg>
+    </div>
 
-            <svg class="blossom-bot" viewBox="0 0 75 65" fill="none" aria-hidden="true">
-                <path d="M70 60 Q50 40 30 25 Q15 14 5 5" stroke="#e8b0bc" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                <g transform="translate(30,25)">
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(0) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(72) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(144) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#fbd0d8" transform="rotate(216) translate(0,-5)"/>
-                    <ellipse rx="4" ry="7" fill="#f8c4ce" transform="rotate(288) translate(0,-5)"/>
-                    <circle r="2.5" fill="#f0a8b8"/>
-                </g>
-                <ellipse cx="55" cy="48" rx="3" ry="5.5" fill="#fbd0d8" opacity=".45" transform="rotate(20,55,48)"/>
-            </svg>
+    <div class="cut-guide" aria-hidden="true"></div>
 
-            <p class="dear" lang="de">Liebe/r</p>
-            <div class="name-blank"></div>
+</div><!-- .sheet page-en -->
 
-            <h1 class="names">Niklas <span class="amp">&amp;</span> Oksana</h1>
-            <p class="date-loc" lang="de">
+
+<!-- ══════════════════════════════════════════════════════════
+     PAGE 2 — GERMAN
+     ══════════════════════════════════════════════════════════ -->
+<div class="sheet" lang="de">
+
+    <!-- LEFT: QR + RSVP -->
+    <div class="half half-left">
+
+        <svg class="deco-tr" viewBox="0 0 130 112" fill="none" aria-hidden="true">
+            <path d="M125 5 Q100 35 72 53 Q48 68 24 82 Q12 89 6 100" stroke="#c87890" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M100 14 Q88 30 78 38" stroke="#c87890" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <g transform="translate(72,53)">
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(0) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(72) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(144) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(216) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(288) translate(0,-8)"/>
+                <circle r="4" fill="#e07898"/>
+            </g>
+            <g transform="translate(100,17)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(20) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(92) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(164) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(236) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(308) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <g transform="translate(40,78)">
+                <ellipse rx="4" ry="7" fill="#f0a8bc" transform="rotate(10) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#f0aebf" transform="rotate(82) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#ec98ae" transform="rotate(154) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#f0a8bc" transform="rotate(226) translate(0,-5.5)"/>
+                <ellipse rx="4" ry="7" fill="#f0aebf" transform="rotate(298) translate(0,-5.5)"/>
+                <circle r="2.5" fill="#e07898"/>
+            </g>
+            <ellipse cx="18" cy="65" rx="4.5" ry="8" fill="#f0a8bc" opacity=".45" transform="rotate(-30,18,65)"/>
+            <ellipse cx="56" cy="92" rx="3.5" ry="6" fill="#f0a8bc" opacity=".4" transform="rotate(15,56,92)"/>
+            <ellipse cx="86" cy="33" rx="3.5" ry="6" fill="#f0aebf" opacity=".5" transform="rotate(-50,86,33)"/>
+        </svg>
+
+        <svg class="deco-bl" viewBox="0 0 90 76" fill="none" aria-hidden="true">
+            <path d="M84 72 Q60 48 36 30 Q18 16 6 6" stroke="#c87890" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <g transform="translate(36,30)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(0) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(72) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(144) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(216) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(288) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#f0a8bc" opacity=".45" transform="rotate(20,66,56)"/>
+        </svg>
+
+        <img src="qr-de.png" class="qr-img" alt="QR-Code für niklashaas.de/wedding">
+        <p class="qr-url">niklashaas.de/wedding</p>
+        <p class="qr-rsvp">Bitte um Rückmeldung über die Website</p>
+
+    </div>
+
+    <!-- RIGHT: Announcement -->
+    <div class="half half-right">
+
+        <svg class="deco-tl" viewBox="0 0 130 112" fill="none" aria-hidden="true">
+            <path d="M125 5 Q100 35 72 53 Q48 68 24 82 Q12 89 6 100" stroke="#c87890" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M100 14 Q88 30 78 38" stroke="#c87890" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <g transform="translate(72,53)">
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(0) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(72) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(144) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#f0a8bc" transform="rotate(216) translate(0,-8)"/>
+                <ellipse rx="6" ry="10.5" fill="#ec98ae" transform="rotate(288) translate(0,-8)"/>
+                <circle r="4" fill="#e07898"/>
+            </g>
+            <g transform="translate(100,17)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(20) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(92) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(164) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(236) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(308) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <ellipse cx="86" cy="33" rx="3.5" ry="6" fill="#f0aebf" opacity=".5" transform="rotate(-50,86,33)"/>
+        </svg>
+
+        <svg class="deco-br" viewBox="0 0 90 76" fill="none" aria-hidden="true">
+            <path d="M84 72 Q60 48 36 30 Q18 16 6 6" stroke="#c87890" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <g transform="translate(36,30)">
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(0) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(72) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(144) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#f0a8bc" transform="rotate(216) translate(0,-6)"/>
+                <ellipse rx="4.5" ry="8" fill="#ec98ae" transform="rotate(288) translate(0,-6)"/>
+                <circle r="3" fill="#e07898"/>
+            </g>
+            <ellipse cx="66" cy="56" rx="3.5" ry="6.5" fill="#f0a8bc" opacity=".45" transform="rotate(20,66,56)"/>
+        </svg>
+
+        <div class="announce">
+            <p class="announce-tagline">Wir heiraten</p>
+            <span class="announce-ornament">✿ ✿ ✿</span>
+            <h1 class="announce-names">Niklas <span class="amp">&amp;</span> Oksana</h1>
+            <p class="announce-kana" lang="ja">結 婚 式</p>
+            <p class="announce-date">
                 20. – 22. November 2026<br>
                 <span class="tokyo" lang="ja">東京</span> &thinsp;·&thinsp; Tokio
             </p>
-
-            <div class="qr-wrap">
-                <div class="qr-box" id="qr-de" role="img" aria-label="QR-Code: niklashaas.de/wedding"></div>
-                <p class="qr-url">niklashaas.de/wedding</p>
-            </div>
-
-            <div class="rsvp" lang="de">
-                <p class="rsvp-main">Bitte scanne den QR-Code, um deine<br>Zusage zu geben und alle Details zu finden.</p>
-                <p class="rsvp-date">Antwort bis 1. April 2026 erbeten</p>
-            </div>
         </div>
 
-    </div><!-- .card -->
-</div><!-- .sheet -->
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-<script>
-(function () {
-    var url  = 'https://niklashaas.de/wedding';
-    var opts = {
-        type: 'svg',
-        errorCorrectionLevel: 'M',
-        margin: 1,
-        color: { dark: '#3d2535', light: '#ffffff' }
-    };
-    function render(id) {
-        var el = document.getElementById(id);
-        if (!el) return;
-        QRCode.toString(url, opts, function (err, svg) {
-            el.innerHTML = err ? '<span style="font-size:7pt">' + url + '</span>' : svg;
-        });
-    }
-    function init() { render('qr-en'); render('qr-de'); }
-    if (typeof QRCode !== 'undefined') {
-        init();
-    } else {
-        document.querySelector('script[src*="qrcode"]').addEventListener('load', init);
-    }
-})();
-</script>
+    <div class="cut-guide" aria-hidden="true"></div>
+
+</div><!-- .sheet page-de -->
+
 </body>
 </html>
