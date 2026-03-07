@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niklas &amp; Oksana · Tokyo 2026</title>
+    <meta name="description" content="Join us in Tokyo to celebrate the wedding of Niklas &amp; Oksana, 20–22 November 2026.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Noto+Serif+JP:wght@300;400;600&family=Lato:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/css/wedding.css' | relative_url }}">
+    <script>
+        (function(){
+            try {
+                var sysPref = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                var stored   = localStorage.getItem('wedding-theme');
+                var isManual = localStorage.getItem('wedding-theme-manual') === 'true';
+                var lastSys  = localStorage.getItem('wedding-theme-system');
+                localStorage.setItem('wedding-theme-system', sysPref);
+                var theme;
+                if (isManual && stored) {
+                    // If system pref changed since last visit, follow it and reset manual flag
+                    if (lastSys && lastSys !== sysPref) {
+                        theme = sysPref;
+                        localStorage.setItem('wedding-theme', theme);
+                        localStorage.setItem('wedding-theme-manual', 'false');
+                    } else {
+                        theme = stored;
+                    }
+                } else {
+                    theme = sysPref;
+                    localStorage.setItem('wedding-theme', theme);
+                }
+                if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+            } catch(e) {}
+        })();
+    </script>
+</head>
+<body class="lang-en">
+<script>
+    (function(){
+        try {
+            var l=localStorage.getItem('wedding-lang');
+            if(l){document.body.classList.remove('lang-en','lang-de');document.body.classList.add('lang-'+l);}
+        } catch(e) {}
+    })();
+</script>
+{{ content }}
+<script src="{{ '/js/wedding.js' | relative_url }}"></script>
+</body>
+</html>
