@@ -70,8 +70,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var btnEn = document.getElementById('btn-en');
     var btnDe = document.getElementById('btn-de');
     var btnTheme = document.getElementById('btn-theme');
-    updateRsvpCountdown();
-    setInterval(updateRsvpCountdown, 1000);
+    if (document.getElementById('rsvp-countdown')) {
+        updateRsvpCountdown();
+        var cdInterval = setInterval(function () {
+            updateRsvpCountdown();
+            if (new Date('2026-04-16T23:59:59') <= new Date()) clearInterval(cdInterval);
+        }, 1000);
+    }
 
     if (btnEn) btnEn.addEventListener('click', function () { setLang('en', true); });
     if (btnDe) btnDe.addEventListener('click', function () { setLang('de', true); });
