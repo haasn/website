@@ -41,11 +41,38 @@ function setLang(lang, updateUrl) {
     if (updateUrl) history.replaceState(null, '', '?lang=' + lang + (location.hash || ''));
 }
 
+// RSVP countdown to April 16, 2026
+function updateRsvpCountdown() {
+    var deadline = new Date('2026-04-16T23:59:59');
+    var now = new Date();
+    var diff = deadline - now;
+    var countdownEl = document.getElementById('rsvp-countdown');
+    var expiredEl = document.getElementById('rsvp-expired');
+    if (!countdownEl) return;
+    if (diff <= 0) {
+        countdownEl.hidden = true;
+        if (expiredEl) expiredEl.hidden = false;
+        return;
+    }
+    var days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    function pad(n) { return String(n).padStart(2, '0'); }
+    document.getElementById('cd-days').textContent    = pad(days);
+    document.getElementById('cd-hours').textContent   = pad(hours);
+    document.getElementById('cd-minutes').textContent = pad(minutes);
+    document.getElementById('cd-seconds').textContent = pad(seconds);
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // Wire up language buttons
     var btnEn = document.getElementById('btn-en');
     var btnDe = document.getElementById('btn-de');
     var btnTheme = document.getElementById('btn-theme');
+    updateRsvpCountdown();
+    setInterval(updateRsvpCountdown, 1000);
+
     if (btnEn) btnEn.addEventListener('click', function () { setLang('en', true); });
     if (btnDe) btnDe.addEventListener('click', function () { setLang('de', true); });
     if (btnTheme) btnTheme.addEventListener('click', toggleWeddingTheme);
