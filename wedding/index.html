@@ -465,7 +465,43 @@
             <span class="de" lang="de">Bitte bis zum <strong>16. April 2026</strong> anmelden</span>
         </span>
 
-        <br>
+        <div class="countdown" id="rsvp-countdown" role="timer" aria-label="Countdown to RSVP deadline">
+            <div class="countdown-unit">
+                <span class="countdown-num" id="cd-days">--</span>
+                <span class="countdown-label">
+                    <span class="en" lang="en">Days</span>
+                    <span class="de" lang="de">Tage</span>
+                </span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-num" id="cd-hours">--</span>
+                <span class="countdown-label">
+                    <span class="en" lang="en">Hours</span>
+                    <span class="de" lang="de">Stunden</span>
+                </span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-num" id="cd-minutes">--</span>
+                <span class="countdown-label">
+                    <span class="en" lang="en">Minutes</span>
+                    <span class="de" lang="de">Minuten</span>
+                </span>
+            </div>
+            <div class="countdown-sep">:</div>
+            <div class="countdown-unit">
+                <span class="countdown-num" id="cd-seconds">--</span>
+                <span class="countdown-label">
+                    <span class="en" lang="en">Seconds</span>
+                    <span class="de" lang="de">Sekunden</span>
+                </span>
+            </div>
+        </div>
+        <p class="countdown-expired" id="rsvp-expired" hidden>
+            <span class="en" lang="en">Registration is now closed.</span>
+            <span class="de" lang="de">Die Anmeldefrist ist abgelaufen.</span>
+        </p>
 
         <a href="https://forms.gle/wrJ35srnwyP9j8ga6" target="_blank" rel="noopener noreferrer" class="btn-rsvp-main">
             <span class="en" lang="en">Open Registration Form</span>
